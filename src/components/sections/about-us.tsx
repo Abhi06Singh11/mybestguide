@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Lightbulb, Users, Award, ShieldCheck, TrendingUp, User, UserRound } from 'lucide-react';
@@ -90,10 +89,10 @@ export default function AboutUs() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
                     {teamMembers.map((member) => (
-                        <Card key={member.name} className="text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <Card key={member.name} className="group text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                             <CardContent className="p-6">
                                 <div className="flex justify-center mb-4">
-                                    <div className="rounded-full bg-primary/10 p-6 text-primary">
+                                    <div className="rounded-full bg-primary/10 p-6 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
                                         <member.icon className="h-12 w-12" />
                                     </div>
                                 </div>
