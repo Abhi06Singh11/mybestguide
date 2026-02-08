@@ -1,8 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Lightbulb, Users, Award, ShieldCheck } from 'lucide-react';
+import { Lightbulb, Users, Award, ShieldCheck, TrendingUp, UserCheck, ClipboardList, Code } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const teamMembers = [
@@ -10,19 +8,19 @@ const teamMembers = [
     name: 'Abhishek Singh',
     title: 'Customer Success Manager & Technical Lead',
     bio: 'Abhishek ensures our clients receive top-notch support while leading technical innovation across our projects.',
-    image: '26'
+    icon: UserCheck
   },
   {
     name: 'Mohini Mishra',
     title: 'Project Manager',
     bio: 'Mohini drives project execution with precision, coordinating teams and delivering results on time, every time.',
-    image: '25'
+    icon: ClipboardList
   },
   {
     name: 'Mayank Kumar',
     title: 'Lead Developer',
     bio: 'Mayank builds the backbone of our platform, crafting robust and scalable solutions for our growing community.',
-    image: '27'
+    icon: Code
   }
 ];
 
@@ -50,9 +48,6 @@ const coreValues = [
 ]
 
 export default function AboutUs() {
-  const storyImage = PlaceHolderImages.find(img => img.id === '28');
-  const teamImages = PlaceHolderImages.filter(img => teamMembers.some(t => t.image === img.id));
-
   return (
     <>
         <section className="bg-secondary py-16 md:py-24">
@@ -78,17 +73,10 @@ export default function AboutUs() {
                             <p>Our core goal is to solve the challenge of information overload by providing curated, reliable guidance for every need.</p>
                         </div>
                     </div>
-                    <div>
-                        {storyImage && (
-                            <Image
-                                src={storyImage.imageUrl}
-                                alt="Our Story"
-                                width={600}
-                                height={400}
-                                className="rounded-lg shadow-lg"
-                                data-ai-hint={storyImage.imageHint}
-                            />
-                        )}
+                    <div className="group aspect-video rounded-lg bg-muted flex items-center justify-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary">
+                        <div className="text-primary transition-colors duration-300 group-hover:text-primary-foreground">
+                            <TrendingUp className="h-24 w-24" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,18 +88,20 @@ export default function AboutUs() {
                     <h2 className="font-headline text-3xl font-bold md:text-4xl">Meet Our Team</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    {teamMembers.map((member) => {
-                        const image = teamImages.find(img => img.id === member.image);
-                        return(
+                    {teamMembers.map((member) => (
                         <Card key={member.name} className="text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                             <CardContent className="p-6">
-                                {image && <Image src={image.imageUrl} alt={member.name} width={120} height={120} className="rounded-full mx-auto mb-4 border-4 border-primary" data-ai-hint={image.imageHint} />}
+                                <div className="flex justify-center mb-4">
+                                    <div className="rounded-full bg-primary/10 p-6 text-primary">
+                                        <member.icon className="h-12 w-12" />
+                                    </div>
+                                </div>
                                 <h3 className="font-headline text-xl font-bold">{member.name}</h3>
                                 <p className="text-primary font-medium">{member.title}</p>
                                 <p className="text-muted-foreground mt-2 text-sm">{member.bio}</p>
                             </CardContent>
                         </Card>
-                    )})}
+                    ))}
                 </div>
             </div>
         </section>
