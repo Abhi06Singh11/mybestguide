@@ -10,7 +10,6 @@ export default function Footer() {
     { href: '/portfolio', label: 'Projects' },
     { href: '/about', label: 'About Us' },
     { href: '/careers', label: 'Careers' },
-    { href: '/contact', label: 'Contact' },
   ];
 
   const socialLinks = [
@@ -51,8 +50,10 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <MapPin className="h-5 w-5 text-blue-400" />
-                <span className="text-sm text-gray-400">Bangalore</span>
+                <Mail className="h-5 w-5 text-blue-400" />
+                <Link href="/contact" className="text-sm text-gray-400 hover:text-blue-400 hover:underline">
+                  Contact Us
+                </Link>
               </li>
                <li className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-blue-400" />
