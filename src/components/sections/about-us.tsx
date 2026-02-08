@@ -113,14 +113,16 @@ export default function AboutUs() {
                 </div>
                 <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                     {coreValues.map((item) => (
-                        <Card key={item.title} className="h-full p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                            <div className="flex justify-center mb-4">
-                                <div className="rounded-full bg-primary/10 p-4 text-primary">
-                                    <item.icon className="h-8 w-8" />
+                        <Card key={item.title} className="group h-full text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                            <CardContent className="p-6">
+                                <div className="flex justify-center mb-4">
+                                    <div className="rounded-full bg-primary/10 p-4 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                                        <item.icon className="h-8 w-8" />
+                                    </div>
                                 </div>
-                            </div>
-                            <h3 className="font-headline text-xl font-semibold">{item.title}</h3>
-                            <p className="mt-2 text-muted-foreground">{item.description}</p>
+                                <h3 className="font-headline text-xl font-semibold">{item.title}</h3>
+                                <p className="mt-2 text-muted-foreground">{item.description}</p>
+                            </CardContent>
                         </Card>
                     ))}
                 </div>
