@@ -6,6 +6,7 @@ import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import FreeWebsiteAd from './free-website-ad';
+import { cn } from '@/lib/utils';
 
 export default function Services() {
 
@@ -66,7 +67,7 @@ export default function Services() {
       <section id="service-details" className="py-16 md:py-24 bg-secondary">
           <div className="container">
               {serviceSegments.map((segment) => (
-                  <div key={segment.title} className="space-y-16 first:pt-0 last:pb-0">
+                  <div key={segment.title} className={cn("space-y-16 first:pt-0 last:pb-0", { "mt-[5px]": segment.title === 'Platform & Support Services' })}>
                       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
                           <h2 className="font-headline text-3xl font-bold md:text-4xl">{segment.title}</h2>
                       </div>
@@ -94,7 +95,7 @@ export default function Services() {
                                           </Link>
                                       </div>
                                   </div>
-                                  <div className={`aspect-video rounded-lg bg-muted flex items-center justify-center ${index % 2 !== 0 ? 'md:col-start-1' : ''}`}>
+                                  <div className={`aspect-video rounded-lg bg-muted flex items-center justify-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${index % 2 !== 0 ? 'md:col-start-1' : ''}`}>
                                   <div className="text-primary">
                                       <service.icon className="h-24 w-24" />
                                   </div>
