@@ -14,9 +14,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Mail, MapPin, Phone, BotMessageSquare, Linkedin, Twitter, Instagram } from 'lucide-react';
-import { generateInquiryResponse } from '@/ai/flows/generate-inquiry-response';
-import { Loader2 } from 'lucide-react';
+import { Mail, MapPin, Phone, MessageSquare, Linkedin, Twitter, Instagram } from 'lucide-react';
 
 
 const contactSchema = z.object({
@@ -33,10 +31,6 @@ const contactSchema = z.object({
 }).refine(data => data.isWhatsAppAvailable || (!data.isWhatsAppAvailable && data.whatsappContact), {
   message: "WhatsApp number is required if not available on primary number.",
   path: ["whatsappContact"],
-});
-
-const quickInquirySchema = z.object({
-  inquiry: z.string().min(10, { message: 'Please describe your needs in a bit more detail.' }),
 });
 
 
@@ -68,10 +62,15 @@ const socialLinks = [
     { href: '#', icon: Instagram, label: 'Instagram' },
   ];
 
+const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <title>WhatsApp</title>
+        <path d="M12.04 2.02c-5.52 0-9.99 4.47-9.99 9.99s4.47 9.99 9.99 9.99c1.78 0 3.46-.46 4.93-1.28l5.05 1.27-1.3-4.9c.87-1.52 1.35-3.25 1.35-5.08 0-5.52-4.47-9.99-9.99-9.99zM12 20.5c-4.69 0-8.5-3.81-8.5-8.5s3.81-8.5 8.5-8.5 8.5 3.81 8.5 8.5-3.81 8.5-8.5 8.5zM16.6 14.2l-1.5-.7c-.3-.1-.5 0-.7.2l-.6.7c-.6-.3-1.6-.8-2.6-1.8s-1.5-2-1.8-2.6l.7-.6c.2-.2.3-.5.2-.7l-.7-1.5c-.1-.3-.4-.4-.7-.4h-.5c-.3 0-.6.1-.8.3-.2.2-.8.7-.8 2.1s.8 2.8 1 3.1c.1.2 1.8 2.8 4.4 3.9s2.6.9 3.4.9c.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.2z"/>
+    </svg>
+);
+
 export default function Contact() {
   const { toast } = useToast();
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [inquiryResponse, setInquiryResponse] = useState('');
 
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
@@ -89,14 +88,13 @@ export default function Contact() {
     },
   });
 
-  const quickForm = useForm<z.infer<typeof quickInquirySchema>>({
-    resolver: zodResolver(quickInquirySchema),
-    defaultValues: {
-      inquiry: '',
-    },
-  });
-
   const isWhatsAppAvailable = form.watch('isWhatsAppAvailable');
+  const whatsAppNumber = "917379848171";
+  const quickMessages = [
+    "Hi, I need urgent assistance.",
+    "Hi, I’d like to know more about your services.",
+    "Hi, I have a project idea to discuss."
+  ];
 
   function onSubmit(values: z.infer<typeof contactSchema>) {
     console.log('Contact form submitted:', values);
@@ -105,24 +103,6 @@ export default function Contact() {
       description: "We've received your inquiry and will get back to you shortly.",
     });
     form.reset();
-  }
-
-  async function onQuickInquirySubmit(values: z.infer<typeof quickInquirySchema>) {
-    setIsGenerating(true);
-    setInquiryResponse('');
-    try {
-      const result = await generateInquiryResponse({ inquiry: values.inquiry });
-      setInquiryResponse(result.response);
-    } catch (error) {
-      console.error('Error generating inquiry response:', error);
-      toast({
-        variant: 'destructive',
-        title: 'Error',
-        description: 'There was an issue generating a response. Please try again.',
-      });
-    } finally {
-      setIsGenerating(false);
-    }
   }
 
   return (
@@ -232,39 +212,48 @@ export default function Contact() {
             <div className="space-y-8 lg:col-span-2">
                  <Card>
                     <CardHeader>
-                        <CardTitle className="font-headline flex items-center gap-2"><BotMessageSquare className="h-6 w-6 text-primary" />Quick Inquiry</CardTitle>
-                        <CardDescription>Don't have time for the form? Just tell us what you need.</CardDescription>
+                        <CardTitle className="font-headline flex items-center gap-2">
+                            <WhatsAppIcon className="h-6 w-6 text-green-500" />Quick WhatsApp Inquiry
+                        </CardTitle>
+                        <CardDescription>Click a message below to start a chat on WhatsApp.</CardDescription>
                     </CardHeader>
-                    <CardContent>
-                        <Form {...quickForm}>
-                            <form onSubmit={quickForm.handleSubmit(onQuickInquirySubmit)} className="space-y-4">
-                                <FormField
-                                    control={quickForm.control}
-                                    name="inquiry"
-                                    render={({ field }) => (
-                                        <FormItem>
-                                            <FormControl>
-                                                <Textarea placeholder="e.g., 'I need a website for my new coffee shop in Bangalore.'" {...field} />
-                                            </FormControl>
-                                            <FormMessage />
-                                        </FormItem>
-                                    )}
-                                />
-                                <div className="text-center">
-                                    <Button type="submit" disabled={isGenerating}>
-                                        {isGenerating ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Generating...</> : 'Get an Instant Response'}
-                                    </Button>
-                                </div>
-                            </form>
-                        </Form>
-                        {inquiryResponse && (
-                            <div className="mt-4 rounded-md border bg-background p-4 text-sm">
-                                <p className="font-semibold">Suggested Next Steps:</p>
-                                <p className="text-muted-foreground">{inquiryResponse}</p>
-                            </div>
-                        )}
+                    <CardContent className="flex flex-col space-y-3">
+                        {quickMessages.map((msg, index) => (
+                             <a
+                                key={index}
+                                href={`https://wa.me/${whatsAppNumber}?text=${encodeURIComponent(msg)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <Button variant="outline" className="w-full justify-start text-left h-auto">
+                                    <MessageSquare className="mr-3 h-4 w-4" />
+                                    <span className="flex-1 whitespace-normal">{msg}</span>
+                                </Button>
+                             </a>
+                        ))}
                     </CardContent>
                 </Card>
+
+                 <Card>
+                    <CardHeader>
+                        <CardTitle className="font-headline">Our Location</CardTitle>
+                        <CardDescription>Lucknow, Uttar Pradesh, India</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                       <div className="aspect-video w-full rounded-md overflow-hidden">
+                         <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227821.9351232887!2d80.8077382451007!3d26.84892932373024!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C%20Uttar%20Pradesh%2C%20India!5e0!3m2!1sen!2sus"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0 }}
+                            allowFullScreen={false}
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        ></iframe>
+                       </div>
+                    </CardContent>
+                </Card>
+
                  <Card>
                     <CardHeader>
                         <CardTitle className="font-headline">Contact Information</CardTitle>
@@ -274,21 +263,20 @@ export default function Contact() {
                             <Mail className="h-6 w-6 text-primary" />
                             <div>
                                 <h4 className="font-semibold">Business Email</h4>
-                                <a href="mailto:contact@mybestguide.com" className="text-muted-foreground hover:text-primary transition-colors">contact@mybestguide.com</a>
+                                <a href="mailto:mybestguide.in@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">mybestguide.in@gmail.com</a>
                             </div>
                         </div>
                          <div className="flex items-center gap-4">
                             <Phone className="h-6 w-6 text-primary" />
                             <div>
                                 <h4 className="font-semibold">Phone Number</h4>
-                                <p className="text-muted-foreground">+91 123 456 7890</p>
+                                <a href="tel:+917379848171" className="text-muted-foreground hover:text-primary transition-colors">+91-7379848171</a>
                             </div>
                         </div>
                         <div className="flex items-start gap-4">
                             <MapPin className="h-6 w-6 text-primary mt-1" />
                             <div>
-                                <h4 className="font-semibold">Our Locations</h4>
-                                <p className="text-muted-foreground">Bangalore, India</p>
+                                <h4 className="font-semibold">Our Location</h4>
                                 <p className="text-muted-foreground">Lucknow, India</p>
                             </div>
                         </div>
