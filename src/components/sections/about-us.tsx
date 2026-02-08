@@ -1,6 +1,7 @@
+
 'use client';
 
-import { Lightbulb, Users, Award, ShieldCheck, TrendingUp, UserCheck, ClipboardList, Code } from 'lucide-react';
+import { Lightbulb, Users, Award, ShieldCheck, TrendingUp, User, UserRound } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const teamMembers = [
@@ -8,19 +9,19 @@ const teamMembers = [
     name: 'Abhishek Singh',
     title: 'Customer Success Manager & Technical Lead',
     bio: 'Abhishek ensures our clients receive top-notch support while leading technical innovation across our projects.',
-    icon: UserCheck
+    icon: User
   },
   {
     name: 'Mohini Mishra',
     title: 'Project Manager',
     bio: 'Mohini drives project execution with precision, coordinating teams and delivering results on time, every time.',
-    icon: ClipboardList
+    icon: UserRound
   },
   {
     name: 'Mayank Kumar',
     title: 'Lead Developer',
     bio: 'Mayank builds the backbone of our platform, crafting robust and scalable solutions for our growing community.',
-    icon: Code
+    icon: User
   }
 ];
 
