@@ -1,4 +1,4 @@
-import { CodeXml, ShoppingCart, Layers3, Smartphone, Database, Wrench, Shapes, ShieldCheck, Users, Award, MessageCircle, BarChart, Store, ToyBrick, Workflow, CreditCard, ShoppingBag, LineChart, Shield, GitBranch, Laptop, Component, Languages, Milestone, Server, Users2, FileText, Activity, AlertCircle, TrendingUp } from 'lucide-react';
+import { CodeXml, ShoppingCart, Layers3, Smartphone, Database, Wrench, Shapes, ShieldCheck, Users, Award, MessageCircle, BarChart, Store, ToyBrick, Workflow, CreditCard, ShoppingBag, LineChart, Shield, GitBranch, Laptop, Component, Languages, Milestone, Server, Users2, FileText, Activity, AlertCircle, TrendingUp, MapPin, Car, Home, BookOpen, Scale, HeartPulse, Truck, Plane, MessageSquare, ChefHat, Dumbbell } from 'lucide-react';
 
 export const services = [
   {
@@ -150,133 +150,152 @@ export const projects = [
     description: "A location-based service platform where users can find nearby services like salons, garages, or restaurants. Features dynamic listings, location tracking, responsive UI, and robust filters.",
     category: "Web",
     url: "https://nearmerv.com/",
-    image: '1'
+    image: '1',
+    icon: MapPin,
   },
   {
     name: "TipTop Ride",
     description: "An Uber-like ride-booking solution with real-time driver tracking, GPS integration, in-app payments, and a comprehensive rating system. Built for reliability and scale.",
     category: "App",
     url: "https://apps.apple.com/in/app/tiptop-ride/id6739037902",
-    image: '2'
+    image: '2',
+    icon: Car,
   },
   {
     name: "OmaShram",
     description: "A senior care home informational platform with donation capabilities, senior profiles, and a fully responsive design for accessibility.",
     category: "Web",
     url: "https://www.omashram.com/",
-    image: '13'
+    image: '13',
+    icon: Home,
   },
   {
     name: "PostmortemShala – LMS",
     description: "A full-featured online learning management system (LMS) with courses, exams, and a certification dashboard, founded to make learning accessible.",
     category: "Web",
     url: "https://www.postmortemshala.co.in/",
-    image: '14'
+    image: '14',
+    icon: BookOpen,
   },
   {
     name: "Technique Loss Adjusters",
     description: "An insurance claim platform built to manage complex insurance loss adjusting and audit documentation workflows with a focus on quality and speed.",
     category: "Web",
     url: "https://techniquelossadjusters.com/",
-    image: '15'
+    image: '15',
+    icon: Shield,
   },
   {
     name: "Creative Phy",
     description: "A full-service creative and digital marketing agency dedicated to innovative ideas, impactful designs, and data-driven digital strategies.",
     category: "Web",
     url: "https://www.creativephy.com/",
-    image: '16'
+    image: '16',
+    icon: Store,
   },
   {
     name: "Pillow Factory UK",
     description: "A sophisticated online bedding store featuring multi-currency support, discount engines, and complex product variants, reflecting a dedication to comfort and style.",
     category: "E-Commerce",
     url: "https://www.pillowfactory.co.uk/",
-    image: '3'
+    image: '3',
+    icon: Store,
   },
   {
     name: "Ground of Law",
     description: "A multi-page responsive site for a legal consultancy firm, featuring a professional design, contact forms, profile showcases, and service details.",
     category: "Web",
     url: "https://groundoflaw.qa/",
-    image: '17'
+    image: '17',
+    icon: Scale,
   },
   {
     name: "Ainab Home Health Care",
     description: "A platform for a top Personal Care Assistant (PCA) provider in Minnesota, committed to enhancing quality of life at home with exceptional service.",
     category: "Web",
     url: "https://ainabhomehealthcare.com/",
-    image: '18'
+    image: '18',
+    icon: HeartPulse,
   },
   {
     name: "Fahad M Al Mazrou Co.",
     description: "A trusted leader in logistics since 1997, specializing in customs clearance and transportation services with a reputation for excellence.",
     category: "Web",
     url: "https://fmco.com.sa/",
-    image: '19'
+    image: '19',
+    icon: Truck,
   },
   {
     name: "Khasta",
     description: "A delightful online bakery specializing in custom cookies and desserts inspired by rich cultural heritage. (Project Discontinued).",
     category: "E-Commerce",
     url: "https://khasta.co/",
-    image: '4'
+    image: '4',
+    icon: Store,
   },
   {
     name: "Sweorn Advisors",
     description: "A visa consultation service for student, work, and business visas, staffed by a team of experienced former consular officers. (URL not available).",
     category: "Other",
     url: "#",
-    image: '20'
+    image: '20',
+    icon: FileText,
   },
   {
     name: "Singapore Airport Transfers",
     description: "A premier car service provider in Singapore offering a diverse fleet, from standard sedans to luxury Mercedes vehicles and large coaches.",
     category: "Web",
     url: "https://www.singaporeairporttransfers.com/",
-    image: '21'
+    image: '21',
+    icon: Plane,
   },
   {
     name: "ACGEM Africa",
     description: "Promotes effective governance and sustainable economic development across Africa, with a commitment to transparency and accountability.",
     category: "Web",
     url: "https://acgemafrica.org/",
-    image: '22'
+    image: '22',
+    icon: Home,
   },
   {
     name: "Smseducations",
     description: "A training institute portal for batch, attendance, and course management. (Project terminated by client).",
     category: "Other",
     url: "#",
-    image: '23'
+    image: '23',
+    icon: MessageSquare,
   },
   {
     name: "Portchef",
     description: "A revolutionary chef hiring app that allows users to book chefs on an hourly or per-dish basis. Includes complex scheduling logic and dynamic pricing.",
     category: "Other",
     url: "#",
-    image: '5'
+    image: '5',
+    icon: ChefHat,
   },
   {
     name: "Carlos",
     description: "A fitness trainer booking app designed to seamlessly connect trainers with clients. The platform supports scheduling, in-app chat, and progress tracking.",
     category: "Other",
     url: "#",
-    image: '6'
+    image: '6',
+    icon: Dumbbell,
   },
   {
     name: "MMT – Employee Increment Panel",
     description: "An internal HR evaluation tool designed to track employee KPIs and automate data-driven decisions for salary increments.",
     category: "Other",
     url: "#",
-    image: '24'
+    image: '24',
+    icon: TrendingUp,
   },
   {
     name: "Wayne – Contractor App (Backend)",
     description: "The complete backend system for a service provider application, connecting users with plumbers, painters, and cleaners. Features a robust admin panel.",
     category: "Other",
     url: "#",
-    image: '7'
+    image: '7',
+    icon: Wrench,
   }
 ];
 

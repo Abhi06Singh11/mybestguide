@@ -1,10 +1,9 @@
+
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { projects } from '@/lib/data';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -14,10 +13,6 @@ const categories = ['All', 'Web', 'App', 'E-Commerce', 'Other'];
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('All');
-
-  const projectImages = PlaceHolderImages.filter((img) =>
-    projects.some((p) => p.image === img.id)
-  );
 
   const filteredProjects =
     activeCategory === 'All'
@@ -52,7 +47,6 @@ export default function Portfolio() {
 
         <div className="space-y-16">
           {filteredProjects.map((project, index) => {
-            const image = projectImages.find((img) => img.id === project.image);
             return (
               <div key={project.name}>
                 <div
@@ -77,17 +71,10 @@ export default function Portfolio() {
                     </div>
                   </div>
 
-                  <div className={`aspect-video rounded-lg overflow-hidden flex items-center justify-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${index % 2 !== 0 ? 'md:col-start-1' : ''}`}>
-                    {image && (
-                      <Image
-                        src={image.imageUrl}
-                        alt={project.name}
-                        width={600}
-                        height={400}
-                        className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
-                        data-ai-hint={image.imageHint}
-                      />
-                    )}
+                  <div className={`group aspect-video rounded-lg bg-muted flex items-center justify-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary ${index % 2 !== 0 ? 'md:col-start-1' : ''}`}>
+                    <div className="text-primary transition-colors duration-300 group-hover:text-primary-foreground">
+                      {project.icon && <project.icon className="h-24 w-24" />}
+                    </div>
                   </div>
                 </div>
                 {index < filteredProjects.length - 1 && <Separator className="my-16 bg-border/40" />}
