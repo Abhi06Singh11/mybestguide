@@ -463,25 +463,21 @@ export const odooDevelopmentData = {
       icon: ToyBrick,
       title: "Odoo Module Customization",
       description: "Extend Odoo’s functionality to meet your specific needs. Our developers create and customize Odoo modules for accounting, inventory, CRM, and more, ensuring the platform aligns perfectly with your unique business processes.",
-       image: "24"
     },
     {
       icon: Milestone,
       title: "Odoo Implementation & Migration",
       description: "Get started with Odoo the right way. We manage the entire implementation process, from initial setup and configuration to data migration from your existing systems, ensuring a smooth and successful transition with minimal disruption.",
-       image: "25"
     },
     {
       icon: Workflow,
       title: "Workflow Automation",
       description: "Streamline your operations and improve efficiency. We leverage Odoo’s powerful workflow engine to automate your business processes, from sales and marketing to manufacturing and project management, reducing manual effort and ensuring consistency.",
-       image: "26"
     },
     {
       icon: GitBranch,
       title: "Third-Party Integrations",
       description: "Create a unified system by connecting Odoo to your other essential business tools. We develop seamless integrations with payment gateways, shipping carriers, e-commerce platforms, and other third-party applications to centralize your data and operations.",
-       image: "27"
     }
   ]
 };
@@ -533,6 +529,7 @@ export const technicalSupportData = {
     },
   ]
 };
+
 
 
 
