@@ -1,5 +1,5 @@
 
-import { CodeXml, ShoppingCart, Layers3, Smartphone, Database, Wrench, Shapes, ShieldCheck, Users, Award, MessageCircle, BarChart, Store, ToyBrick, Workflow, CreditCard, ShoppingBag, LineChart, Shield, GitBranch, Laptop, Component, Languages, Milestone, Server, Users2, FileText, Activity, AlertCircle, TrendingUp, MapPin, Car, Home, BookOpen, Scale, HeartPulse, Truck, Plane, MessageSquare, ChefHat, Dumbbell, Apple, DraftingCompass } from 'lucide-react';
+import { CodeXml, ShoppingCart, Layers3, Smartphone, Database, Wrench, Shapes, ShieldCheck, Users, Award, MessageCircle, BarChart, Store, ToyBrick, Workflow, CreditCard, ShoppingBag, LineChart, Shield, GitBranch, Laptop, Component, Languages, Milestone, Server, Users2, FileText, Activity, AlertCircle, TrendingUp, MapPin, Car, Home, BookOpen, Scale, HeartPulse, Truck, Plane, MessageSquare, ChefHat, Dumbbell, Apple, DraftingCompass, Puzzle, RefreshCw } from 'lucide-react';
 
 export const services = [
   {
@@ -427,28 +427,29 @@ export const customizedDevelopmentData = {
   ctaText: "Get a Custom Solution",
   services: [
     {
-      icon: Shapes,
-      title: "Tailor-Made Software Solutions",
+      icon: CodeXml,
+      title: "Custom Software Development",
       description: "Your business is unique, and your software should be too. We work closely with you to understand your specific needs and build custom applications from scratch, delivering a solution that fits your workflow perfectly and drives efficiency.",
-       image: "20"
-    },
-    {
-      icon: Workflow,
-      title: "Business Process Automation",
-      description: "Eliminate manual tasks and reduce human error. We analyze your existing workflows and develop custom automation tools that streamline operations, improve accuracy, and free up your team to focus on high-value activities.",
-       image: "21"
     },
     {
       icon: GitBranch,
-      title: "Custom APIs & Integrations",
+      title: "API Development & Integration",
       description: "Connect your systems and unlock new capabilities. We build robust, secure, and well-documented custom APIs that allow your different software applications to communicate seamlessly, creating a unified and powerful digital ecosystem.",
-       image: "22"
     },
     {
-      icon: Server,
-      title: "Legacy System Modernization",
+      icon: RefreshCw,
+      title: "System Modernization",
       description: "Breathe new life into your outdated software. We help you migrate from aging, inefficient legacy systems to modern, scalable, and maintainable technology stacks, reducing risk and positioning your business for future growth.",
-       image: "23"
+    },
+    {
+      icon: Puzzle,
+      title: "Third-Party Integrations",
+      description: "Seamlessly connect your custom application with other services and platforms to create a unified ecosystem and extend functionality, from payment gateways to marketing automation tools.",
+    },
+    {
+      icon: DraftingCompass,
+      title: "Scalable Architecture Design",
+      description: "We design robust and scalable software architectures that grow with your business. Our forward-thinking approach ensures long-term performance, maintainability, and readiness for future features.",
     }
   ]
 };
@@ -540,5 +541,6 @@ export const technicalSupportData = {
     },
   ]
 };
+
 
 
