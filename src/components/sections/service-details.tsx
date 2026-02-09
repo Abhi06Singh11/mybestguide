@@ -71,7 +71,7 @@ export default function ServiceDetails({
                           </div>
                           <p className="text-muted-foreground">{service.description}</p>
                       </div>
-                      <div className={`aspect-video rounded-lg flex items-center justify-center shadow-lg ${index % 2 !== 0 ? 'md:col-start-1' : ''}`}>
+                      <div className={`group aspect-video rounded-lg bg-muted flex items-center justify-center shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary ${index % 2 !== 0 ? 'md:col-start-1' : ''}`}>
                         {image ? (
                           <Image
                               src={image.imageUrl}
@@ -82,7 +82,7 @@ export default function ServiceDetails({
                               data-ai-hint={image.imageHint}
                           />
                         ) : (
-                          <div className="text-primary/50 bg-muted w-full h-full flex items-center justify-center rounded-lg">
+                          <div className="text-primary transition-colors duration-300 group-hover:text-primary-foreground">
                             <service.icon className="h-24 w-24" />
                           </div>
                         )}

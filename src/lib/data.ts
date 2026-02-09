@@ -332,31 +332,26 @@ export const ecommerceDevelopmentData = {
       icon: Store,
       title: "Custom Storefront Development",
       description: "We build unique, brand-aligned e-commerce sites from the ground up, ensuring your online presence is a true reflection of your business. Our custom solutions provide the flexibility to create tailored user experiences that stand out in a crowded market.",
-      image: "3"
     },
     {
-      icon: ToyBrick,
+      icon: ShoppingBag,
       title: "Shopify Storefront Implementations",
       description: "Leverage the power of Shopify with our expert implementation services. We customize Shopify themes and build bespoke features to create a robust, scalable, and easy-to-manage online store that aligns perfectly with your brand identity.",
-      image: "4"
     },
     {
       icon: CreditCard,
       title: "Payment Gateway Integration",
       description: "Secure and seamless transactions are the backbone of any successful e-commerce business. We integrate a wide range of popular and reliable payment gateways, ensuring your customers have a smooth and trustworthy checkout experience.",
-       image: "5"
     },
     {
-      icon: ShoppingBag,
+      icon: ShoppingCart,
       title: "Cart, Checkout & Order Management",
       description: "We optimize the entire purchasing journey, from adding items to the cart to final order confirmation. Our intuitive cart and checkout designs reduce abandonment rates, while robust order management systems streamline your backend operations.",
-       image: "6"
     },
     {
-      icon: LineChart,
+      icon: TrendingUp,
       title: "Performance & Scalability Optimization",
       description: "A slow website costs you sales. We architect e-commerce platforms for speed and reliability, ensuring your site can handle high traffic volumes without compromising performance. Prepare your business for growth with a scalable and optimized solution.",
-       image: "7"
     },
   ]
 };
