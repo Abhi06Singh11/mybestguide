@@ -495,52 +495,45 @@ export const technicalSupportData = {
       icon: FileText,
       title: "Ticket Management",
       description: "Our systematic approach to ticket management ensures that every issue is tracked, prioritized, and resolved efficiently. We provide clear communication and status updates, so you are always in the loop.",
-       image: "28"
     },
     {
       icon: Shield,
       title: "SLA Management",
       description: "We are committed to meeting your business needs with guaranteed response and resolution times. Our Service Level Agreements (SLAs) are tailored to your requirements, providing peace of mind and predictable support.",
-       image: "1"
     },
     {
       icon: AlertCircle,
       title: "Alert Monitoring",
       description: "We proactively monitor your systems 24/7 to detect and address potential issues before they impact your users. Our automated alert systems enable us to respond instantly to performance degradation or downtime.",
-       image: "2"
     },
     {
       icon: Activity,
       title: "SOP Creation",
       description: "We develop Standard Operating Procedures (SOPs) for routine maintenance and emergency responses. This ensures consistency, reduces resolution time, and empowers your team with clear, actionable guidelines.",
-       image: "3"
     },
     {
       icon: FileText,
       title: "Documentation Preparation",
       description: "Clear, comprehensive documentation is key to maintainable systems. We prepare and maintain detailed documentation for your applications, infrastructure, and processes, ensuring knowledge is always accessible.",
-       image: "4"
     },
     {
       icon: TrendingUp,
       title: "Performance Monitoring",
       description: "We continuously track key performance indicators to ensure your applications are fast, responsive, and reliable. Our insights help you make informed decisions about scaling and optimization.",
-       image: "5"
     },
     {
       icon: ShieldCheck,
       title: "Security Updates & Patching",
       description: "Protect your systems from vulnerabilities with our timely security updates and patching services. We keep your platforms secure and compliant with the latest security standards.",
-       image: "6"
     },
     {
       icon: Wrench,
       title: "Incident Resolution & Reporting",
       description: "When incidents occur, our team acts quickly to diagnose and resolve the root cause. We provide detailed incident reports and analysis to prevent future occurrences and improve system resilience.",
-       image: "7"
     },
   ]
 };
+
 
 
 
