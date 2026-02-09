@@ -1,8 +1,6 @@
-'use client';
 
-import ServiceDetails from '@/components/sections/service-details';
-import { erpSaaSDevelopmentData } from '@/lib/data';
+import { redirect } from 'next/navigation';
 
-export default function ErpSaaSDevelopmentPage() {
-  return <ServiceDetails {...erpSaaSDevelopmentData} />;
+export default function ErpSaaSDevelopmentRedirectPage() {
+  redirect('/services/erp-saas-development');
 }

@@ -1,8 +1,6 @@
-'use client';
 
-import ServiceDetails from '@/components/sections/service-details';
-import { technicalSupportData } from '@/lib/data';
+import { redirect } from 'next/navigation';
 
-export default function TechnicalSupportPage() {
-  return <ServiceDetails {...technicalSupportData} />;
+export default function TechnicalSupportRedirectPage() {
+  redirect('/services/technical-support');
 }

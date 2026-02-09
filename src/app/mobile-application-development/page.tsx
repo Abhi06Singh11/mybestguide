@@ -1,8 +1,6 @@
-'use client';
 
-import ServiceDetails from '@/components/sections/service-details';
-import { mobileAppDevelopmentData } from '@/lib/data';
+import { redirect } from 'next/navigation';
 
-export default function MobileAppDevelopmentPage() {
-  return <ServiceDetails {...mobileAppDevelopmentData} />;
+export default function MobileAppDevelopmentRedirectPage() {
+  redirect('/services/mobile-application-development');
 }

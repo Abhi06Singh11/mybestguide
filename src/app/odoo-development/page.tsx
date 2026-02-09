@@ -1,8 +1,6 @@
-'use client';
 
-import ServiceDetails from '@/components/sections/service-details';
-import { odooDevelopmentData } from '@/lib/data';
+import { redirect } from 'next/navigation';
 
-export default function OdooDevelopmentPage() {
-  return <ServiceDetails {...odooDevelopmentData} />;
+export default function OdooDevelopmentRedirectPage() {
+  redirect('/services/odoo-development');
 }

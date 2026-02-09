@@ -1,8 +1,6 @@
-'use client';
 
-import ServiceDetails from '@/components/sections/service-details';
-import { ecommerceDevelopmentData } from '@/lib/data';
+import { redirect } from 'next/navigation';
 
-export default function EcommerceDevelopmentPage() {
-  return <ServiceDetails {...ecommerceDevelopmentData} />;
+export default function EcommerceDevelopmentRedirectPage() {
+  redirect('/services/e-commerce-development');
 }
