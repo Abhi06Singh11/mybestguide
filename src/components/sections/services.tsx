@@ -67,7 +67,7 @@ export default function Services() {
       <section id="service-details" className="py-16 md:py-24 bg-secondary">
           <div className="container">
               {serviceSegments.map((segment) => (
-                  <div key={segment.title} className={cn("space-y-16 first:pt-0 last:pb-0", { "mt-[5px]": segment.title === 'Platform & Support Services' })}>
+                  <div key={segment.title} className={cn("space-y-16 first:pt-0 last:pb-0", { "pt-24": segment.title === 'Platform & Support Services' })}>
                       <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
                           <h2 className="font-headline text-3xl font-bold md:text-4xl">{segment.title}</h2>
                       </div>
