@@ -395,27 +395,28 @@ export const erpSaaSDevelopmentData = {
   services: [
     {
       icon: Layers3,
-      title: "Custom ERP Systems",
+      title: "Custom ERP Development",
       description: "Move beyond one-size-fits-all solutions. We design and build bespoke Enterprise Resource Planning (ERP) systems tailored to your unique business processes, integrating everything from finance and HR to supply chain and customer management.",
-       image: "16"
     },
     {
-      icon: Milestone,
-      title: "SaaS Product Architecture",
+      icon: Server,
+      title: "SaaS Application Development",
       description: "A successful SaaS product starts with a solid foundation. Our architects design scalable, resilient, and secure cloud-native architectures that support your product's long-term growth, ensuring high availability and cost-effective operation.",
-       image: "17"
     },
     {
-      icon: Users2,
-      title: "Multi-Tenant Applications",
-      description: "Serve multiple customers from a single, unified platform. We specialize in building multi-tenant applications with robust data isolation, custom branding capabilities, and scalable infrastructure to ensure each tenant's experience is secure and private.",
-       image: "18"
+      icon: GitBranch,
+      title: "ERP Integration Services",
+      description: "Create a unified system by connecting your ERP to other essential business tools. We develop seamless integrations with payment gateways, shipping carriers, e-commerce platforms, and other third-party applications to centralize your data and operations.",
     },
     {
       icon: Workflow,
-      title: "Role-Based Access & Workflow Management",
-      description: "Ensure security and efficiency with fine-grained control over your application. We implement sophisticated role-based access control (RBAC) and configurable workflow management systems, allowing you to define user permissions and automate complex business processes.",
-       image: "19"
+      title: "Workflow Automation",
+      description: "Streamline your operations and improve efficiency. We leverage powerful workflow engines to automate your business processes, from sales and marketing to manufacturing and project management, reducing manual effort and ensuring consistency.",
+    },
+    {
+        icon: TrendingUp,
+        title: "Scalability & Performance Optimization",
+        description: "A slow system costs you productivity. We architect platforms for speed and reliability, ensuring your ERP or SaaS application can handle high user loads without compromising performance. Prepare your business for growth with a scalable and optimized solution.",
     }
   ]
 };
@@ -539,4 +540,5 @@ export const technicalSupportData = {
     },
   ]
 };
+
 
