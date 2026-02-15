@@ -58,8 +58,8 @@ const OfferCard = ({ title, description, features, value, originalValue, tagText
         <div className="bg-secondary rounded-3xl p-8 md:p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group hover:bg-primary">
             <div className={cn("absolute top-0 right-0 w-32 h-32 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110", tagBgClass, "opacity-10 dark:opacity-20")}></div>
 
-            <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg relative z-10 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary", iconBgClass)}>
-                <Icon className="text-white text-2xl h-8 w-8 group-hover:text-primary-foreground" />
+            <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg relative z-10 transition-colors duration-300 group-hover:bg-primary-foreground", iconBgClass)}>
+                <Icon className="text-white text-2xl h-8 w-8 group-hover:text-primary" />
             </div>
 
             <h3 className="text-2xl font-bold text-foreground mb-3 relative z-10 group-hover:text-primary-foreground">{title}</h3>
@@ -475,13 +475,13 @@ ${data.goals}
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {Object.values(addons["Performance & Design"]).map(addon => (
                                     <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
-                                        <CardContent className='p-6 h-full flex flex-col'>
-                                            <div className="mx-auto w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
-                                                <addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/>
+                                        <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
+                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
+                                                <addon.icon className="text-primary" size={32}/>
                                             </div>
-                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground">{addon.title}</h4>
-                                            <p className="text-muted-foreground text-sm mb-5 min-h-[40px] flex-grow group-hover:text-primary-foreground/80">{addon.desc}</p>
-                                            <div className="border-t pt-4 group-hover:border-primary-foreground/20">
+                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground flex-grow">{addon.title}</h4>
+                                            <p className="text-muted-foreground text-sm mb-5 group-hover:text-primary-foreground/80">{addon.desc}</p>
+                                            <div className="border-t pt-4 w-full group-hover:border-primary-foreground/20">
                                                 <span className="text-2xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{addon.price}</span>
                                                 <p className="text-muted-foreground text-xs font-medium uppercase tracking-wide group-hover:text-primary-foreground/80">one-time</p>
                                             </div>
@@ -512,13 +512,13 @@ ${data.goals}
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                {Object.values(addons["Marketing & Growth"]).map(addon => (
                                     <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
-                                        <CardContent className='p-6 h-full flex flex-col'>
-                                            <div className="mx-auto w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
-                                                <addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/>
+                                        <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
+                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
+                                                <addon.icon className="text-primary" size={32}/>
                                             </div>
-                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground">{addon.title}</h4>
-                                            <p className="text-muted-foreground text-sm mb-4 min-h-[40px] flex-grow group-hover:text-primary-foreground/80">{addon.desc}</p>
-                                            <div className="pt-4 border-t group-hover:border-primary-foreground/20"><span className="text-2xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{addon.price}</span></div>
+                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground flex-grow">{addon.title}</h4>
+                                            <p className="text-muted-foreground text-sm mb-4 group-hover:text-primary-foreground/80">{addon.desc}</p>
+                                            <div className="border-t pt-4 w-full mt-auto group-hover:border-primary-foreground/20"><span className="text-2xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{addon.price}</span></div>
                                         </CardContent>
                                     </Card>
                                 ))}
@@ -528,13 +528,13 @@ ${data.goals}
                              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                {Object.values(addons["E-Commerce & Payments"]).map(addon => (
                                     <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
-                                        <CardContent className='p-6 h-full flex flex-col'>
-                                            <div className="mx-auto w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
-                                                <addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/>
+                                        <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
+                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
+                                                <addon.icon className="text-primary" size={32}/>
                                             </div>
-                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground">{addon.title}</h4>
+                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground flex-grow">{addon.title}</h4>
                                             <p className="text-muted-foreground text-sm flex-grow mb-4 group-hover:text-primary-foreground/80">{addon.desc}</p>
-                                            <div className="border-t pt-4 mt-auto group-hover:border-primary-foreground/20">
+                                            <div className="border-t pt-4 w-full mt-auto group-hover:border-primary-foreground/20">
                                             <span className="text-2xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{addon.price}</span>
                                             </div>
                                         </CardContent>
