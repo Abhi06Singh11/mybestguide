@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Coins, Clock, Briefcase, ArrowLeft, LifeBuoy, FileText, Shield, AlertCircle, Activity, TrendingUp, Wrench, ShieldCheck } from 'lucide-react';
+import { Coins, Clock, Briefcase, ArrowLeft, LifeBuoy, FileText, Shield, AlertCircle, Activity, TrendingUp, Wrench } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -131,11 +131,13 @@ export default function TechnicalSupportPartnerPage() {
           <h2 className="text-3xl font-bold text-center mb-12">Why Join as a Support Partner?</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <Card key={index} className="text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-xl">
-                <CardContent className="p-8">
-                  <benefit.icon className="mx-auto h-12 w-12 text-primary mb-4" />
-                  <h3 className="text-xl font-semibold">{benefit.title}</h3>
-                  <p className="mt-2 text-muted-foreground">{benefit.description}</p>
+              <Card key={index} className="group h-full text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground">
+                <CardContent className="p-8 flex flex-col items-center justify-start h-full">
+                  <div className="rounded-full bg-primary/10 p-4 text-primary mb-4 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
+                      <benefit.icon className="h-10 w-10" />
+                  </div>
+                  <h3 className="text-xl font-semibold group-hover:text-primary-foreground">{benefit.title}</h3>
+                  <p className="mt-2 text-muted-foreground group-hover:text-primary-foreground/80 flex-grow">{benefit.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -149,18 +151,16 @@ export default function TechnicalSupportPartnerPage() {
           <h2 className="text-3xl font-bold text-center mb-12">
             Areas of Responsibility
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skills.map((skill) => (
-              <Card key={skill.title} className="text-left flex items-start p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="mr-4 mt-1">
-                    <div className="bg-primary/10 p-3 rounded-lg text-primary">
-                        <skill.icon className="h-8 w-8" />
+              <Card key={skill.title} className="group h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground">
+                 <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                    <div className="rounded-full bg-primary/10 p-4 text-primary mb-4 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
+                        <skill.icon className="h-10 w-10" />
                     </div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold">{skill.title}</h3>
-                  <p className="text-muted-foreground text-sm">{skill.description}</p>
-                </div>
+                    <h3 className="font-headline text-lg group-hover:text-primary-foreground">{skill.title}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground group-hover:text-primary-foreground/80 flex-grow">{skill.description}</p>
+                </CardContent>
               </Card>
             ))}
           </div>
