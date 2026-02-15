@@ -449,7 +449,7 @@ ${data.goals}
                                             <h4 className="text-lg font-bold text-foreground mb-2">{addon.title}</h4>
                                             <p className="text-muted-foreground text-sm mb-5 min-h-[40px]">{addon.desc}</p>
                                             <div className="flex items-center justify-between border-t pt-4">
-                                                <span className="text-2xl font-bold text-foreground">{addon.price}</span>
+                                                <span className="text-2xl font-bold text-foreground dark:text-white">{addon.price}</span>
                                                 <span className="text-muted-foreground text-xs font-medium uppercase tracking-wide">one-time</span>
                                             </div>
                                         </CardContent>
@@ -465,7 +465,7 @@ ${data.goals}
                                             {plan.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase">Most Popular</div>}
                                             <h4 className="text-xl font-bold text-foreground mb-2">{plan.title}</h4>
                                             <p className="text-muted-foreground text-sm mb-6 flex-grow">{plan.desc}</p>
-                                            <div className="mb-6 pb-6 border-b"><span className="text-4xl font-bold text-foreground">{plan.price}</span><span className="text-muted-foreground">/month</span></div>
+                                            <div className="mb-6 pb-6 border-b"><span className="text-4xl font-bold text-foreground dark:text-white">{plan.price}</span><span className="text-muted-foreground">/month</span></div>
                                             <ul className="space-y-4 mb-8">
                                                 {plan.features.map(feat => <li key={feat} className="flex items-center gap-3 text-sm"><CheckCircle className="text-green-500 h-4 w-4 flex-shrink-0"/><span>{feat}</span></li>)}
                                             </ul>
@@ -483,7 +483,7 @@ ${data.goals}
                                             <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300"><addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/></div>
                                             <h4 className="text-lg font-bold text-foreground mb-2">{addon.title}</h4>
                                             <p className="text-muted-foreground text-sm mb-4 min-h-[40px]">{addon.desc}</p>
-                                            <div className="pt-4 border-t"><span className="text-2xl font-bold text-foreground">{addon.price}</span></div>
+                                            <div className="pt-4 border-t"><span className="text-2xl font-bold text-foreground dark:text-white">{addon.price}</span></div>
                                         </CardContent>
                                     </Card>
                                 ))}
@@ -496,7 +496,7 @@ ${data.goals}
                                         <CardContent className='p-0'>
                                             <div className="flex justify-between items-start mb-4">
                                                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors duration-300"><addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/></div>
-                                                <span className="text-xl font-bold text-foreground">{addon.price}</span>
+                                                <span className="text-xl font-bold text-foreground dark:text-white">{addon.price}</span>
                                             </div>
                                             <h4 className="text-lg font-bold text-foreground mb-2">{addon.title}</h4>
                                             <p className="text-muted-foreground text-sm">{addon.desc}</p>
@@ -513,7 +513,7 @@ ${data.goals}
                                              {bundle.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase">Best Value</div>}
                                             <h4 className="text-2xl font-bold text-foreground mb-1">{bundle.title}</h4>
                                             <p className="text-muted-foreground text-sm mb-6 flex-grow">{bundle.desc}</p>
-                                            <div className="mb-6"><span className="text-4xl font-bold text-foreground">{bundle.price}</span><span className="text-muted-foreground line-through ml-2">{bundle.oldPrice}</span></div>
+                                            <div className="mb-6"><span className="text-4xl font-bold text-foreground dark:text-white">{bundle.price}</span><span className="text-muted-foreground line-through ml-2">{bundle.oldPrice}</span></div>
                                             <ul className="space-y-3 mb-8">
                                                 {bundle.features.map(feat => <li key={feat} className="flex items-center gap-2 text-sm"><CheckCircle className="text-green-500 h-4 w-4"/><span>{feat}</span></li>)}
                                             </ul>
@@ -535,24 +535,43 @@ ${data.goals}
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">From application to launch in 5 simple steps.</p>
                     </div>
 
-                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                     <div className="relative max-w-5xl mx-auto">
+                        {/* Timeline Line */}
+                        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2 hidden md:block"></div>
+
                         {journeySteps.map((step, index) => (
-                           <Card key={index} className="group h-full text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground">
-                                <CardContent className="p-8">
-                                    <div className="flex justify-center mb-6">
-                                        <div className="rounded-full bg-primary/10 p-5 text-primary transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
-                                            <step.icon className="h-10 w-10" />
-                                        </div>
+                            <div key={index} className={`relative md:flex items-center mb-12 last:mb-0 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                                
+                                {/* Content Card */}
+                                <div className="md:w-1/2 w-full p-1">
+                                    <div className={`${index % 2 === 0 ? 'md:ml-12' : 'md:mr-12'}`}>
+                                        <Card className="group/card h-full text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                                            <CardContent className="p-6">
+                                                <div className="flex items-center gap-4">
+                                                    <div className="rounded-lg bg-primary/10 p-3 text-primary">
+                                                        <step.icon className="h-6 w-6" />
+                                                    </div>
+                                                    <div>
+                                                        <h3 className="font-headline text-lg font-semibold">{step.title}</h3>
+                                                        <div className="mt-1 bg-secondary rounded-full inline-flex px-3 py-1 text-xs font-bold text-primary">
+                                                            {step.meta}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p className="mt-4 text-sm text-muted-foreground">{step.description}</p>
+                                            </CardContent>
+                                        </Card>
                                     </div>
-                                    <h3 className="font-headline text-xl font-semibold group-hover:text-primary-foreground mb-3">{step.title}</h3>
-                                    <p className="text-sm text-muted-foreground group-hover:text-primary-foreground/80 mb-5">{step.description}</p>
-                                    <div className="mt-auto pt-4">
-                                        <div className="bg-secondary/20 rounded-full inline-flex px-4 py-2 text-xs font-bold group-hover:bg-primary-foreground/20 group-hover:text-primary-foreground">
-                                            {step.meta}
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                                </div>
+
+                                {/* Spacer */}
+                                <div className="md:w-1/2 hidden md:block"></div>
+
+                                {/* Circle on timeline */}
+                                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 bg-background border-4 border-primary rounded-full hidden md:flex items-center justify-center text-primary font-bold z-10">
+                                    {index + 1}
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>
@@ -728,5 +747,4 @@ ${data.goals}
 
         </div>
     );
-
-    
+}
