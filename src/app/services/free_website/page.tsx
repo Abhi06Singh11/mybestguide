@@ -53,41 +53,44 @@ const applicationSchema = z.object({
     path: ['customIndustry'],
 });
 
-const OfferCard = ({ title, icon: Icon, stats, gradientClass }) => {
+const OfferCard = ({ title, description, features, value, originalValue, tagText, tagBgClass, icon: Icon, iconBgClass }) => {
     return (
-        <div className="w-full max-w-sm rounded-2xl bg-card p-1 overflow-hidden shadow-lg transition-transform duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] hover:scale-105">
-            <div className={`h-[150px] rounded-[15px] flex flex-col relative ${gradientClass}`}>
-                {/* Skewed border effect */}
-                <div className="h-[30px] w-[130px] bg-card relative transform -skew-x-[40deg] shadow-[-10px_-10px_0_0_hsl(var(--card))] 
-                             before:content-[''] before:absolute before:w-[15px] before:h-[15px] before:top-0 before:-right-[15px] before:bg-transparent before:rounded-tl-[10px] before:shadow-[-5px_-5px_0_2px_hsl(var(--secondary))]
-                "></div>
-                
-                {/* Top-left inner curve */}
-                <div className="absolute top-[30px] left-0 w-[15px] h-[15px] bg-transparent rounded-tl-[15px] shadow-[-5px_-5px_0_2px_hsl(var(--secondary))]"></div>
+        <div className="bg-secondary rounded-3xl p-8 md:p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group border">
+            <div className={cn("absolute top-0 right-0 w-32 h-32 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110", tagBgClass, "opacity-10 dark:opacity-20")}></div>
 
-                {/* Icon in the middle */}
-                <div className="absolute inset-0 flex justify-center items-center">
-                    <div className="w-20 h-20 rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm">
-                        <Icon className="w-10 h-10 text-white" />
-                    </div>
-                </div>
+            <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg relative z-10", iconBgClass)}>
+                <Icon className="text-white text-2xl h-8 w-8" />
             </div>
 
-            <div className="mt-[15px] py-2.5 px-1.5">
-                <span className="block text-[17px] font-extrabold text-card-foreground text-center tracking-widest uppercase">{title}</span>
-                <div className="flex justify-between mt-5">
-                    {stats.map((stat, index) => (
-                        <div key={index} className={`flex-1 text-center p-1.5 text-card-foreground ${index === 1 ? 'border-x border-border/20' : ''}`}>
-                            <span className="text-sm font-bold block">{stat.value}</span>
-                            <span className="text-[9px] text-muted-foreground">{stat.label}</span>
+            <h3 className="text-2xl font-bold text-foreground mb-3 relative z-10">{title}</h3>
+            <p className="text-muted-foreground mb-8 leading-relaxed relative z-10 min-h-[72px]">{description}</p>
+
+            <ul className="space-y-4 relative z-10 mb-8">
+                {features.map((feature, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                        <CheckCircle className="text-green-500 mt-1 flex-shrink-0 h-5 w-5" />
+                        <span className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: feature }} />
+                    </li>
+                ))}
+            </ul>
+
+            <div className="pt-6 border-t border-border relative z-10">
+                <div className="flex items-center justify-between">
+                    <div className="flex flex-col">
+                        <span className="text-sm text-muted-foreground mb-1">Estimated Value</span>
+                        <div className="flex items-baseline gap-2">
+                            <span className="text-3xl font-bold text-foreground">₹{value}</span>
+                            <span className="text-muted-foreground line-through text-lg">₹{originalValue}</span>
                         </div>
-                    ))}
+                    </div>
+                    <span className={cn("px-4 py-1.5 rounded-full text-sm font-bold shadow-sm", tagBgClass)}>
+                        {tagText}
+                    </span>
                 </div>
             </div>
         </div>
     );
 };
-
 
 export default function FreeWebsitePage() {
     const router = useRouter();
@@ -129,7 +132,7 @@ export default function FreeWebsitePage() {
           } else {
             setTimeLeft({
               days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-              hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+              hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60)),
               minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
               seconds: Math.floor((distance % (1000 * 60)) / 1000),
             });
@@ -169,7 +172,7 @@ export default function FreeWebsitePage() {
         }
     };
 
-    const onSubmit = (data: z.infer<typeof applicationSchema>) => {
+    function onSubmit(data: z.infer<typeof applicationSchema>) {
         const message = `=========================
 Free website Contact Form Submission
 
@@ -286,6 +289,44 @@ ${data.goals}
 
     const industryOptions = ["Professional Services", "Healthcare & Wellness", "Retail & E-Commerce", "Food & Restaurant", "Real Estate", "Education & Coaching", "Technology & SaaS", "Creative & Design", "Construction & Home Services", "Custom"];
 
+    const freeOffers = [
+        {
+            title: "FREE Basic Website",
+            description: "Perfect for service businesses, professionals, and local brands getting started online.",
+            features: [
+                '<strong>3–5 Page</strong> Professional Website',
+                '<strong>Mobile Responsive</strong> Design',
+                '<strong>Pre-Designed</strong> Modern Template',
+                '<strong>Basic On-Page SEO</strong> Setup',
+                '<strong>Contact Form</strong> with Email',
+                '<strong>Client-Owned</strong> Content & Assets'
+            ],
+            value: 0,
+            originalValue: "14,999",
+            tagText: "100% FREE",
+            tagBgClass: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400",
+            icon: Globe,
+            iconBgClass: "bg-gradient-to-r from-primary to-accent"
+        },
+        {
+            title: "FREE E-Commerce Starter",
+            description: "Ideal for early-stage e-commerce brands and product sellers ready to sell.",
+            features: [
+                '<strong>Professional Storefront</strong> Design',
+                'Up to <strong>10 Products</strong> Listed',
+                '<strong>Product & Cart</strong> Pages',
+                '<strong>Manual Order</strong> (WhatsApp/Email)',
+                '<strong>Mobile Responsive</strong> Shopping',
+                '<strong>Product Gallery</strong> & Desc.'
+            ],
+            value: 0,
+            originalValue: "24,999",
+            tagText: "100% FREE",
+            tagBgClass: "bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400",
+            icon: ShoppingCart,
+            iconBgClass: "bg-gradient-to-br from-purple-500 to-pink-500"
+        }
+    ];
 
     return(
         <div className="bg-background text-foreground">
@@ -362,27 +403,10 @@ ${data.goals}
                         <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-4">What You Get For FREE</h2>
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Everything you need to establish your online presence – completely free of charge.</p>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto justify-items-center">
-                        <OfferCard
-                            title="Basic Website"
-                            icon={Globe}
-                            gradientClass="bg-gradient-to-br from-primary to-accent"
-                            stats={[
-                                { value: '3-5 Pages', label: 'Professional' },
-                                { value: 'Mobile Ready', label: 'Responsive' },
-                                { value: 'Free Forever', label: 'No Hidden Fees' },
-                            ]}
-                        />
-                        <OfferCard
-                            title="E-Commerce"
-                            icon={ShoppingCart}
-                            gradientClass="bg-gradient-to-br from-chart-2 to-chart-3"
-                            stats={[
-                                { value: '10 Products', label: 'Listed' },
-                                { value: 'Storefront', label: 'Professional' },
-                                { value: 'Manual Orders', label: 'via WhatsApp' },
-                            ]}
-                        />
+                    <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+                        {freeOffers.map((offer) => (
+                           <OfferCard key={offer.title} {...offer} />
+                        ))}
                     </div>
                 </div>
             </section>
