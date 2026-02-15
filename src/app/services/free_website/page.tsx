@@ -119,26 +119,29 @@ export default function FreeWebsitePage() {
     };
 
     useEffect(() => {
-        const randomDuration = Math.floor(Math.random() * (12 * 60 * 60 * 1000 - 3 * 60 * 60 * 1000 + 1) + 3 * 60 * 60 * 1000);
+        // Random duration between 1 hour and 6 hours (exclusive)
+        const minDuration = 1 * 60 * 60 * 1000;
+        const maxDuration = 6 * 60 * 60 * 1000;
+        const randomDuration = Math.floor(Math.random() * (maxDuration - minDuration)) + minDuration;
         const endDate = new Date(Date.now() + randomDuration);
-    
+
         const timer = setInterval(() => {
           const now = new Date().getTime();
           const distance = endDate.getTime() - now;
-    
+
           if (distance < 0) {
             clearInterval(timer);
             setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
           } else {
             setTimeLeft({
               days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-              hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60)),
+              hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
               minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
               seconds: Math.floor((distance % (1000 * 60)) / 1000),
             });
           }
         }, 1000);
-    
+
         return () => clearInterval(timer);
     }, []);
 
@@ -173,7 +176,7 @@ export default function FreeWebsitePage() {
     };
 
     function onSubmit(data: z.infer<typeof applicationSchema>) {
-        const message = `
+        const message = `=========================
 *Free website Contact Form Submission*
 >====================================<
 Hi i am *${data.fullName}*,
@@ -197,7 +200,8 @@ ${data.goals}
 
 -------------------------
 *Thanks* ,
-_${data.fullName}_;
+_${data.fullName}_
+=========================`;
 
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/917379848171?text=${encodedMessage}`;
@@ -794,3 +798,6 @@ _${data.fullName}_;
 
 
 
+
+
+    
