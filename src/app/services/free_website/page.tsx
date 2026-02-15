@@ -411,41 +411,8 @@ ${data.goals}
                 </div>
             </section>
 
-             {/* Transparency Section */}
-             <section className="py-16 md:py-24 bg-background">
-                <div className="container max-w-5xl">
-                    <Card className="p-8 md:p-12 bg-amber-50 dark:bg-gray-900 border-amber-200 dark:border-amber-900">
-                        <CardContent className="p-0">
-                            <div className="flex items-start gap-5 mb-10">
-                                <div className="w-14 h-14 bg-amber-100 dark:bg-amber-500/10 rounded-2xl flex items-center justify-center flex-shrink-0 border border-amber-200 dark:border-amber-500/20">
-                                    <Lightbulb className="text-amber-600 dark:text-amber-400" size={28}/>
-                                </div>
-                                <div>
-                                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">Let's Be Transparent</h2>
-                                    <p className="text-lg text-gray-700 dark:text-gray-300">Here's what the free version <span className="font-semibold text-amber-600 dark:text-amber-400">doesn't</span> include:</p>
-                                </div>
-                            </div>
-                            <div className="grid md:grid-cols-2 gap-x-12 gap-y-6 mb-10 text-muted-foreground">
-                                {["No custom design", "No advanced animations", "No payment gateway", "Limited revisions (2)", "Limited support (3/mo)", "Agency branding in footer", "No performance optimization", "No conversion optimization"].map(item => (
-                                    <div key={item} className="flex items-center gap-3 p-2 rounded-lg hover:bg-card/50 transition-colors">
-                                        <XCircle className="text-slate-400" size={20}/>
-                                        <span className="font-medium text-foreground">{item}</span>
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="bg-card/60 dark:bg-black/20 rounded-2xl p-6 border dark:border-border/50">
-                                <div className="flex items-start md:items-center gap-4">
-                                    <Info className="text-primary h-8 w-8 flex-shrink-0 mt-1 md:mt-0" />
-                                    <p className="text-muted-foreground leading-relaxed font-medium"><strong className="text-foreground">The free version works perfectly</strong> for getting started. When you're ready to scale, growth features are unlocked through affordable upgrades.</p>
-                                </div>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </div>
-             </section>
-
              {/* Upgrades Section */}
-            <section id="upgrades" className="py-16 md:py-24 bg-secondary">
+            <section id="upgrades" className="py-16 md:py-24 bg-background">
                 <div className="container">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Value Enhancements</h2>
@@ -461,23 +428,12 @@ ${data.goals}
                         </TabsList>
                         
                         <TabsContent value="addons">
-                            <div className="max-w-3xl mx-auto mb-8 text-center">
-                                <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
-                                    <p className="text-sm text-blue-900 dark:text-blue-300 font-medium leading-relaxed">
-                                        Domain and Hosting prices are not included in this package.
-                                        <br />
-                                        If you want to buy hosting and domain from us, we provide an additional 10–15% discount compared to the market price.
-                                        <br />
-                                        We are powered by <strong className="text-blue-950 dark:text-blue-200">GoDaddy</strong>.
-                                    </p>
-                                </div>
-                            </div>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {Object.values(addons["Performance & Design"]).map(addon => (
                                     <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
                                         <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
-                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
-                                                <addon.icon className="text-primary" size={32}/>
+                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground">
+                                                <addon.icon className="text-primary group-hover:text-primary" size={32}/>
                                             </div>
                                             <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground flex-grow">{addon.title}</h4>
                                             <p className="text-muted-foreground text-sm mb-5 group-hover:text-primary-foreground/80">{addon.desc}</p>
@@ -513,8 +469,8 @@ ${data.goals}
                                {Object.values(addons["Marketing & Growth"]).map(addon => (
                                     <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
                                         <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
-                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
-                                                <addon.icon className="text-primary" size={32}/>
+                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground">
+                                                <addon.icon className="text-primary group-hover:text-primary" size={32}/>
                                             </div>
                                             <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground flex-grow">{addon.title}</h4>
                                             <p className="text-muted-foreground text-sm mb-4 group-hover:text-primary-foreground/80">{addon.desc}</p>
@@ -529,8 +485,8 @@ ${data.goals}
                                {Object.values(addons["E-Commerce & Payments"]).map(addon => (
                                     <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
                                         <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
-                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
-                                                <addon.icon className="text-primary" size={32}/>
+                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground">
+                                                <addon.icon className="text-primary group-hover:text-primary" size={32}/>
                                             </div>
                                             <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground flex-grow">{addon.title}</h4>
                                             <p className="text-muted-foreground text-sm flex-grow mb-4 group-hover:text-primary-foreground/80">{addon.desc}</p>
@@ -564,8 +520,56 @@ ${data.goals}
                 </div>
             </section>
             
-            {/* Client Journey Section */}
-            <section id="journey" className="py-24 bg-background relative overflow-hidden">
+            {/* Domain & Hosting Info */}
+            <section className="bg-background pb-0 pt-16">
+                <div className="container max-w-4xl">
+                    <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
+                        <p className="text-center text-blue-900 dark:text-blue-300 font-medium leading-relaxed">
+                            Domain and Hosting prices are not included in this package.
+                            <br />
+                            If you want to buy hosting and domain from us, we provide an additional 10–15% discount compared to the market price.
+                            <br />
+                            We are powered by <strong className="font-bold text-blue-950 dark:text-blue-200">GoDaddy</strong>.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+             {/* Transparency Section */}
+             <section className="py-16 md:py-24 bg-background">
+                <div className="container max-w-5xl">
+                    <Card className="p-8 md:p-12 bg-amber-50 dark:bg-gray-900 border-amber-200 dark:border-amber-900">
+                        <CardContent className="p-0">
+                            <div className="flex items-start gap-5 mb-10">
+                                <div className="w-14 h-14 bg-amber-100 dark:bg-amber-500/10 rounded-2xl flex items-center justify-center flex-shrink-0 border border-amber-200 dark:border-amber-500/20">
+                                    <Lightbulb className="text-amber-600 dark:text-amber-400" size={28}/>
+                                </div>
+                                <div>
+                                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">Let's Be Transparent</h2>
+                                    <p className="text-lg text-gray-700 dark:text-gray-300">Here's what the free version <span className="font-semibold text-amber-600 dark:text-amber-400">doesn't</span> include:</p>
+                                </div>
+                            </div>
+                            <div className="grid md:grid-cols-2 gap-x-12 gap-y-6 mb-10 text-muted-foreground">
+                                {["No custom design", "No advanced animations", "No payment gateway", "Limited revisions (2)", "Limited support (3/mo)", "Agency branding in footer", "No performance optimization", "No conversion optimization"].map(item => (
+                                    <div key={item} className="flex items-center gap-3 p-2 rounded-lg hover:bg-card/50 transition-colors">
+                                        <XCircle className="text-slate-400" size={20}/>
+                                        <span className="font-medium text-foreground">{item}</span>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="bg-card/60 dark:bg-black/20 rounded-2xl p-6 border dark:border-border/50">
+                                <div className="flex items-start md:items-center gap-4">
+                                    <Info className="text-primary h-8 w-8 flex-shrink-0 mt-1 md:mt-0" />
+                                    <p className="text-muted-foreground leading-relaxed font-medium"><strong className="text-foreground">The free version works perfectly</strong> for getting started. When you're ready to scale, growth features are unlocked through affordable upgrades.</p>
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+             </section>
+
+             {/* Client Journey Section */}
+            <section id="journey" className="py-24 bg-secondary relative overflow-hidden">
                 <div className="container relative z-10">
                     <div className="text-center mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Your Journey</h2>
@@ -785,3 +789,4 @@ ${data.goals}
     
 
     
+
