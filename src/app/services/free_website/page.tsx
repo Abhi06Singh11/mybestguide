@@ -120,25 +120,24 @@ export default function FreeWebsitePage() {
 
     useEffect(() => {
         // Random duration between 1 hour and 6 hours (exclusive)
-        const minDuration = 1 * 60 * 60 * 1000;
-        const maxDuration = 6 * 60 * 60 * 1000;
-        const randomDuration = Math.floor(Math.random() * (maxDuration - minDuration)) + minDuration;
-        const endDate = new Date(Date.now() + randomDuration);
+        const minDuration = 1 * 60 * 60; // 1 hour in seconds
+        const maxDuration = 6 * 60 * 60; // 6 hours in seconds
+        const randomDurationInSeconds = Math.floor(Math.random() * (maxDuration - minDuration)) + minDuration;
+        
+        let remainingTime = randomDurationInSeconds;
 
         const timer = setInterval(() => {
-          const now = new Date().getTime();
-          const distance = endDate.getTime() - now;
-
-          if (distance < 0) {
+          if (remainingTime <= 0) {
             clearInterval(timer);
             setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
           } else {
             setTimeLeft({
-              days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-              hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-              minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-              seconds: Math.floor((distance % (1000 * 60)) / 1000),
+              days: Math.floor(remainingTime / (60 * 60 * 24)),
+              hours: Math.floor((remainingTime % (60 * 60 * 24)) / (60 * 60)),
+              minutes: Math.floor((remainingTime % (60 * 60)) / 60),
+              seconds: Math.floor(remainingTime % 60),
             });
+            remainingTime--;
           }
         }, 1000);
 
@@ -791,13 +790,3 @@ _${data.fullName}_
         </div>
     );
 }
-
-    
-
-    
-
-
-
-
-
-    

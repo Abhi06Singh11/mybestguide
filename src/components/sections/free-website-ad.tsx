@@ -26,7 +26,7 @@ export default function FreeWebsiteAd() {
         isVisible ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
       )}
     >
-      <section className="relative h-[80vh] w-[calc(100%-3rem)] mx-auto flex items-center justify-center text-primary-foreground p-6 lg:p-8 rounded-lg overflow-hidden">
+      <section className="relative h-[70vh] w-full mx-auto flex items-center justify-center text-primary-foreground p-6 lg:p-8 rounded-lg overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent -z-10"></div>
         <Button
             variant="ghost"
