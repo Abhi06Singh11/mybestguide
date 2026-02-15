@@ -132,11 +132,11 @@ export default function TechnicalSupportPartnerPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
               <Card key={index} className="group h-full text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground">
-                <CardContent className="p-8 flex flex-col items-center justify-start h-full">
+                <CardContent className="p-8 flex flex-col items-center justify-center h-full">
                   <div className="rounded-full bg-primary/10 p-4 text-primary mb-4 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
                       <benefit.icon className="h-10 w-10" />
                   </div>
-                  <h3 className="text-xl font-semibold group-hover:text-primary-foreground">{benefit.title}</h3>
+                  <h3 className="text-xl font-semibold text-foreground group-hover:text-primary-foreground">{benefit.title}</h3>
                   <p className="mt-2 text-muted-foreground group-hover:text-primary-foreground/80 flex-grow">{benefit.description}</p>
                 </CardContent>
               </Card>
@@ -154,11 +154,11 @@ export default function TechnicalSupportPartnerPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skills.map((skill) => (
               <Card key={skill.title} className="group h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground">
-                 <CardContent className="p-6 flex flex-col items-center text-center h-full">
+                 <CardContent className="p-6 flex flex-col items-center justify-center text-center h-full">
                     <div className="rounded-full bg-primary/10 p-4 text-primary mb-4 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
                         <skill.icon className="h-10 w-10" />
                     </div>
-                    <h3 className="font-headline text-lg group-hover:text-primary-foreground">{skill.title}</h3>
+                    <h3 className="font-headline text-lg text-foreground group-hover:text-primary-foreground">{skill.title}</h3>
                     <p className="mt-2 text-sm text-muted-foreground group-hover:text-primary-foreground/80 flex-grow">{skill.description}</p>
                 </CardContent>
               </Card>

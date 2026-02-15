@@ -1,5 +1,4 @@
 
-
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Globe, Clock, ShieldCheck, Briefcase, LifeBuoy } from 'lucide-react';
@@ -104,15 +103,15 @@ export default function CareersPage() {
         <div className="container px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {whyJoinUs.map((item) => (
-              <Card key={item.title} className="bg-card border-border text-center transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:shadow-primary/10">
-                <CardContent className="p-8">
+              <Card key={item.title} className="group h-full text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground">
+                <CardContent className="p-8 flex flex-col items-center justify-center h-full">
                   <div className="flex justify-center mb-4">
-                    <div className="bg-muted p-4 rounded-full text-primary">
+                    <div className="rounded-full bg-primary/10 p-4 text-primary transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
                       <item.icon className="h-8 w-8" />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
-                  <p className="mt-2 text-muted-foreground">{item.description}</p>
+                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary-foreground">{item.title}</h3>
+                  <p className="mt-2 text-muted-foreground group-hover:text-primary-foreground/80 flex-grow">{item.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -128,7 +127,7 @@ export default function CareersPage() {
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {opportunities.map((opportunity) => (
-              <Card key={opportunity.title} className="bg-card border-border flex flex-col">
+              <Card key={opportunity.title} className="bg-card border-border flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <CardHeader>
                   <CardTitle className="text-2xl font-bold text-primary">{opportunity.title}</CardTitle>
                 </CardHeader>
