@@ -255,7 +255,7 @@ ${data.goals}
     return(
         <div className="bg-background text-foreground">
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gray-900 text-primary-foreground py-16 md:py-24">
+            <section className="relative overflow-hidden bg-gray-900 text-primary-foreground pt-2.5 pb-16 md:pb-24">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary via-blue-900 to-gray-900 opacity-80"></div>
                 <div className="container relative z-10">
                     <div className="text-left">
@@ -731,5 +731,7 @@ ${data.goals}
         </div>
     );
 }
+
+    
 
     
