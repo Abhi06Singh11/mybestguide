@@ -55,32 +55,32 @@ const applicationSchema = z.object({
 
 const OfferCard = ({ title, description, features, value, originalValue, tagText, tagBgClass, icon: Icon, iconBgClass }) => {
     return (
-        <div className="bg-secondary rounded-3xl p-8 md:p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group border">
+        <div className="bg-secondary rounded-3xl p-8 md:p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group border hover:bg-primary">
             <div className={cn("absolute top-0 right-0 w-32 h-32 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110", tagBgClass, "opacity-10 dark:opacity-20")}></div>
 
             <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg relative z-10", iconBgClass)}>
                 <Icon className="text-white text-2xl h-8 w-8" />
             </div>
 
-            <h3 className="text-2xl font-bold text-foreground mb-3 relative z-10">{title}</h3>
-            <p className="text-muted-foreground mb-8 leading-relaxed relative z-10 min-h-[72px]">{description}</p>
+            <h3 className="text-2xl font-bold text-foreground mb-3 relative z-10 group-hover:text-primary-foreground">{title}</h3>
+            <p className="text-muted-foreground mb-8 leading-relaxed relative z-10 min-h-[72px] group-hover:text-primary-foreground/80">{description}</p>
 
             <ul className="space-y-4 relative z-10 mb-8">
                 {features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
-                        <CheckCircle className="text-green-500 mt-1 flex-shrink-0 h-5 w-5" />
-                        <span className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: feature }} />
+                        <CheckCircle className="text-green-500 mt-1 flex-shrink-0 h-5 w-5 group-hover:text-green-300" />
+                        <span className="text-muted-foreground group-hover:text-primary-foreground/80" dangerouslySetInnerHTML={{ __html: feature.replace(/<strong/g, '<strong class="text-foreground group-hover:text-primary-foreground font-semibold"') }} />
                     </li>
                 ))}
             </ul>
 
-            <div className="pt-6 border-t border-border relative z-10">
+            <div className="pt-6 border-t border-border relative z-10 group-hover:border-primary-foreground/20">
                 <div className="flex items-center justify-between">
                     <div className="flex flex-col">
-                        <span className="text-sm text-muted-foreground mb-1">Estimated Value</span>
+                        <span className="text-sm text-muted-foreground mb-1 group-hover:text-primary-foreground/80">Estimated Value</span>
                         <div className="flex items-baseline gap-2">
-                            <span className="text-3xl font-bold text-foreground">₹{value}</span>
-                            <span className="text-muted-foreground line-through text-lg">₹{originalValue}</span>
+                            <span className="text-3xl font-bold text-foreground group-hover:text-primary-foreground">₹{value}</span>
+                            <span className="text-muted-foreground line-through text-lg group-hover:text-primary-foreground/80">₹{originalValue}</span>
                         </div>
                     </div>
                     <span className={cn("px-4 py-1.5 rounded-full text-sm font-bold shadow-sm", tagBgClass)}>
@@ -775,9 +775,5 @@ ${data.goals}
         </div>
     );
 }
-
-    
-
-    
 
     
