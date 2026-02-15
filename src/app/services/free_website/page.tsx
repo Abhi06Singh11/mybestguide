@@ -53,26 +53,33 @@ const applicationSchema = z.object({
     path: ['customIndustry'],
 });
 
-const OfferCard = ({ title, icon: Icon, stats, gradientClass, iconBgClass, iconFgClass }) => {
+const OfferCard = ({ title, icon: Icon, stats, gradientClass }) => {
     return (
-        <div className="w-full max-w-sm rounded-3xl bg-card p-1.5 overflow-hidden shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 group">
-            <div className={`h-40 rounded-2xl flex flex-col relative ${gradientClass}`}>
-                <div className="h-8 w-1/2 bg-card relative transform -skew-x-[40deg] -translate-x-4 shadow-[-10px_-10px_0_0_hsl(var(--card))]"></div>
+        <div className="w-full max-w-sm rounded-2xl bg-card p-1 overflow-hidden shadow-lg transition-transform duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] hover:scale-105">
+            <div className={`h-[150px] rounded-[15px] flex flex-col relative ${gradientClass}`}>
+                {/* Skewed border effect */}
+                <div className="h-[30px] w-[130px] bg-card relative transform -skew-x-[40deg] shadow-[-10px_-10px_0_0_hsl(var(--card))] 
+                             before:content-[''] before:absolute before:w-[15px] before:h-[15px] before:top-0 before:-right-[15px] before:bg-transparent before:rounded-tl-[10px] before:shadow-[-5px_-5px_0_2px_hsl(var(--secondary))]
+                "></div>
                 
+                {/* Top-left inner curve */}
+                <div className="absolute top-[30px] left-0 w-[15px] h-[15px] bg-transparent rounded-tl-[15px] shadow-[-5px_-5px_0_2px_hsl(var(--secondary))]"></div>
+
+                {/* Icon in the middle */}
                 <div className="absolute inset-0 flex justify-center items-center">
-                    <div className={`w-20 h-20 rounded-full flex items-center justify-center ${iconBgClass}`}>
-                        <Icon className={`w-10 h-10 ${iconFgClass}`} />
+                    <div className="w-20 h-20 rounded-full flex items-center justify-center bg-white/10 backdrop-blur-sm">
+                        <Icon className="w-10 h-10 text-white" />
                     </div>
                 </div>
             </div>
 
-            <div className="mt-4 py-2 px-1">
-                <span className="block text-xl font-bold text-card-foreground text-center tracking-wide uppercase">{title}</span>
+            <div className="mt-[15px] py-2.5 px-1.5">
+                <span className="block text-[17px] font-extrabold text-card-foreground text-center tracking-widest uppercase">{title}</span>
                 <div className="flex justify-between mt-5">
                     {stats.map((stat, index) => (
                         <div key={index} className={`flex-1 text-center p-1.5 text-card-foreground ${index === 1 ? 'border-x border-border/20' : ''}`}>
-                            <span className="text-base font-bold block">{stat.value}</span>
-                            <span className="text-xs text-muted-foreground">{stat.label}</span>
+                            <span className="text-sm font-bold block">{stat.value}</span>
+                            <span className="text-[9px] text-muted-foreground">{stat.label}</span>
                         </div>
                     ))}
                 </div>
@@ -360,8 +367,6 @@ ${data.goals}
                             title="Basic Website"
                             icon={Globe}
                             gradientClass="bg-gradient-to-br from-primary to-accent"
-                            iconBgClass="bg-primary-foreground/10"
-                            iconFgClass="text-primary-foreground"
                             stats={[
                                 { value: '3-5 Pages', label: 'Professional' },
                                 { value: 'Mobile Ready', label: 'Responsive' },
@@ -372,8 +377,6 @@ ${data.goals}
                             title="E-Commerce"
                             icon={ShoppingCart}
                             gradientClass="bg-gradient-to-br from-chart-2 to-chart-3"
-                            iconBgClass="bg-white/10"
-                            iconFgClass="text-white"
                             stats={[
                                 { value: '10 Products', label: 'Listed' },
                                 { value: 'Storefront', label: 'Professional' },
@@ -748,6 +751,8 @@ ${data.goals}
         </div>
     );
 }
+
+    
 
     
 
