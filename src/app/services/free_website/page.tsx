@@ -142,7 +142,7 @@ Name: ${data.fullName}
 Email: ${data.email}
 Phone: ${data.phone}
 Business Name: ${data.businessName}
-Selected Plan: ${data.websiteType}
+Selected Plan: ${data.websiteType === 'E-Commerce' ? 'E-Commerce Starter' : 'Basic Website'}
 
 Add-Ons Selected:
 ${data.addons && data.addons.length > 0 ? data.addons.map(a => '- ' + a).join('\n') : 'None'}
@@ -545,7 +545,7 @@ ${data.goals}
                                 {/* Content Card */}
                                 <div className="md:w-1/2 w-full p-1">
                                     <div className={`${index % 2 === 0 ? 'md:ml-12' : 'md:mr-12'}`}>
-                                        <Card className="group h-full text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary">
+                                        <Card className="h-full text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary group">
                                             <CardContent className="p-6">
                                                 <div className="flex items-center gap-4">
                                                     <div className="rounded-lg bg-primary/10 p-3 text-primary group-hover:bg-primary-foreground group-hover:text-primary transition-colors duration-300">
