@@ -14,7 +14,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from '@/components/ui/dialog';
+import { Dialog, DialogHeader, DialogTitle, DialogClose } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import { Rocket, CheckCircle, Download, Globe, ShoppingCart, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Package, Edit, Mail, LineChart, AlertTriangle, MousePointerClick, ArrowRight, MessageSquare, ChevronDown, Check, Circle, Code, Trash2, ArrowLeft } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -52,6 +52,34 @@ const applicationSchema = z.object({
     message: 'Please specify your industry',
     path: ['customIndustry'],
 });
+
+const OfferCard = ({ title, icon: Icon, stats, gradientClass, iconBgClass, iconFgClass }) => {
+    return (
+        <div className="w-full max-w-sm rounded-3xl bg-card p-1.5 overflow-hidden shadow-lg transition-transform duration-300 ease-in-out hover:scale-105 group">
+            <div className={`h-40 rounded-2xl flex flex-col relative ${gradientClass}`}>
+                <div className="h-8 w-1/2 bg-card relative transform -skew-x-[40deg] -translate-x-4 shadow-[-10px_-10px_0_0_hsl(var(--card))]"></div>
+                
+                <div className="absolute inset-0 flex justify-center items-center">
+                    <div className={`w-20 h-20 rounded-full flex items-center justify-center ${iconBgClass}`}>
+                        <Icon className={`w-10 h-10 ${iconFgClass}`} />
+                    </div>
+                </div>
+            </div>
+
+            <div className="mt-4 py-2 px-1">
+                <span className="block text-xl font-bold text-card-foreground text-center tracking-wide uppercase">{title}</span>
+                <div className="flex justify-between mt-5">
+                    {stats.map((stat, index) => (
+                        <div key={index} className={`flex-1 text-center p-1.5 text-card-foreground ${index === 1 ? 'border-x border-border/20' : ''}`}>
+                            <span className="text-base font-bold block">{stat.value}</span>
+                            <span className="text-xs text-muted-foreground">{stat.label}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 
 export default function FreeWebsitePage() {
@@ -321,61 +349,37 @@ ${data.goals}
                 </div>
             </section>
 
-            {/* What You Get Section */}
             <section id="features" className="py-16 md:py-24 bg-secondary">
                 <div className="container">
                     <div className="text-center mb-16">
-                         <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-4">What You Get For FREE</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-4">What You Get For FREE</h2>
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Everything you need to establish your online presence – completely free of charge.</p>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                        <Card className="p-8 group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                            <CardContent className="p-0">
-                                <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                                    <Globe size={32}/>
-                                </div>
-                                <h3 className="text-2xl font-bold text-foreground mb-3">FREE Basic Website</h3>
-                                <p className="text-muted-foreground mb-8">Perfect for service businesses, professionals, and local brands getting started online.</p>
-                                <ul className="space-y-4 mb-8">
-                                    <li className="flex items-start gap-3"><CheckCircle className="text-green-500 mt-1 flex-shrink-0" /><span><strong className="text-foreground">3–5 Page</strong> Professional Website</span></li>
-                                    <li className="flex items-start gap-3"><CheckCircle className="text-green-500 mt-1 flex-shrink-0" /><span><strong className="text-foreground">Mobile Responsive</strong> Design</span></li>
-                                    <li className="flex items-start gap-3"><CheckCircle className="text-green-500 mt-1 flex-shrink-0" /><span><strong className="text-foreground">Pre-Designed</strong> Modern Template</span></li>
-                                    <li className="flex items-start gap-3"><CheckCircle className="text-green-500 mt-1 flex-shrink-0" /><span><strong className="text-foreground">Basic On-Page SEO</strong> Setup</span></li>
-                                    <li className="flex items-start gap-3"><CheckCircle className="text-green-500 mt-1 flex-shrink-0" /><span><strong className="text-foreground">Contact Form</strong> with Email</span></li>
-                                    <li className="flex items-start gap-3"><CheckCircle className="text-green-500 mt-1 flex-shrink-0" /><span><strong className="text-foreground">Client-Owned</strong> Content & Assets</span></li>
-                                </ul>
-                                <div className="pt-6 border-t">
-                                    <div className="flex items-center justify-between">
-                                        <div><span className="text-sm text-muted-foreground mb-1">Estimated Value</span><div className="flex items-baseline gap-2"><span className="text-3xl font-bold text-foreground">₹0</span><span className="text-muted-foreground line-through">₹14,999</span></div></div>
-                                        <span className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300 px-4 py-1.5 rounded-full text-sm font-bold">100% FREE</span>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="p-8 group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                             <CardContent className="p-0">
-                                <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                                    <ShoppingCart size={32}/>
-                                </div>
-                                <h3 className="text-2xl font-bold text-foreground mb-3">FREE E-Commerce Starter</h3>
-                                <p className="text-muted-foreground mb-8">Ideal for early-stage e-commerce brands and product sellers ready to sell.</p>
-                                <ul className="space-y-4 mb-8">
-                                    <li className="flex items-start gap-3"><CheckCircle className="text-green-500 mt-1 flex-shrink-0" /><span><strong className="text-foreground">Professional Storefront</strong> Design</span></li>
-                                    <li className="flex items-start gap-3"><CheckCircle className="text-green-500 mt-1 flex-shrink-0" /><span>Up to <strong className="text-foreground">10 Products</strong> Listed</span></li>
-                                    <li className="flex items-start gap-3"><CheckCircle className="text-green-500 mt-1 flex-shrink-0" /><span><strong className="text-foreground">Product & Cart</strong> Pages</span></li>
-                                    <li className="flex items-start gap-3"><CheckCircle className="text-green-500 mt-1 flex-shrink-0" /><span><strong className="text-foreground">Manual Order</strong> (WhatsApp/Email)</span></li>
-                                    <li className="flex items-start gap-3"><CheckCircle className="text-green-500 mt-1 flex-shrink-0" /><span><strong className="text-foreground">Mobile Responsive</strong> Shopping</span></li>
-                                    <li className="flex items-start gap-3"><CheckCircle className="text-green-500 mt-1 flex-shrink-0" /><span><strong className="text-foreground">Product Gallery</strong> & Desc.</span></li>
-                                </ul>
-                                <div className="pt-6 border-t">
-                                    <div className="flex items-center justify-between">
-                                        <div><span className="text-sm text-muted-foreground mb-1">Estimated Value</span><div className="flex items-baseline gap-2"><span className="text-3xl font-bold text-foreground">₹0</span><span className="text-muted-foreground line-through">₹24,999</span></div></div>
-                                        <span className="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300 px-4 py-1.5 rounded-full text-sm font-bold">100% FREE</span>
-                                    </div>
-                                </div>
-                            </CardContent>
-                        </Card>
+                    <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-4xl mx-auto justify-items-center">
+                        <OfferCard
+                            title="Basic Website"
+                            icon={Globe}
+                            gradientClass="bg-gradient-to-br from-primary to-accent"
+                            iconBgClass="bg-primary-foreground/10"
+                            iconFgClass="text-primary-foreground"
+                            stats={[
+                                { value: '3-5 Pages', label: 'Professional' },
+                                { value: 'Mobile Ready', label: 'Responsive' },
+                                { value: 'Free Forever', label: 'No Hidden Fees' },
+                            ]}
+                        />
+                        <OfferCard
+                            title="E-Commerce"
+                            icon={ShoppingCart}
+                            gradientClass="bg-gradient-to-br from-chart-2 to-chart-3"
+                            iconBgClass="bg-white/10"
+                            iconFgClass="text-white"
+                            stats={[
+                                { value: '10 Products', label: 'Listed' },
+                                { value: 'Storefront', label: 'Professional' },
+                                { value: 'Manual Orders', label: 'via WhatsApp' },
+                            ]}
+                        />
                     </div>
                 </div>
             </section>
@@ -536,13 +540,11 @@ ${data.goals}
                     </div>
 
                      <div className="relative max-w-5xl mx-auto">
-                        {/* Timeline Line */}
                         <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-border -translate-x-1/2 hidden md:block"></div>
 
                         {journeySteps.map((step, index) => (
                             <div key={index} className={`relative md:flex items-center mb-12 last:mb-0 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
                                 
-                                {/* Content Card */}
                                 <div className="md:w-1/2 w-full p-1">
                                     <div className={`${index % 2 === 0 ? 'md:ml-12' : 'md:mr-12'}`}>
                                         <Card className="h-full text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary group">
@@ -564,10 +566,8 @@ ${data.goals}
                                     </div>
                                 </div>
 
-                                {/* Spacer */}
                                 <div className="md:w-1/2 hidden md:block"></div>
 
-                                {/* Circle on timeline */}
                                 <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-8 h-8 bg-background border-4 border-primary rounded-full hidden md:flex items-center justify-center text-primary font-bold z-10">
                                     {index + 1}
                                 </div>
