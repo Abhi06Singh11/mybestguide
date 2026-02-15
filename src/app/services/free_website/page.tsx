@@ -173,23 +173,31 @@ export default function FreeWebsitePage() {
     };
 
     function onSubmit(data: z.infer<typeof applicationSchema>) {
-        const message = `=========================
-Free website Contact Form Submission
+        const message = `
+*Free website Contact Form Submission*
+>====================================<
+Hi i am *${data.fullName}*,
+I am quite interested in this "Free website Program"  and i am willing to  developmentof my website,
+here is my details are :
 
-Name: ${data.fullName}
-Email: ${data.email}
-Phone: ${data.phone}
-Business Name: ${data.businessName}
-Selected Plan: ${data.websiteType === 'E-Commerce' ? 'E-Commerce Starter' : 'Basic Website'}
+*Name*: ${data.fullName}
+*Email*: ${data.email}
+*Phone*: ${data.phone}
+*Business Name*: ${data.businessName}
+*Selected Plan*: ${data.websiteType === 'E-Commerce' ? 'E-Commerce Starter' : 'Basic Website'}
 
-Add-Ons Selected:
+*Selected Add-Ons*:
 ${data.addons && data.addons.length > 0 ? data.addons.map(a => '- ' + a).join('\n') : 'None'}
 
-Website Industry: ${data.industry === 'Custom' ? data.customIndustry : data.industry}
+*Website Industry*: ${data.industry === 'Custom' ? data.customIndustry : data.industry}
 
-Additional Messages:
+*Additional Messages*:
 ${data.goals}
-=========================`;
+
+
+-------------------------
+*Thanks* ,
+_${data.fullName}_;
 
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/917379848171?text=${encodedMessage}`;
