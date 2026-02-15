@@ -127,23 +127,23 @@ export default function CareersPage() {
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {opportunities.map((opportunity) => (
-              <Card key={opportunity.title} className="bg-card border-border flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+              <Card key={opportunity.title} className="group bg-card border-border flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-primary">{opportunity.title}</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-primary group-hover:text-primary-foreground">{opportunity.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col flex-grow">
-                  <p className="text-muted-foreground mb-6 flex-grow">{opportunity.description}</p>
-                  <ul className="space-y-3 mb-8 text-muted-foreground">
+                  <p className="text-muted-foreground mb-6 flex-grow group-hover:text-primary-foreground/80">{opportunity.description}</p>
+                  <ul className="space-y-3 mb-8 text-muted-foreground group-hover:text-primary-foreground/80">
                     {opportunity.points.map((point) => (
                       <li key={point} className="flex items-start">
-                        <ShieldCheck className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0" />
+                        <ShieldCheck className="h-5 w-5 text-primary mr-3 mt-1 flex-shrink-0 group-hover:text-primary-foreground" />
                         <span>{point}</span>
                       </li>
                     ))}
                   </ul>
                   <div className="mt-auto">
                     <Link href={opportunity.href}>
-                      <Button className="w-full font-bold py-3">
+                      <Button variant="secondary" className="w-full font-bold py-3 group-hover:bg-primary-foreground group-hover:text-primary">
                         {opportunity.cta}
                       </Button>
                     </Link>

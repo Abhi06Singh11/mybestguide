@@ -38,24 +38,24 @@ export default function Testimonials() {
                 return (
                     <CarouselItem key={testimonial.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
                         <div className="p-1 h-full">
-                            <Card className="h-full flex flex-col">
+                            <Card className="group h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground">
                                 <CardContent className="flex h-full flex-col justify-between p-6">
                                     <div>
-                                        <div className="flex space-x-1 text-yellow-400 mb-4">
+                                        <div className="flex space-x-1 text-yellow-400 mb-4 group-hover:text-yellow-300">
                                             {[...Array(5)].map((_, i) => <Star key={i} fill="currentColor" className="h-5 w-5" />)}
                                         </div>
-                                        <blockquote className="italic text-card-foreground">
+                                        <blockquote className="italic text-card-foreground group-hover:text-primary-foreground">
                                             “{testimonial.quote}”
                                         </blockquote>
                                     </div>
                                     <div className="mt-6 flex items-center">
                                         <Avatar className="h-12 w-12">
                                             {image && <AvatarImage src={image.imageUrl} alt={testimonial.name} data-ai-hint={image.imageHint} />}
-                                            <AvatarFallback>{testimonial.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                                            <AvatarFallback className="group-hover:bg-primary-foreground group-hover:text-primary">{testimonial.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                                         </Avatar>
                                         <div className="ml-4">
-                                            <p className="font-semibold font-headline">{testimonial.name}</p>
-                                            <p className="text-sm text-muted-foreground">{testimonial.title}</p>
+                                            <p className="font-semibold font-headline text-foreground group-hover:text-primary-foreground">{testimonial.name}</p>
+                                            <p className="text-sm text-muted-foreground group-hover:text-primary-foreground/80">{testimonial.title}</p>
                                         </div>
                                     </div>
                                 </CardContent>
