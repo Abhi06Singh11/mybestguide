@@ -254,20 +254,20 @@ ${data.goals}
 
     return(
         <div className="bg-background text-foreground">
-             <div className="container pt-8">
-                <Button
-                    variant="ghost"
-                    className="mb-8"
-                    onClick={() => router.back()}
-                >
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back
-                </Button>
-            </div>
             {/* Hero Section */}
             <section className="relative overflow-hidden bg-gray-900 text-primary-foreground py-16 md:py-24">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary via-blue-900 to-gray-900 opacity-80"></div>
                 <div className="container relative z-10">
+                    <div className="text-left">
+                        <Button
+                            variant="outline"
+                            className="mb-8 bg-transparent text-primary-foreground border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary"
+                            onClick={() => router.back()}
+                        >
+                            <ArrowLeft className="mr-2 h-4 w-4" />
+                            Back
+                        </Button>
+                    </div>
                     <div className="text-center">
                         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white px-5 py-2 rounded-full text-sm font-medium mb-8 border border-white/20">
                             <span className="relative flex h-3 w-3">
@@ -723,4 +723,5 @@ ${data.goals}
 }
 
     
+
 
