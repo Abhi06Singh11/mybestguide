@@ -410,115 +410,6 @@ ${data.goals}
                     </div>
                 </div>
             </section>
-
-             {/* Upgrades Section */}
-            <section id="upgrades" className="py-16 md:py-24 bg-background">
-                <div className="container">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Value Enhancements</h2>
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Unlock powerful growth tools as your business scales. No pressure – upgrade only when you need it.</p>
-                    </div>
-                    <Tabs defaultValue="addons" className="w-full">
-                        <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 h-auto mb-12">
-                            <TabsTrigger value="addons"><Puzzle className="mr-2"/>Performance</TabsTrigger>
-                            <TabsTrigger value="support"><Headset className="mr-2"/>Support Plans</TabsTrigger>
-                            <TabsTrigger value="marketing"><Megaphone className="mr-2"/>Marketing</TabsTrigger>
-                            <TabsTrigger value="ecommerce"><Store className="mr-2"/>E-Commerce</TabsTrigger>
-                            <TabsTrigger value="bundles"><Gift className="mr-2"/>Bundle Offers</TabsTrigger>
-                        </TabsList>
-                        
-                        <TabsContent value="addons">
-                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                {Object.values(addons["Performance & Design"]).map(addon => (
-                                    <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
-                                        <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
-                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground">
-                                                <addon.icon className="text-primary group-hover:text-primary" size={32}/>
-                                            </div>
-                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground flex-grow">{addon.title}</h4>
-                                            <p className="text-muted-foreground text-sm mb-5 group-hover:text-primary-foreground/80">{addon.desc}</p>
-                                            <div className="border-t pt-4 w-full group-hover:border-primary-foreground/20">
-                                                <span className="text-2xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{addon.price}</span>
-                                                <p className="text-muted-foreground text-xs font-medium uppercase tracking-wide group-hover:text-primary-foreground/80">one-time</p>
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        </TabsContent>
-                        <TabsContent value="support">
-                            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-start">
-                                {supportPlans.map(plan => (
-                                    <Card key={plan.title} className={cn("flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group hover:bg-primary hover:text-primary-foreground", plan.popular && "border-primary ring-2 ring-primary scale-105 hover:border-primary")}>
-                                        <CardContent className='p-8 h-full flex flex-col text-center'>
-                                            {plan.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase transition-colors group-hover:bg-primary-foreground group-hover:text-primary">Most Popular</div>}
-                                            <h4 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary-foreground">{plan.title}</h4>
-                                            <p className="text-muted-foreground text-sm mb-6 flex-grow group-hover:text-primary-foreground/80">{plan.desc}</p>
-                                            <div className="mb-6 pb-6 border-b group-hover:border-primary-foreground/20"><span className="text-4xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{plan.price}</span><span className="text-muted-foreground group-hover:text-primary-foreground/80">/month</span></div>
-                                            <ul className="space-y-4 mb-8 text-left">
-                                                {plan.features.map(feat => <li key={feat} className="flex items-start gap-3 text-sm text-muted-foreground group-hover:text-primary-foreground/80"><CheckCircle className="text-green-500 h-5 w-5 mt-0.5 flex-shrink-0 group-hover:text-green-300"/><span>{feat}</span></li>)}
-                                            </ul>
-                                            <Button variant={plan.popular ? 'default' : 'outline'} className="w-full mt-auto group-hover:bg-primary-foreground group-hover:text-primary group-hover:border-primary-foreground" onClick={scrollToApply}>Choose Plan</Button>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        </TabsContent>
-                        <TabsContent value="marketing">
-                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                               {Object.values(addons["Marketing & Growth"]).map(addon => (
-                                    <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
-                                        <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
-                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground">
-                                                <addon.icon className="text-primary group-hover:text-primary" size={32}/>
-                                            </div>
-                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground flex-grow">{addon.title}</h4>
-                                            <p className="text-muted-foreground text-sm mb-4 group-hover:text-primary-foreground/80">{addon.desc}</p>
-                                            <div className="border-t pt-4 w-full mt-auto group-hover:border-primary-foreground/20"><span className="text-2xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{addon.price}</span></div>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        </TabsContent>
-                         <TabsContent value="ecommerce">
-                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                               {Object.values(addons["E-Commerce & Payments"]).map(addon => (
-                                    <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
-                                        <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
-                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground">
-                                                <addon.icon className="text-primary group-hover:text-primary" size={32}/>
-                                            </div>
-                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground flex-grow">{addon.title}</h4>
-                                            <p className="text-muted-foreground text-sm flex-grow mb-4 group-hover:text-primary-foreground/80">{addon.desc}</p>
-                                            <div className="border-t pt-4 w-full mt-auto group-hover:border-primary-foreground/20">
-                                            <span className="text-2xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{addon.price}</span>
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        </TabsContent>
-                        <TabsContent value="bundles">
-                             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
-                                {bundles.map(bundle => (
-                                    <Card key={bundle.title} className={cn("flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group hover:bg-primary hover:text-primary-foreground", bundle.popular && "border-primary ring-2 ring-primary scale-105 hover:border-primary")}>
-                                        <CardContent className='p-8 h-full flex flex-col text-center'>
-                                             {bundle.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase transition-colors group-hover:bg-primary-foreground group-hover:text-primary">Best Value</div>}
-                                            <h4 className="text-2xl font-bold text-foreground mb-1 group-hover:text-primary-foreground">{bundle.title}</h4>
-                                            <p className="text-muted-foreground text-sm mb-6 flex-grow group-hover:text-primary-foreground/80">{bundle.desc}</p>
-                                            <div className="mb-6"><span className="text-4xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{bundle.price}</span><span className="text-muted-foreground line-through ml-2 group-hover:text-primary-foreground/80">{bundle.oldPrice}</span></div>
-                                            <ul className="space-y-3 mb-8 text-left">
-                                                {bundle.features.map(feat => <li key={feat} className="flex items-start gap-2 text-sm text-muted-foreground group-hover:text-primary-foreground/80"><CheckCircle className="text-green-500 h-5 w-5 mt-0.5 flex-shrink-0 group-hover:text-green-300"/><span>{feat}</span></li>)}
-                                            </ul>
-                                            <Button variant={bundle.popular ? 'default' : 'outline'} className="w-full mt-auto group-hover:bg-primary-foreground group-hover:text-primary group-hover:border-primary-foreground" onClick={scrollToApply}>Get Started</Button>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        </TabsContent>
-                    </Tabs>
-                </div>
-            </section>
             
             {/* Domain & Hosting Info */}
             <section className="bg-background pb-0 pt-16">
@@ -568,7 +459,116 @@ ${data.goals}
                 </div>
              </section>
 
-             {/* Client Journey Section */}
+             {/* Upgrades Section */}
+            <section id="upgrades" className="py-16 md:py-24 bg-background">
+                <div className="container">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Value Enhancements</h2>
+                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Unlock powerful growth tools as your business scales. No pressure – upgrade only when you need it.</p>
+                    </div>
+                    <Tabs defaultValue="addons" className="w-full">
+                        <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 h-auto mb-12">
+                            <TabsTrigger value="addons"><Puzzle className="mr-2"/>Performance</TabsTrigger>
+                            <TabsTrigger value="support"><Headset className="mr-2"/>Support Plans</TabsTrigger>
+                            <TabsTrigger value="marketing"><Megaphone className="mr-2"/>Marketing</TabsTrigger>
+                            <TabsTrigger value="ecommerce"><Store className="mr-2"/>E-Commerce</TabsTrigger>
+                            <TabsTrigger value="bundles"><Gift className="mr-2"/>Bundle Offers</TabsTrigger>
+                        </TabsList>
+                        
+                        <TabsContent value="addons">
+                            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {Object.values(addons["Performance & Design"]).map(addon => (
+                                    <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
+                                        <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
+                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground">
+                                                <addon.icon className="text-primary group-hover:text-primary" size={32}/>
+                                            </div>
+                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground flex-grow">{addon.title}</h4>
+                                            <p className="text-muted-foreground text-sm mb-5 group-hover:text-primary-foreground/80">{addon.desc}</p>
+                                            <div className="border-t pt-4 w-full group-hover:border-primary-foreground/20">
+                                                <span className="text-2xl font-bold text-foreground dark:text-primary-foreground group-hover:text-primary-foreground">{addon.price}</span>
+                                                <p className="text-muted-foreground text-xs font-medium uppercase tracking-wide group-hover:text-primary-foreground/80">one-time</p>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        </TabsContent>
+                        <TabsContent value="support">
+                            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-start">
+                                {supportPlans.map(plan => (
+                                    <Card key={plan.title} className={cn("flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group hover:bg-primary hover:text-primary-foreground", plan.popular && "border-primary ring-2 ring-primary scale-105 hover:border-primary")}>
+                                        <CardContent className='p-8 h-full flex flex-col text-center'>
+                                            {plan.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase transition-colors group-hover:bg-primary-foreground group-hover:text-primary">Most Popular</div>}
+                                            <h4 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary-foreground">{plan.title}</h4>
+                                            <p className="text-muted-foreground text-sm mb-6 flex-grow group-hover:text-primary-foreground/80">{plan.desc}</p>
+                                            <div className="mb-6 pb-6 border-b group-hover:border-primary-foreground/20"><span className="text-4xl font-bold text-foreground dark:text-primary-foreground group-hover:text-primary-foreground">{plan.price}</span><span className="text-muted-foreground group-hover:text-primary-foreground/80">/month</span></div>
+                                            <ul className="space-y-4 mb-8 text-left">
+                                                {plan.features.map(feat => <li key={feat} className="flex items-start gap-3 text-sm text-muted-foreground group-hover:text-primary-foreground/80"><CheckCircle className="text-green-500 h-5 w-5 mt-0.5 flex-shrink-0 group-hover:text-green-300"/><span>{feat}</span></li>)}
+                                            </ul>
+                                            <Button variant={plan.popular ? 'default' : 'outline'} className="w-full mt-auto group-hover:bg-primary-foreground group-hover:text-primary group-hover:border-primary-foreground" onClick={scrollToApply}>Choose Plan</Button>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        </TabsContent>
+                        <TabsContent value="marketing">
+                            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                               {Object.values(addons["Marketing & Growth"]).map(addon => (
+                                    <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
+                                        <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
+                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground">
+                                                <addon.icon className="text-primary group-hover:text-primary" size={32}/>
+                                            </div>
+                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground flex-grow">{addon.title}</h4>
+                                            <p className="text-muted-foreground text-sm mb-4 group-hover:text-primary-foreground/80">{addon.desc}</p>
+                                            <div className="border-t pt-4 w-full mt-auto group-hover:border-primary-foreground/20"><span className="text-2xl font-bold text-foreground dark:text-primary-foreground group-hover:text-primary-foreground">{addon.price}</span></div>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        </TabsContent>
+                         <TabsContent value="ecommerce">
+                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                               {Object.values(addons["E-Commerce & Payments"]).map(addon => (
+                                    <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
+                                        <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
+                                            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground">
+                                                <addon.icon className="text-primary group-hover:text-primary" size={32}/>
+                                            </div>
+                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground flex-grow">{addon.title}</h4>
+                                            <p className="text-muted-foreground text-sm flex-grow mb-4 group-hover:text-primary-foreground/80">{addon.desc}</p>
+                                            <div className="border-t pt-4 w-full mt-auto group-hover:border-primary-foreground/20">
+                                            <span className="text-2xl font-bold text-foreground dark:text-primary-foreground group-hover:text-primary-foreground">{addon.price}</span>
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        </TabsContent>
+                        <TabsContent value="bundles">
+                             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
+                                {bundles.map(bundle => (
+                                    <Card key={bundle.title} className={cn("flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group hover:bg-primary hover:text-primary-foreground", bundle.popular && "border-primary ring-2 ring-primary scale-105 hover:border-primary")}>
+                                        <CardContent className='p-8 h-full flex flex-col text-center'>
+                                             {bundle.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase transition-colors group-hover:bg-primary-foreground group-hover:text-primary">Best Value</div>}
+                                            <h4 className="text-2xl font-bold text-foreground mb-1 group-hover:text-primary-foreground">{bundle.title}</h4>
+                                            <p className="text-muted-foreground text-sm mb-6 flex-grow group-hover:text-primary-foreground/80">{bundle.desc}</p>
+                                            <div className="mb-6"><span className="text-4xl font-bold text-foreground dark:text-primary-foreground group-hover:text-primary-foreground">{bundle.price}</span><span className="text-muted-foreground line-through ml-2 group-hover:text-primary-foreground/80">{bundle.oldPrice}</span></div>
+                                            <ul className="space-y-3 mb-8 text-left">
+                                                {bundle.features.map(feat => <li key={feat} className="flex items-start gap-2 text-sm text-muted-foreground group-hover:text-primary-foreground/80"><CheckCircle className="text-green-500 h-5 w-5 mt-0.5 flex-shrink-0 group-hover:text-green-300"/><span>{feat}</span></li>)}
+                                            </ul>
+                                            <Button variant={bundle.popular ? 'default' : 'outline'} className="w-full mt-auto group-hover:bg-primary-foreground group-hover:text-primary group-hover:border-primary-foreground" onClick={scrollToApply}>Get Started</Button>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
+                        </TabsContent>
+                    </Tabs>
+                </div>
+            </section>
+            
+            {/* Client Journey Section */}
             <section id="journey" className="py-24 bg-secondary relative overflow-hidden">
                 <div className="container relative z-10">
                     <div className="text-center mb-16">
@@ -789,4 +789,5 @@ ${data.goals}
     
 
     
+
 
