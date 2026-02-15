@@ -545,20 +545,20 @@ ${data.goals}
                                 {/* Content Card */}
                                 <div className="md:w-1/2 w-full p-1">
                                     <div className={`${index % 2 === 0 ? 'md:ml-12' : 'md:mr-12'}`}>
-                                        <Card className="group/card h-full text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                                        <Card className="group h-full text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary">
                                             <CardContent className="p-6">
                                                 <div className="flex items-center gap-4">
-                                                    <div className="rounded-lg bg-primary/10 p-3 text-primary">
+                                                    <div className="rounded-lg bg-primary/10 p-3 text-primary group-hover:bg-primary-foreground group-hover:text-primary transition-colors duration-300">
                                                         <step.icon className="h-6 w-6" />
                                                     </div>
                                                     <div>
-                                                        <h3 className="font-headline text-lg font-semibold">{step.title}</h3>
-                                                        <div className="mt-1 bg-secondary rounded-full inline-flex px-3 py-1 text-xs font-bold text-primary">
+                                                        <h3 className="font-headline text-lg font-semibold text-foreground group-hover:text-primary-foreground">{step.title}</h3>
+                                                        <div className="mt-1 bg-secondary rounded-full inline-flex px-3 py-1 text-xs font-bold text-primary group-hover:bg-primary-foreground group-hover:text-primary transition-colors duration-300">
                                                             {step.meta}
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <p className="mt-4 text-sm text-muted-foreground">{step.description}</p>
+                                                <p className="mt-4 text-sm text-muted-foreground group-hover:text-primary-foreground/80">{step.description}</p>
                                             </CardContent>
                                         </Card>
                                     </div>
