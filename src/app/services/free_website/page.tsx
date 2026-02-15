@@ -437,7 +437,7 @@ ${data.goals}
                                         <br />
                                         If you want to buy hosting and domain from us, we provide an additional 10–15% discount compared to the market price.
                                         <br />
-                                        We are powered by <strong>GoDaddy</strong>.
+                                        We are powered by <strong className="text-blue-950 dark:text-blue-200">GoDaddy</strong>.
                                     </p>
                                 </div>
                             </div>
@@ -449,7 +449,7 @@ ${data.goals}
                                             <h4 className="text-lg font-bold text-foreground mb-2">{addon.title}</h4>
                                             <p className="text-muted-foreground text-sm mb-5 min-h-[40px]">{addon.desc}</p>
                                             <div className="flex items-center justify-between border-t pt-4">
-                                                <span className="text-2xl font-bold text-primary">{addon.price}</span>
+                                                <span className="text-2xl font-bold text-foreground">{addon.price}</span>
                                                 <span className="text-muted-foreground text-xs font-medium uppercase tracking-wide">one-time</span>
                                             </div>
                                         </CardContent>
@@ -465,7 +465,7 @@ ${data.goals}
                                             {plan.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase">Most Popular</div>}
                                             <h4 className="text-xl font-bold text-foreground mb-2">{plan.title}</h4>
                                             <p className="text-muted-foreground text-sm mb-6 flex-grow">{plan.desc}</p>
-                                            <div className="mb-6 pb-6 border-b"><span className="text-4xl font-bold text-primary">{plan.price}</span><span className="text-muted-foreground">/month</span></div>
+                                            <div className="mb-6 pb-6 border-b"><span className="text-4xl font-bold text-foreground">{plan.price}</span><span className="text-muted-foreground">/month</span></div>
                                             <ul className="space-y-4 mb-8">
                                                 {plan.features.map(feat => <li key={feat} className="flex items-center gap-3 text-sm"><CheckCircle className="text-green-500 h-4 w-4 flex-shrink-0"/><span>{feat}</span></li>)}
                                             </ul>
@@ -483,7 +483,7 @@ ${data.goals}
                                             <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300"><addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/></div>
                                             <h4 className="text-lg font-bold text-foreground mb-2">{addon.title}</h4>
                                             <p className="text-muted-foreground text-sm mb-4 min-h-[40px]">{addon.desc}</p>
-                                            <div className="pt-4 border-t"><span className="text-2xl font-bold text-primary">{addon.price}</span></div>
+                                            <div className="pt-4 border-t"><span className="text-2xl font-bold text-foreground">{addon.price}</span></div>
                                         </CardContent>
                                     </Card>
                                 ))}
@@ -513,7 +513,7 @@ ${data.goals}
                                              {bundle.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase">Best Value</div>}
                                             <h4 className="text-2xl font-bold text-foreground mb-1">{bundle.title}</h4>
                                             <p className="text-muted-foreground text-sm mb-6 flex-grow">{bundle.desc}</p>
-                                            <div className="mb-6"><span className="text-4xl font-bold text-primary">{bundle.price}</span><span className="text-muted-foreground line-through ml-2">{bundle.oldPrice}</span></div>
+                                            <div className="mb-6"><span className="text-4xl font-bold text-foreground">{bundle.price}</span><span className="text-muted-foreground line-through ml-2">{bundle.oldPrice}</span></div>
                                             <ul className="space-y-3 mb-8">
                                                 {bundle.features.map(feat => <li key={feat} className="flex items-center gap-2 text-sm"><CheckCircle className="text-green-500 h-4 w-4"/><span>{feat}</span></li>)}
                                             </ul>
@@ -535,27 +535,25 @@ ${data.goals}
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">From application to launch in 5 simple steps.</p>
                     </div>
 
-                    <div className="relative max-w-4xl mx-auto">
-                        <div className="absolute left-4 md:left-1/2 top-0 h-full w-0.5 bg-border -translate-x-1/2 hidden md:block"></div>
-                        <div className="space-y-12 md:space-y-16">
-                            {journeySteps.map((step, index) => (
-                                <div key={index} className="flex flex-col md:flex-row items-center gap-8 group">
-                                    <div className={cn("md:w-1/2", index % 2 === 0 ? "md:text-right md:pr-12" : "md:pl-12 md:order-3")}>
-                                        <h3 className="text-2xl font-bold text-foreground mb-3">{step.title}</h3>
-                                        <p className="text-muted-foreground">{step.description}</p>
-                                    </div>
-                                    <div className="w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-2xl z-10 flex-shrink-0 border-4 border-background md:order-2 shadow-lg group-hover:scale-110 transition-transform">
-                                        {index + 1}
-                                    </div>
-                                    <div className={cn("md:w-1/2", index % 2 === 0 ? "md:pl-12" : "md:text-right md:pr-12 md:order-1")}>
-                                        <div className="bg-secondary rounded-2xl p-4 shadow-sm inline-flex items-center gap-4 border">
-                                            <step.icon className="text-primary" size={24}/>
-                                            <span className="text-muted-foreground font-medium">{step.meta}</span>
+                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        {journeySteps.map((step, index) => (
+                           <Card key={index} className="group h-full text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary hover:text-primary-foreground">
+                                <CardContent className="p-8">
+                                    <div className="flex justify-center mb-6">
+                                        <div className="rounded-full bg-primary/10 p-5 text-primary transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
+                                            <step.icon className="h-10 w-10" />
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
+                                    <h3 className="font-headline text-xl font-semibold group-hover:text-primary-foreground mb-3">{step.title}</h3>
+                                    <p className="text-sm text-muted-foreground group-hover:text-primary-foreground/80 mb-5">{step.description}</p>
+                                    <div className="mt-auto pt-4">
+                                        <div className="bg-secondary/20 rounded-full inline-flex px-4 py-2 text-xs font-bold group-hover:bg-primary-foreground/20 group-hover:text-primary-foreground">
+                                            {step.meta}
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -730,8 +728,5 @@ ${data.goals}
 
         </div>
     );
-}
-
-    
 
     
