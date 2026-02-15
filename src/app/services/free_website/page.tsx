@@ -55,11 +55,11 @@ const applicationSchema = z.object({
 
 const OfferCard = ({ title, description, features, value, originalValue, tagText, tagBgClass, icon: Icon, iconBgClass }) => {
     return (
-        <div className="bg-secondary rounded-3xl p-8 md:p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group border hover:bg-primary">
+        <div className="bg-secondary rounded-3xl p-8 md:p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group hover:bg-primary">
             <div className={cn("absolute top-0 right-0 w-32 h-32 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110", tagBgClass, "opacity-10 dark:opacity-20")}></div>
 
-            <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg relative z-10", iconBgClass)}>
-                <Icon className="text-white text-2xl h-8 w-8" />
+            <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg relative z-10 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary", iconBgClass)}>
+                <Icon className="text-white text-2xl h-8 w-8 group-hover:text-primary-foreground" />
             </div>
 
             <h3 className="text-2xl font-bold text-foreground mb-3 relative z-10 group-hover:text-primary-foreground">{title}</h3>
@@ -474,14 +474,16 @@ ${data.goals}
                             </div>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {Object.values(addons["Performance & Design"]).map(addon => (
-                                    <Card key={addon.id} className="p-6 group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                                        <CardContent className='p-0'>
-                                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300"><addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/></div>
-                                            <h4 className="text-lg font-bold text-foreground mb-2">{addon.title}</h4>
-                                            <p className="text-muted-foreground text-sm mb-5 min-h-[40px]">{addon.desc}</p>
-                                            <div className="flex items-center justify-between border-t pt-4">
-                                                <span className="text-2xl font-bold text-foreground dark:text-white">{addon.price}</span>
-                                                <span className="text-muted-foreground text-xs font-medium uppercase tracking-wide">one-time</span>
+                                    <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
+                                        <CardContent className='p-6 h-full flex flex-col'>
+                                            <div className="mx-auto w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
+                                                <addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/>
+                                            </div>
+                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground">{addon.title}</h4>
+                                            <p className="text-muted-foreground text-sm mb-5 min-h-[40px] flex-grow group-hover:text-primary-foreground/80">{addon.desc}</p>
+                                            <div className="border-t pt-4 group-hover:border-primary-foreground/20">
+                                                <span className="text-2xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{addon.price}</span>
+                                                <p className="text-muted-foreground text-xs font-medium uppercase tracking-wide group-hover:text-primary-foreground/80">one-time</p>
                                             </div>
                                         </CardContent>
                                     </Card>
@@ -491,16 +493,16 @@ ${data.goals}
                         <TabsContent value="support">
                             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-start">
                                 {supportPlans.map(plan => (
-                                    <Card key={plan.title} className={cn("p-8 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1", plan.popular && "border-primary ring-2 ring-primary scale-105")}>
-                                        <CardContent className='p-0 h-full flex flex-col'>
-                                            {plan.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase">Most Popular</div>}
-                                            <h4 className="text-xl font-bold text-foreground mb-2">{plan.title}</h4>
-                                            <p className="text-muted-foreground text-sm mb-6 flex-grow">{plan.desc}</p>
-                                            <div className="mb-6 pb-6 border-b"><span className="text-4xl font-bold text-foreground dark:text-white">{plan.price}</span><span className="text-muted-foreground">/month</span></div>
-                                            <ul className="space-y-4 mb-8">
-                                                {plan.features.map(feat => <li key={feat} className="flex items-center gap-3 text-sm"><CheckCircle className="text-green-500 h-4 w-4 flex-shrink-0"/><span>{feat}</span></li>)}
+                                    <Card key={plan.title} className={cn("flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group hover:bg-primary hover:text-primary-foreground", plan.popular && "border-primary ring-2 ring-primary scale-105 hover:border-primary")}>
+                                        <CardContent className='p-8 h-full flex flex-col text-center'>
+                                            {plan.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase transition-colors group-hover:bg-primary-foreground group-hover:text-primary">Most Popular</div>}
+                                            <h4 className="text-xl font-bold text-foreground mb-2 group-hover:text-primary-foreground">{plan.title}</h4>
+                                            <p className="text-muted-foreground text-sm mb-6 flex-grow group-hover:text-primary-foreground/80">{plan.desc}</p>
+                                            <div className="mb-6 pb-6 border-b group-hover:border-primary-foreground/20"><span className="text-4xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{plan.price}</span><span className="text-muted-foreground group-hover:text-primary-foreground/80">/month</span></div>
+                                            <ul className="space-y-4 mb-8 text-left">
+                                                {plan.features.map(feat => <li key={feat} className="flex items-start gap-3 text-sm text-muted-foreground group-hover:text-primary-foreground/80"><CheckCircle className="text-green-500 h-5 w-5 mt-0.5 flex-shrink-0 group-hover:text-green-300"/><span>{feat}</span></li>)}
                                             </ul>
-                                            <Button variant={plan.popular ? 'default' : 'outline'} className="w-full mt-auto" onClick={scrollToApply}>Choose Plan</Button>
+                                            <Button variant={plan.popular ? 'default' : 'outline'} className="w-full mt-auto group-hover:bg-primary-foreground group-hover:text-primary group-hover:border-primary-foreground" onClick={scrollToApply}>Choose Plan</Button>
                                         </CardContent>
                                     </Card>
                                 ))}
@@ -509,12 +511,14 @@ ${data.goals}
                         <TabsContent value="marketing">
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                {Object.values(addons["Marketing & Growth"]).map(addon => (
-                                    <Card key={addon.id} className="p-6 group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                                        <CardContent className='p-0'>
-                                            <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300"><addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/></div>
-                                            <h4 className="text-lg font-bold text-foreground mb-2">{addon.title}</h4>
-                                            <p className="text-muted-foreground text-sm mb-4 min-h-[40px]">{addon.desc}</p>
-                                            <div className="pt-4 border-t"><span className="text-2xl font-bold text-foreground dark:text-white">{addon.price}</span></div>
+                                    <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
+                                        <CardContent className='p-6 h-full flex flex-col'>
+                                            <div className="mx-auto w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
+                                                <addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/>
+                                            </div>
+                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground">{addon.title}</h4>
+                                            <p className="text-muted-foreground text-sm mb-4 min-h-[40px] flex-grow group-hover:text-primary-foreground/80">{addon.desc}</p>
+                                            <div className="pt-4 border-t group-hover:border-primary-foreground/20"><span className="text-2xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{addon.price}</span></div>
                                         </CardContent>
                                     </Card>
                                 ))}
@@ -523,14 +527,16 @@ ${data.goals}
                          <TabsContent value="ecommerce">
                              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                {Object.values(addons["E-Commerce & Payments"]).map(addon => (
-                                    <Card key={addon.id} className="p-6 group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                                        <CardContent className='p-0'>
-                                            <div className="flex justify-between items-start mb-4">
-                                                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors duration-300"><addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/></div>
-                                                <span className="text-xl font-bold text-foreground dark:text-white">{addon.price}</span>
+                                    <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
+                                        <CardContent className='p-6 h-full flex flex-col'>
+                                            <div className="mx-auto w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
+                                                <addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/>
                                             </div>
-                                            <h4 className="text-lg font-bold text-foreground mb-2">{addon.title}</h4>
-                                            <p className="text-muted-foreground text-sm">{addon.desc}</p>
+                                            <h4 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary-foreground">{addon.title}</h4>
+                                            <p className="text-muted-foreground text-sm flex-grow mb-4 group-hover:text-primary-foreground/80">{addon.desc}</p>
+                                            <div className="border-t pt-4 mt-auto group-hover:border-primary-foreground/20">
+                                            <span className="text-2xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{addon.price}</span>
+                                            </div>
                                         </CardContent>
                                     </Card>
                                 ))}
@@ -539,16 +545,16 @@ ${data.goals}
                         <TabsContent value="bundles">
                              <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
                                 {bundles.map(bundle => (
-                                    <Card key={bundle.title} className={cn("p-8 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1", bundle.popular && "border-primary ring-2 ring-primary scale-105")}>
-                                        <CardContent className='p-0 h-full flex flex-col'>
-                                             {bundle.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase">Best Value</div>}
-                                            <h4 className="text-2xl font-bold text-foreground mb-1">{bundle.title}</h4>
-                                            <p className="text-muted-foreground text-sm mb-6 flex-grow">{bundle.desc}</p>
-                                            <div className="mb-6"><span className="text-4xl font-bold text-foreground dark:text-white">{bundle.price}</span><span className="text-muted-foreground line-through ml-2">{bundle.oldPrice}</span></div>
-                                            <ul className="space-y-3 mb-8">
-                                                {bundle.features.map(feat => <li key={feat} className="flex items-center gap-2 text-sm"><CheckCircle className="text-green-500 h-4 w-4"/><span>{feat}</span></li>)}
+                                    <Card key={bundle.title} className={cn("flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group hover:bg-primary hover:text-primary-foreground", bundle.popular && "border-primary ring-2 ring-primary scale-105 hover:border-primary")}>
+                                        <CardContent className='p-8 h-full flex flex-col text-center'>
+                                             {bundle.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase transition-colors group-hover:bg-primary-foreground group-hover:text-primary">Best Value</div>}
+                                            <h4 className="text-2xl font-bold text-foreground mb-1 group-hover:text-primary-foreground">{bundle.title}</h4>
+                                            <p className="text-muted-foreground text-sm mb-6 flex-grow group-hover:text-primary-foreground/80">{bundle.desc}</p>
+                                            <div className="mb-6"><span className="text-4xl font-bold text-foreground dark:text-white group-hover:text-primary-foreground">{bundle.price}</span><span className="text-muted-foreground line-through ml-2 group-hover:text-primary-foreground/80">{bundle.oldPrice}</span></div>
+                                            <ul className="space-y-3 mb-8 text-left">
+                                                {bundle.features.map(feat => <li key={feat} className="flex items-start gap-2 text-sm text-muted-foreground group-hover:text-primary-foreground/80"><CheckCircle className="text-green-500 h-5 w-5 mt-0.5 flex-shrink-0 group-hover:text-green-300"/><span>{feat}</span></li>)}
                                             </ul>
-                                            <Button variant={bundle.popular ? 'default' : 'outline'} className="w-full mt-auto" onClick={scrollToApply}>Get Started</Button>
+                                            <Button variant={bundle.popular ? 'default' : 'outline'} className="w-full mt-auto group-hover:bg-primary-foreground group-hover:text-primary group-hover:border-primary-foreground" onClick={scrollToApply}>Get Started</Button>
                                         </CardContent>
                                     </Card>
                                 ))}
@@ -577,12 +583,12 @@ ${data.goals}
                                         <Card className="h-full text-left transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary group">
                                             <CardContent className="p-6">
                                                 <div className="flex items-center gap-4">
-                                                    <div className="rounded-lg bg-primary/10 p-3 text-primary group-hover:bg-primary-foreground group-hover:text-primary transition-colors duration-300">
+                                                    <div className="rounded-lg bg-primary/10 p-3 text-primary transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
                                                         <step.icon className="h-6 w-6" />
                                                     </div>
                                                     <div>
                                                         <h3 className="font-headline text-lg font-semibold text-foreground group-hover:text-primary-foreground">{step.title}</h3>
-                                                        <div className="mt-1 bg-secondary rounded-full inline-flex px-3 py-1 text-xs font-bold text-primary group-hover:bg-primary-foreground group-hover:text-primary transition-colors duration-300">
+                                                        <div className="mt-1 bg-secondary rounded-full inline-flex px-3 py-1 text-xs font-bold text-primary transition-colors duration-300 group-hover:bg-primary-foreground group-hover:text-primary">
                                                             {step.meta}
                                                         </div>
                                                     </div>
@@ -775,5 +781,7 @@ ${data.goals}
         </div>
     );
 }
+
+    
 
     
