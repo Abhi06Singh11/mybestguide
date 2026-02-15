@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -15,8 +16,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
-import { Rocket, CheckCircle, Download, Globe, ShoppingCart, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Package, Edit, Mail, LineChart, AlertTriangle, MousePointerClick, ArrowRight, MessageSquare, ChevronDown, Check, Circle, Code, Trash2 } from 'lucide-react';
+import { Rocket, CheckCircle, Download, Globe, ShoppingCart, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Package, Edit, Mail, LineChart, AlertTriangle, MousePointerClick, ArrowRight, MessageSquare, ChevronDown, Check, Circle, Code, Trash2, ArrowLeft } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { useRouter } from 'next/navigation';
 
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -53,6 +55,7 @@ const applicationSchema = z.object({
 
 
 export default function FreeWebsitePage() {
+    const router = useRouter();
     const [currentStep, setCurrentStep] = useState(1);
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const [slots, setSlots] = useState({ remaining: 7, total: 10 });
@@ -251,6 +254,16 @@ ${data.goals}
 
     return(
         <div className="bg-background text-foreground">
+            <div className="container">
+                <Button
+                    variant="ghost"
+                    className="mt-8"
+                    onClick={() => router.back()}
+                >
+                    <ArrowLeft className="mr-2 h-4 w-4" />
+                    Back
+                </Button>
+            </div>
             {/* Hero Section */}
             <section className="relative overflow-hidden bg-gray-900 text-primary-foreground py-20 md:py-32">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary via-blue-900 to-gray-900 opacity-80"></div>
@@ -305,7 +318,7 @@ ${data.goals}
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Everything you need to establish your online presence – completely free of charge.</p>
                     </div>
                     <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                        <Card className="p-8 group hover:-translate-y-1 transition-transform duration-300">
+                        <Card className="p-8 group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                             <CardContent className="p-0">
                                 <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                                     <Globe size={32}/>
@@ -329,7 +342,7 @@ ${data.goals}
                             </CardContent>
                         </Card>
 
-                        <Card className="p-8 group hover:-translate-y-1 transition-transform duration-300">
+                        <Card className="p-8 group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                              <CardContent className="p-0">
                                 <div className="w-16 h-16 bg-primary/10 text-primary rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                                     <ShoppingCart size={32}/>
@@ -409,13 +422,17 @@ ${data.goals}
                             <div className="max-w-3xl mx-auto mb-8 text-center">
                                 <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
                                     <p className="text-sm text-blue-900 dark:text-blue-300 font-medium leading-relaxed">
-                                        Domain and Hosting prices are not included. We offer a 10–15% discount on GoDaddy plans if purchased through us.
+                                        Domain and Hosting prices are not included in this package.
+                                        <br />
+                                        If you want to buy hosting and domain from us, we provide an additional 10–15% discount compared to the market price.
+                                        <br />
+                                        We are powered by <strong>GoDaddy</strong>.
                                     </p>
                                 </div>
                             </div>
                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                 {Object.values(addons["Performance & Design"]).map(addon => (
-                                    <Card key={addon.id} className="p-6 group hover:-translate-y-1 transition-transform">
+                                    <Card key={addon.id} className="p-6 group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                                         <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300"><addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/></div>
                                         <h4 className="text-lg font-bold text-foreground mb-2">{addon.title}</h4>
                                         <p className="text-muted-foreground text-sm mb-5 min-h-[40px]">{addon.desc}</p>
@@ -430,7 +447,7 @@ ${data.goals}
                         <TabsContent value="support">
                             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto items-start">
                                 {supportPlans.map(plan => (
-                                    <Card key={plan.title} className={cn("p-8 flex flex-col h-full", plan.popular && "border-primary ring-2 ring-primary scale-105")}>
+                                    <Card key={plan.title} className={cn("p-8 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1", plan.popular && "border-primary ring-2 ring-primary scale-105")}>
                                          {plan.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase">Most Popular</div>}
                                         <h4 className="text-xl font-bold text-foreground mb-2">{plan.title}</h4>
                                         <p className="text-muted-foreground text-sm mb-6 flex-grow">{plan.desc}</p>
@@ -446,7 +463,7 @@ ${data.goals}
                         <TabsContent value="marketing">
                             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                                {Object.values(addons["Marketing & Growth"]).map(addon => (
-                                    <Card key={addon.id} className="p-6 group hover:-translate-y-1 transition-transform">
+                                    <Card key={addon.id} className="p-6 group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                                         <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-5 group-hover:bg-primary transition-colors duration-300"><addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/></div>
                                         <h4 className="text-lg font-bold text-foreground mb-2">{addon.title}</h4>
                                         <p className="text-muted-foreground text-sm mb-4 min-h-[40px]">{addon.desc}</p>
@@ -458,7 +475,7 @@ ${data.goals}
                          <TabsContent value="ecommerce">
                              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                                {Object.values(addons["E-Commerce & Payments"]).map(addon => (
-                                    <Card key={addon.id} className="p-6 group hover:-translate-y-1 transition-transform">
+                                    <Card key={addon.id} className="p-6 group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                                         <div className="flex justify-between items-start mb-4">
                                             <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary transition-colors duration-300"><addon.icon className="text-primary group-hover:text-primary-foreground" size={24}/></div>
                                             <span className="text-xl font-bold text-foreground">{addon.price}</span>
@@ -472,7 +489,7 @@ ${data.goals}
                         <TabsContent value="bundles">
                              <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
                                 {bundles.map(bundle => (
-                                    <Card key={bundle.title} className={cn("p-8 flex flex-col h-full", bundle.popular && "border-primary ring-2 ring-primary scale-105")}>
+                                    <Card key={bundle.title} className={cn("p-8 flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1", bundle.popular && "border-primary ring-2 ring-primary scale-105")}>
                                          {bundle.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase">Best Value</div>}
                                         <h4 className="text-2xl font-bold text-foreground mb-1">{bundle.title}</h4>
                                         <p className="text-muted-foreground text-sm mb-6 flex-grow">{bundle.desc}</p>
@@ -693,3 +710,5 @@ ${data.goals}
         </div>
     );
 }
+
+    
