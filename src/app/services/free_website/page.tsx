@@ -254,57 +254,59 @@ ${data.goals}
 
     return(
         <div className="bg-background text-foreground">
-            <div className="container">
-                <Button
-                    variant="ghost"
-                    className="mt-8"
-                    onClick={() => router.back()}
-                >
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back
-                </Button>
-            </div>
             {/* Hero Section */}
-            <section className="relative overflow-hidden bg-gray-900 text-primary-foreground py-20 md:py-32">
+            <section className="relative overflow-hidden bg-gray-900 text-primary-foreground py-16 md:py-24">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary via-blue-900 to-gray-900 opacity-80"></div>
-                <div className="container relative z-10 text-center">
-                    <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white px-5 py-2 rounded-full text-sm font-medium mb-8 border border-white/20">
-                        <span className="relative flex h-3 w-3">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                        </span>
-                        Limited-Time Offer – <span className="font-bold">{slots.remaining}</span> Slots Remaining This Month
-                    </div>
-                    <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">Get a 100% FREE Professional Website</h1>
-                    <p className="text-lg md:text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
-                        Launch your business online with a real, functional website. Generate leads, build trust, and grow – <strong>without spending a dime.</strong>
-                    </p>
-                    <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-10 text-white/90">
-                        <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-400" /> Real Website</span>
-                        <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-400" /> Hosting-Ready Code</span>
-                        <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-400" /> No Credit Card Required</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" onClick={scrollToApply} className="font-bold animate-pulse"><Rocket className="mr-2"/>Claim Free Website</Button>
-                        <Button size="lg" variant="outline" asChild>
-                            <a href="#features">See What's Included</a>
+                <div className="container relative z-10">
+                    <div className="text-left">
+                        <Button
+                            variant="secondary"
+                            className="mb-8"
+                            onClick={() => router.back()}
+                        >
+                            <ArrowLeft className="mr-2 h-4 w-4" />
+                            Back
                         </Button>
                     </div>
-
-                    <div className="mt-16 bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto border border-white/10 shadow-lg">
-                        <div className="flex justify-between items-center mb-4">
-                            <p className="text-white/90 text-sm font-semibold uppercase tracking-wider">Offer Expires In</p>
-                            <span className="bg-destructive text-destructive-foreground text-xs font-bold px-3 py-1 rounded-full animate-pulse shadow-lg border border-white/10">Few slots left</span>
+                    <div className="text-center">
+                        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white px-5 py-2 rounded-full text-sm font-medium mb-8 border border-white/20">
+                            <span className="relative flex h-3 w-3">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                            </span>
+                            Limited-Time Offer – <span className="font-bold">{slots.remaining}</span> Slots Remaining This Month
                         </div>
-                        <div className="flex justify-center gap-3 md:gap-6 text-white">
-                            {Object.entries(timeLeft).map(([unit, value]) => (
-                                <div key={unit} className="text-center">
-                                    <div className="bg-white/20 rounded-xl px-3 py-3 md:px-5 md:py-4 min-w-[60px] md:min-w-[80px] backdrop-blur-sm">
-                                        <span className="text-2xl md:text-4xl font-bold font-mono">{String(value).padStart(2, '0')}</span>
+                        <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">Get a 100% FREE Professional Website</h1>
+                        <p className="text-lg md:text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
+                            Launch your business online with a real, functional website. Generate leads, build trust, and grow – <strong>without spending a dime.</strong>
+                        </p>
+                        <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-10 text-white/90">
+                            <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-400" /> Real Website</span>
+                            <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-400" /> Hosting-Ready Code</span>
+                            <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-400" /> No Credit Card Required</span>
+                        </div>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Button size="lg" onClick={scrollToApply} className="font-bold animate-pulse"><Rocket className="mr-2"/>Claim Free Website</Button>
+                            <Button size="lg" variant="outline" asChild>
+                                <a href="#features">See What's Included</a>
+                            </Button>
+                        </div>
+
+                        <div className="mt-16 bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto border border-white/10 shadow-lg">
+                            <div className="flex justify-between items-center mb-4">
+                                <p className="text-white/90 text-sm font-semibold uppercase tracking-wider">Offer Expires In</p>
+                                <span className="bg-destructive text-destructive-foreground text-xs font-bold px-3 py-1 rounded-full animate-pulse shadow-lg border border-white/10">Few slots left</span>
+                            </div>
+                            <div className="flex justify-center gap-3 md:gap-6 text-white">
+                                {Object.entries(timeLeft).map(([unit, value]) => (
+                                    <div key={unit} className="text-center">
+                                        <div className="bg-white/20 rounded-xl px-3 py-3 md:px-5 md:py-4 min-w-[60px] md:min-w-[80px] backdrop-blur-sm">
+                                            <span className="text-2xl md:text-4xl font-bold font-mono">{String(value).padStart(2, '0')}</span>
+                                        </div>
+                                        <span className="text-white/70 text-xs mt-2 block font-medium capitalize">{unit}</span>
                                     </div>
-                                    <span className="text-white/70 text-xs mt-2 block font-medium capitalize">{unit}</span>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
