@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { X, CheckCircle, Download, Rocket } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 
 export default function FreeWebsiteAd() {
   const [isVisible, setIsVisible] = useState(false);
@@ -59,18 +58,18 @@ export default function FreeWebsiteAd() {
             </div>
 
             <div className="pt-8 flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/services/free_website">
-                    <Button size="lg" className='font-bold bg-primary-foreground text-primary border-primary-foreground hover:bg-transparent hover:text-primary-foreground'>
+                <Button asChild size="lg" className='font-bold bg-primary-foreground text-primary border-primary-foreground hover:bg-transparent hover:text-primary-foreground'>
+                    <a href="/services/free_website" target="_blank" rel="noopener noreferrer">
                        <Rocket className="mr-2 h-5 w-5" />
                        Claim Your Free Website
-                    </Button>
-                </Link>
-                <Link href="/services/free_website#features">
-                    <Button size="lg" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary">
+                    </a>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="bg-transparent text-primary-foreground border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary">
+                    <a href="/services/free_website#features" target="_blank" rel="noopener noreferrer">
                         <Download className="mr-2 h-5 w-5" />
                         See What's Included
-                    </Button>
-                </Link>
+                    </a>
+                </Button>
             </div>
         </div>
       </section>
