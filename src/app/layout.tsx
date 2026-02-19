@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -24,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn('scroll-smooth', inter.variable)} suppressHydrationWarning>
-      <body className={cn('min-h-screen bg-background text-foreground antialiased flex flex-col font-sans')}>
+      <body className={cn('min-h-screen bg-background text-foreground antialiased flex flex-col font-sans')} suppressHydrationWarning>
         <script
           dangerouslySetInnerHTML={{
             __html: `
