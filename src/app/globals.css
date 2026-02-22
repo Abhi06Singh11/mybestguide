@@ -163,6 +163,35 @@ body.js-loading #preloader {
   25%,75%{border-color:transparent;}
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .infinity {
+    width: 120px;
+  }
+  .brand {
+    margin-top: 20px;
+    font-size: 26px;
+  }
+  .tagline {
+    font-size: 13px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .infinity {
+    width: 100px;
+  }
+  .brand {
+    margin-top: 15px;
+    font-size: 22px;
+  }
+  .tagline {
+    font-size: 12px;
+    height: 16px;
+  }
+}
+
 /* Hide effect */
 #preloader.hide{
   opacity:0;

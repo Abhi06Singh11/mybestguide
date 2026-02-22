@@ -45,17 +45,26 @@ export default function Preloader() {
   useEffect(() => {
     document.body.classList.add('js-loading');
 
+    const minDisplayPromise = new Promise(resolve => setTimeout(resolve, 2500));
+    const pageLoadPromise = new Promise(resolve => {
+        // If window is already loaded, resolve immediately.
+        if (document.readyState === 'complete') {
+            resolve(true);
+        } else {
+            window.addEventListener('load', () => resolve(true), { once: true });
+        }
+    });
+
     const hidePreloader = () => {
-      setVisible(false);
+        setVisible(false);
     };
 
-    window.addEventListener('load', hidePreloader);
-    
+    Promise.all([minDisplayPromise, pageLoadPromise]).then(hidePreloader);
+
     // Fallback to hide preloader after 10 seconds to prevent it from getting stuck
     const fallbackTimeout = setTimeout(hidePreloader, 10000);
 
     return () => {
-      window.removeEventListener('load', hidePreloader);
       clearTimeout(fallbackTimeout);
     };
   }, []);
