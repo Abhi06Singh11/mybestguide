@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -14,7 +15,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Mail, MapPin, Phone, MessageSquare, Linkedin, Twitter, Instagram } from 'lucide-react';
+import { Mail, MapPin, Phone, MessageSquare, Linkedin, Twitter, Instagram, Facebook } from 'lucide-react';
 
 
 const contactSchema = z.object({
@@ -59,7 +60,8 @@ const industries = [
 const socialLinks = [
     { href: '#', icon: Twitter, label: 'Twitter' },
     { href: '#', icon: Linkedin, label: 'LinkedIn' },
-    { href: '#', icon: Instagram, label: 'Instagram' },
+    { href: 'https://www.instagram.com/mybestguide.in', icon: Instagram, label: 'Instagram' },
+    { href: '#', icon: Facebook, label: 'Facebook' },
   ];
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -270,7 +272,7 @@ export default function Contact() {
                             <Phone className="h-6 w-6 text-primary" />
                             <div>
                                 <h4 className="font-semibold">Phone Number</h4>
-                                <a href="tel:+917379848171" className="text-muted-foreground hover:text-primary transition-colors">+91-7379848171</a>
+                                <a href="tel:+918005414588" className="text-muted-foreground hover:text-primary transition-colors">+91 80054 14588</a>
                             </div>
                         </div>
                         <div className="flex items-start gap-4">
@@ -289,7 +291,14 @@ export default function Contact() {
                     </CardHeader>
                     <CardContent className="flex space-x-4">
                         {socialLinks.map((social) => (
-                            <Link key={social.label} href={social.href} className="text-muted-foreground hover:text-primary transition-colors">
+                            <Link 
+                                key={social.label} 
+                                href={social.href} 
+                                className="text-muted-foreground hover:text-primary transition-colors"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={social.label}
+                            >
                                 <social.icon className="h-7 w-7" />
                                 <span className="sr-only">{social.label}</span>
                             </Link>
