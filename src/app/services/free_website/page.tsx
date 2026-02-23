@@ -176,8 +176,8 @@ export default function FreeWebsitePage() {
     function onSubmit(data: z.infer<typeof applicationSchema>) {
         const message = `=========================
 *Free website Contact Form Submission*
->====================================<
-Hi i am *${data.fullName}*,
+>=================================<
+Hi, i am *${data.fullName}*,
 I am quite interested in this "Free website Program"  and i am willing to  developmentof my website,
 here is my details are :
 
