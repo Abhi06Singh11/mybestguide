@@ -663,7 +663,7 @@ _${data.fullName}_
                                             <FormField control={form.control} name="fullName" render={({ field }) => (<FormItem><FormLabel>Full Name*</FormLabel><FormControl><Input placeholder="John Smith" {...field} /></FormControl><FormMessage /></FormItem>)}/>
                                             <FormField control={form.control} name="email" render={({ field }) => (<FormItem><FormLabel>Email Address*</FormLabel><FormControl><Input placeholder="john@company.com" {...field} /></FormControl><FormMessage /></FormItem>)}/>
                                             <FormField control={form.control} name="phone" render={({ field }) => (<FormItem><FormLabel>Phone Number*</FormLabel><FormControl><Input placeholder="+91 98765 43210" {...field} /></FormControl><FormMessage /></FormItem>)}/>
-                                            <FormField control={form.control} name="businessName" render={({ field }) => (<FormItem><FormLabel>Business Name*</FormLabel><FormControl><Input placeholder="Your Business Name" {...field} /></FormControl><FormMessage /></FormMessage>)}/>
+                                            <FormField control={form.control} name="businessName" render={({ field }) => (<FormItem><FormLabel>Business Name*</FormLabel><FormControl><Input placeholder="Your Business Name" {...field} /></FormControl><FormMessage /></FormItem>)}/>
                                         </div>
                                     </div>
 
