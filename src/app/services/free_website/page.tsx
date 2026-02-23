@@ -202,7 +202,7 @@ _${data.fullName}_
 =========================`;
 
         const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/918005414588?text=${encodedMessage}`;
+        const whatsappUrl = `https://wa.me/917379848171?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank');
 
         setIsSuccessModalOpen(true);
