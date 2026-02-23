@@ -8,6 +8,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import GoToTop from '@/components/layout/go-to-top';
 import Preloader from '@/components/layout/preloader';
+import WhatsappFab from '@/components/layout/whatsapp-fab';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -52,6 +53,7 @@ export default function RootLayout({
         <Footer />
         <Toaster />
         <GoToTop />
+        <WhatsappFab />
       </body>
     </html>
   );

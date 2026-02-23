@@ -119,10 +119,9 @@ export default function FreeWebsitePage() {
     };
 
     useEffect(() => {
-        // Random duration between 1 hour and 6 hours (exclusive)
-        const minDuration = 1 * 60 * 60; // 1 hour in seconds
-        const maxDuration = 6 * 60 * 60; // 6 hours in seconds
-        const randomDurationInSeconds = Math.floor(Math.random() * (maxDuration - minDuration)) + minDuration;
+        const minDuration = 3600; 
+        const maxDuration = 21599; 
+        const randomDurationInSeconds = Math.floor(Math.random() * (maxDuration - minDuration + 1)) + minDuration;
         
         let remainingTime = randomDurationInSeconds;
 
@@ -203,7 +202,7 @@ _${data.fullName}_
 =========================`;
 
         const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/917379848171?text=${encodedMessage}`;
+        const whatsappUrl = `https://wa.me/918005414588?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank');
 
         setIsSuccessModalOpen(true);
@@ -664,7 +663,7 @@ _${data.fullName}_
                                             <FormField control={form.control} name="fullName" render={({ field }) => (<FormItem><FormLabel>Full Name*</FormLabel><FormControl><Input placeholder="John Smith" {...field} /></FormControl><FormMessage /></FormItem>)}/>
                                             <FormField control={form.control} name="email" render={({ field }) => (<FormItem><FormLabel>Email Address*</FormLabel><FormControl><Input placeholder="john@company.com" {...field} /></FormControl><FormMessage /></FormItem>)}/>
                                             <FormField control={form.control} name="phone" render={({ field }) => (<FormItem><FormLabel>Phone Number*</FormLabel><FormControl><Input placeholder="+91 98765 43210" {...field} /></FormControl><FormMessage /></FormItem>)}/>
-                                            <FormField control={form.control} name="businessName" render={({ field }) => (<FormItem><FormLabel>Business Name*</FormLabel><FormControl><Input placeholder="Your Business Name" {...field} /></FormControl><FormMessage /></FormItem>)}/>
+                                            <FormField control={form.control} name="businessName" render={({ field }) => (<FormItem><FormLabel>Business Name*</FormLabel><FormControl><Input placeholder="Your Business Name" {...field} /></FormControl><FormMessage /></FormMessage>)}/>
                                         </div>
                                     </div>
 

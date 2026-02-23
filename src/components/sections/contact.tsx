@@ -89,7 +89,7 @@ export default function Contact() {
   });
 
   const isWhatsAppAvailable = form.watch('isWhatsAppAvailable');
-  const whatsAppNumber = "917379848171";
+  const whatsAppNumber = "918005414588";
   const quickMessages = [
     "Hi, I need urgent assistance.",
     "Hi, I’d like to know more about your services.",
