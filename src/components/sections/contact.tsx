@@ -16,6 +16,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Mail, MapPin, Phone, MessageSquare, Linkedin, Twitter, Instagram, Facebook } from 'lucide-react';
+import { submitFormToSheet } from '@/lib/form-submissions';
 
 
 const contactSchema = z.object({
@@ -73,6 +74,7 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function Contact() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
@@ -98,13 +100,25 @@ export default function Contact() {
     "Hi, I have a project idea to discuss."
   ];
 
-  function onSubmit(values: z.infer<typeof contactSchema>) {
-    console.log('Contact form submitted:', values);
-    toast({
-      title: 'Message Sent!',
-      description: "We've received your inquiry and will get back to you shortly.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof contactSchema>) {
+    setIsSubmitting(true);
+
+    try {
+      await submitFormToSheet('Contact', values);
+      toast({
+        title: 'Message Sent!',
+        description: "We've received your inquiry and will get back to you shortly.",
+      });
+      form.reset();
+    } catch (error) {
+      toast({
+        title: 'Submission Failed',
+        description: error instanceof Error ? error.message : 'Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -204,7 +218,9 @@ export default function Contact() {
                                     <FormItem><FormLabel>Message</FormLabel><FormControl><Textarea placeholder="Briefly describe your project or inquiry..." rows={5} {...field} /></FormControl><FormMessage /></FormItem>
                                 )}/>
                                 <div className="text-center">
-                                    <Button type="submit" size="lg">Send Message</Button>
+                                    <Button type="submit" size="lg" disabled={isSubmitting}>
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
+                                    </Button>
                                 </div>
                             </form>
                         </Form>

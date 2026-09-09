@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -18,12 +18,15 @@ import { ArrowLeft, CheckCircle } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, SelectGroup, SelectLabel } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+import { formDataToObject, submitFormToSheet } from '@/lib/form-submissions';
 
 export default function SupportApplyPage() {
   const [formVisible, setFormVisible] = useState(false);
   const [areTermsAccepted, setAreTermsAccepted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProfile, setSelectedProfile] = useState('');
+  const [selectedNda, setSelectedNda] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const handleJoinClick = () => {
@@ -76,6 +79,39 @@ export default function SupportApplyPage() {
         'IT Infrastructure Engineer',
         'Site Reliability Engineer (SRE)',
     ],
+  };
+
+  const handleApplicationSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!areTermsAccepted) return;
+
+    if (!selectedProfile || !selectedNda) {
+      alert('Please select your profile and NDA preference.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const values = {
+        ...formDataToObject(new FormData(event.currentTarget)),
+        profile: selectedProfile,
+        willingToSignNda: selectedNda,
+        termsAccepted: areTermsAccepted,
+      };
+
+      await submitFormToSheet('Technical Support Partner', values);
+      alert('Application submitted successfully.');
+      event.currentTarget.reset();
+      setSelectedProfile('');
+      setSelectedNda('');
+      setAreTermsAccepted(false);
+    } catch (error) {
+      alert(error instanceof Error ? error.message : 'Unable to submit application.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -143,23 +179,23 @@ export default function SupportApplyPage() {
 
             <Card className="p-6 md:p-8 mb-8">
                 <CardContent>
-                    <form>
+                    <form onSubmit={handleApplicationSubmit}>
                     <div className="grid md:grid-cols-2 gap-6">
                         <div className="space-y-2">
                             <Label htmlFor="name">Full Name*</Label>
-                            <Input id="name" type="text" required />
+                            <Input id="name" name="fullName" type="text" required />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="email">Email Address*</Label>
-                            <Input id="email" type="email" required />
+                            <Input id="email" name="email" type="email" required />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="phone">Phone Number</Label>
-                            <Input id="phone" type="tel" />
+                            <Input id="phone" name="phone" type="tel" />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="location">Location / Timezone*</Label>
-                            <Input id="location" type="text" required />
+                            <Input id="location" name="location" type="text" required />
                         </div>
                         <div className="md:col-span-2 space-y-2">
                             <Label htmlFor="profile">Select Your Profile*</Label>
@@ -185,48 +221,48 @@ export default function SupportApplyPage() {
                         {selectedProfile === 'Other' && (
                             <div className="md:col-span-2 space-y-2">
                                 <Label htmlFor="otherProfile">Preferred Profile Name*</Label>
-                                <Input id="otherProfile" type="text" placeholder="Please specify your profile" required />
+                                <Input id="otherProfile" name="otherProfile" type="text" placeholder="Please specify your profile" required />
                             </div>
                         )}
                         <div className="md:col-span-2 space-y-2">
                             <Label htmlFor="skills">Your Technical Support Skills & Expertise*</Label>
-                            <Textarea id="skills" required placeholder="e.g., AWS, Docker, Jenkins, Zendesk, Jira, SQL, Proactive Monitoring, Incident Resolution" />
+                            <Textarea id="skills" name="skills" required placeholder="e.g., AWS, Docker, Jenkins, Zendesk, Jira, SQL, Proactive Monitoring, Incident Resolution" />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="linkedin">LinkedIn Profile</Label>
-                            <Input id="linkedin" type="url" />
+                            <Input id="linkedin" name="linkedinUrl" type="url" />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="certifications">Certifications (e.g., AWS Certified, ITIL)</Label>
-                            <Input id="certifications" type="text" />
+                            <Input id="certifications" name="certifications" type="text" />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="resume">Resume / CV Upload*</Label>
-                            <Input id="resume" type="file" required />
+                            <Input id="resume" name="resume" type="file" required />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="experience">Years of Experience*</Label>
-                            <Input id="experience" type="number" required />
+                            <Input id="experience" name="yearsOfExperience" type="number" required />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="rate">Hourly Rate or Project Rate</Label>
-                            <Input id="rate" type="text" />
+                            <Input id="rate" name="rate" type="text" />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="availability">Availability (e.g., hours/week, preferred timing)*</Label>
-                            <Input id="availability" type="text" required />
+                            <Input id="availability" name="availability" type="text" required />
                         </div>
                         <div className="md:col-span-2 space-y-2">
                             <Label htmlFor="coverLetter">Why are you a good fit for this role?</Label>
-                            <Textarea id="coverLetter" />
+                            <Textarea id="coverLetter" name="coverLetter" />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="languages">Languages Spoken</Label>
-                            <Input id="languages" type="text" />
+                            <Input id="languages" name="languages" type="text" />
                         </div>
                         <div className="space-y-2">
                             <Label htmlFor="nda">Willing to Sign NDA?*</Label>
-                            <Select required>
+                            <Select value={selectedNda} onValueChange={setSelectedNda} required>
                                 <SelectTrigger id="nda">
                                     <SelectValue placeholder="Select an option" />
                                 </SelectTrigger>
@@ -247,8 +283,8 @@ export default function SupportApplyPage() {
                         </label>
                     </div>
                     <div className="text-center mt-8">
-                        <Button type="submit" disabled={!areTermsAccepted}>
-                        Submit Application
+                        <Button type="submit" disabled={!areTermsAccepted || isSubmitting}>
+                        {isSubmitting ? 'Submitting...' : 'Submit Application'}
                         </Button>
                     </div>
                     </form>

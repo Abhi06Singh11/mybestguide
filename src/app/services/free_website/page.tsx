@@ -19,14 +19,8 @@ import { cn } from '@/lib/utils';
 import { Rocket, CheckCircle, Download, Globe, ShoppingCart, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Package, Edit, Mail, LineChart, AlertTriangle, MousePointerClick, ArrowRight, MessageSquare, ChevronDown, Check, Circle, Code, Trash2, ArrowLeft } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useRouter } from 'next/navigation';
+import { submitFormToSheet } from '@/lib/form-submissions';
 
-
-const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
-        <title>WhatsApp</title>
-        <path d="M12.04 2.02c-5.52 0-9.99 4.47-9.99 9.99s4.47 9.99 9.99 9.99c1.78 0 3.46-.46 4.93-1.28l5.05 1.27-1.3-4.9c.87-1.52 1.35-3.25 1.35-5.08 0-5.52-4.47-9.99-9.99-9.99zM12 20.5c-4.69 0-8.5-3.81-8.5-8.5s3.81-8.5 8.5-8.5 8.5 3.81 8.5 8.5-3.81 8.5-8.5 8.5zM16.6 14.2l-1.5-.7c-.3-.1-.5 0-.7.2l-.6.7c-.6-.3-1.6-.8-2.6-1.8s-1.5-2-1.8-2.6l.7-.6c.2-.2.3-.5.2-.7l-.7-1.5c-.1-.3-.4-.4-.7-.4h-.5c-.3 0-.6.1-.8.3-.2.2-.8.7-.8 2.1s.8 2.8 1 3.1c.1.2 1.8 2.8 4.4 3.9s2.6.9 3.4.9c.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.5-.2z"/>
-    </svg>
-);
 
 const applicationSchema = z.object({
   fullName: z.string().min(2, 'Full name is required'),
@@ -53,7 +47,19 @@ const applicationSchema = z.object({
     path: ['customIndustry'],
 });
 
-const OfferCard = ({ title, description, features, value, originalValue, tagText, tagBgClass, icon: Icon, iconBgClass }) => {
+type OfferCardProps = {
+    title: string;
+    description: string;
+    features: string[];
+    value: number;
+    originalValue: string;
+    tagText: string;
+    tagBgClass: string;
+    icon: React.ElementType;
+    iconBgClass: string;
+};
+
+const OfferCard = ({ title, description, features, value, originalValue, tagText, tagBgClass, icon: Icon, iconBgClass }: OfferCardProps) => {
     return (
         <div className="bg-secondary rounded-3xl p-8 md:p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group hover:bg-primary border border-border hover:border-primary">
             <div className={cn("absolute top-0 right-0 w-32 h-32 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110", tagBgClass, "opacity-10 dark:opacity-20")}></div>
@@ -98,6 +104,7 @@ export default function FreeWebsitePage() {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const [slots, setSlots] = useState({ remaining: 7, total: 10 });
     const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const form = useForm<z.infer<typeof applicationSchema>>({
         resolver: zodResolver(applicationSchema),
@@ -173,41 +180,21 @@ export default function FreeWebsitePage() {
         }
     };
 
-    function onSubmit(data: z.infer<typeof applicationSchema>) {
-        const message = `=========================
-*Free website Contact Form Submission*
->=================================<
-Hi, i am *${data.fullName}*,
-I am quite interested in this "Free website Program"  and i am willing to  developmentof my website,
-here is my details are :
+    async function onSubmit(data: z.infer<typeof applicationSchema>) {
+        setIsSubmitting(true);
 
-*Name*: ${data.fullName}
-*Email*: ${data.email}
-*Phone*: ${data.phone}
-*Business Name*: ${data.businessName}
-*Selected Plan*: ${data.websiteType === 'E-Commerce' ? 'E-Commerce Starter' : 'Basic Website'}
-
-*Selected Add-Ons*:
-${data.addons && data.addons.length > 0 ? data.addons.map(a => '- ' + a).join('\n') : 'None'}
-
-*Website Industry*: ${data.industry === 'Custom' ? data.customIndustry : data.industry}
-
-*Additional Messages*:
-${data.goals}
-
-
--------------------------
-*Thanks* ,
-_${data.fullName}_
-=========================`;
-
-        const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/917379848171?text=${encodedMessage}`;
-        window.open(whatsappUrl, '_blank');
+        try {
+            await submitFormToSheet('Free Website', data);
+        } catch (error) {
+            alert(error instanceof Error ? error.message : 'Unable to submit form data.');
+            setIsSubmitting(false);
+            return;
+        }
 
         setIsSuccessModalOpen(true);
         form.reset();
         setCurrentStep(1);
+        setIsSubmitting(false);
     };
 
     const journeySteps = [
@@ -736,14 +723,14 @@ _${data.fullName}_
                                             </div>
                                          </Card>
                                         <FormField control={form.control} name="terms" render={({ field }) => (
-                                            <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4"><FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange}/></FormControl><div className="space-y-1 leading-none"><FormLabel>I agree to the Terms of Service and understand I will be redirected to WhatsApp to complete my application.</FormLabel></div></FormItem>
+                                            <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4"><FormControl><Checkbox checked={field.value} onCheckedChange={field.onChange}/></FormControl><div className="space-y-1 leading-none"><FormLabel>I agree to the Terms of Service.</FormLabel></div></FormItem>
                                         )}/>
                                     </div>
                                     
                                     <div className="flex items-center justify-between pt-6 border-t">
                                         <Button type="button" variant="outline" onClick={() => changeStep(-1)} className={cn(currentStep === 1 && "invisible")}>Back</Button>
                                         <Button type="button" onClick={() => changeStep(1)} className={cn(currentStep === totalSteps && "hidden")}>Next Step <ArrowRight className="ml-2 h-4 w-4"/></Button>
-                                        <Button type="submit" className={cn(currentStep !== totalSteps && "hidden")}><WhatsAppIcon className="mr-2 h-5 w-5 fill-current"/>Submit via WhatsApp</Button>
+                                        <Button type="submit" disabled={isSubmitting} className={cn(currentStep !== totalSteps && "hidden")}>Submit</Button>
                                     </div>
                                 </form>
                             </Form>

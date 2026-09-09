@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -19,11 +19,14 @@ import { ArrowLeft, CheckCircle } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { services as servicesData } from '@/lib/data';
+import { formDataToObject, submitFormToSheet } from '@/lib/form-submissions';
 
 export default function BdeApplyPage() {
   const [formVisible, setFormVisible] = useState(false);
   const [areTermsAccepted, setAreTermsAccepted] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
 
   const handleJoinClick = () => {
@@ -40,6 +43,37 @@ export default function BdeApplyPage() {
   ];
 
   const services = servicesData.map(s => s.title);
+
+  const handleApplicationSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (!areTermsAccepted) return;
+
+    if (!selectedService) {
+      alert('Please select a service to promote.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const values = {
+        ...formDataToObject(new FormData(event.currentTarget)),
+        serviceToPromote: selectedService,
+        termsAccepted: areTermsAccepted,
+      };
+
+      await submitFormToSheet('BDE Partner', values);
+      alert('Application submitted successfully.');
+      event.currentTarget.reset();
+      setSelectedService('');
+      setAreTermsAccepted(false);
+    } catch (error) {
+      alert(error instanceof Error ? error.message : 'Unable to submit application.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -101,31 +135,31 @@ export default function BdeApplyPage() {
 
             <Card className="p-6 md:p-8">
               <CardContent>
-                <form>
+                <form onSubmit={handleApplicationSubmit}>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name</Label>
-                      <Input id="name" type="text" required />
+                      <Input id="name" name="fullName" type="text" required />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email Address</Label>
-                      <Input id="email" type="email" required />
+                      <Input id="email" name="email" type="email" required />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input id="phone" type="tel" required />
+                      <Input id="phone" name="phone" type="tel" required />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="location">Location (City, State)</Label>
-                      <Input id="location" type="text" required />
+                      <Input id="location" name="location" type="text" required />
                     </div>
                     <div className="md:col-span-2 space-y-2">
                       <Label htmlFor="skills">Your Skills / Experience</Label>
-                      <Textarea id="skills" required />
+                      <Textarea id="skills" name="skills" required />
                     </div>
                     <div className="md:col-span-2 space-y-2">
                       <Label htmlFor="serviceToPromote">Which service do you want to promote?</Label>
-                      <Select>
+                      <Select value={selectedService} onValueChange={setSelectedService} required>
                         <SelectTrigger id="serviceToPromote">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
@@ -138,20 +172,20 @@ export default function BdeApplyPage() {
                     </div>
                     <div className="md:col-span-2 space-y-2">
                       <Label htmlFor="why">Why do you want to join us?</Label>
-                      <Textarea id="why" required />
+                      <Textarea id="why" name="whyJoin" required />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="commission">Expected Commission (%)</Label>
-                      <Input id="commission" type="number" min="10" max="30" required />
+                      <Input id="commission" name="expectedCommission" type="number" min="10" max="30" required />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="portfolio">GitHub / Portfolio URL</Label>
-                      <Input id="portfolio" type="url" required />
+                      <Input id="portfolio" name="portfolioUrl" type="url" required />
                     </div>
                   </div>
                   <div className="space-y-2 mt-6">
                     <Label htmlFor="resume">Upload Resume / Portfolio</Label>
-                    <Input id="resume" type="file" />
+                    <Input id="resume" name="resume" type="file" />
                   </div>
                   <div className="flex items-center space-x-2 mt-6">
                     <Checkbox id="acceptTerms" checked={areTermsAccepted} onCheckedChange={(checked) => setAreTermsAccepted(checked as boolean)} />
@@ -163,8 +197,8 @@ export default function BdeApplyPage() {
                     </label>
                   </div>
                   <div className="text-center mt-8">
-                    <Button type="submit" disabled={!areTermsAccepted}>
-                      Submit Application
+                    <Button type="submit" disabled={!areTermsAccepted || isSubmitting}>
+                      {isSubmitting ? 'Submitting...' : 'Submit Application'}
                     </Button>
                   </div>
                 </form>
