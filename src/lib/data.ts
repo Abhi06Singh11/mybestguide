@@ -155,6 +155,30 @@ export const projects = [
     icon: GraduationCap,
   },
   {
+    name: "DK Appliance",
+    description: "Specializing in professional appliance repair services, ensuring your household essentials are running efficiently and reliably.",
+    category: "Free Initiative",
+    url: "https://dkappliance.vercel.app/",
+    image: '2',
+    icon: Wrench,
+  },
+  {
+    name: "Akash Safety Net",
+    description: "Providing high-quality safety netting solutions for balconies, windows, and open spaces to ensure protection and peace of mind.",
+    category: "Free Initiative",
+    url: "https://akashsaftynet.vercel.app/",
+    image: '15',
+    icon: ShieldCheck,
+  },
+  {
+    name: "Shri Balaji Contractor",
+    description: "Expert building and civil construction services, delivering quality craftsmanship for residential and commercial infrastructure projects.",
+    category: "Free Initiative",
+    url: "https://shribalajicontractor.vercel.app/",
+    image: '17',
+    icon: Home,
+  },
+  {
     name: "NearMeR",
     description: "A location-based service platform where users can find nearby services like salons, garages, or restaurants. Features dynamic listings, location tracking, responsive UI, and robust filters.",
     category: "Web",
@@ -173,7 +197,7 @@ export const projects = [
   {
     name: "OmaShram",
     description: "A senior care home informational platform with donation capabilities, senior profiles, and a fully responsive design for accessibility.",
-    category: "Free Initiative",
+    category: "Web",
     url: "https://www.omashram.com/",
     image: '13',
     icon: Home,
@@ -181,7 +205,7 @@ export const projects = [
   {
     name: "PostmortemShala – LMS",
     description: "A full-featured online learning management system (LMS) with courses, exams, and a certification dashboard, founded to make learning accessible.",
-    category: "Free Initiative",
+    category: "Web",
     url: "https://www.postmortemshala.co.in/",
     image: '14',
     icon: BookOpen,
@@ -325,7 +349,7 @@ export const testimonials = [
   },
   {
     id: 'testimonial-3',
-    quote: "Our new e-commerce site is not only beautiful but also incredibly fast. We saw an immediate increase in conversions.",
+    quote: "Our new e-commerce site is not only beautiful but also incredibly fast. We saw an increase in conversions.",
     name: 'Emily White',
     title: 'Founder, The Chic Boutique',
     image: '12'
