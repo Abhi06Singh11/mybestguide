@@ -147,20 +147,20 @@ export const whyPartnerWithUs = [
 
 export const projects = [
   {
-    name: "Bluewhale Marine Career",
-    description: "Bluewhale Marine Career is a renowned maritime education provider based in Chennai, Tamil Nadu. Our mission is to deliver top-notch services to mariners, merchant navy aspirants, ship management companies and ship owners, by upholding transparency, commitment and perfection as our core values.",
-    category: "Web",
-    url: "https://bluewhalemarinecareer.in/",
-    image: '1',
-    icon: Ship,
-  },
-  {
     name: "DVR Global Career",
     description: "DVR Global Career provides industry-focused Oil & Gas, Warehouse Management, Shipbuilding, and Industrial Skills Training with dedicated placement support for India, GCC, and global careers.",
     category: "Web",
     url: "https://www.dvrglobalcareer.com/",
     image: '1',
     icon: GraduationCap,
+  },
+  {
+    name: "Bluewhale Marine Career",
+    description: "Bluewhale Marine Career is a renowned maritime education provider based in Chennai, Tamil Nadu. Our mission is to deliver top-notch services to mariners, merchant navy aspirants, ship management companies and ship owners, by upholding transparency, commitment and perfection as our core values.",
+    category: "Web",
+    url: "https://bluewhalemarinecareer.in/",
+    image: '1',
+    icon: Ship,
   },
   {
     name: "DK Appliance",
@@ -324,7 +324,7 @@ export const projects = [
   },
   {
     name: "MMT – Employee Increment Panel",
-    description: "An internal HR evaluation tool designed to track employee KPIs and automate data-driven decisions for salary increments.",
+    description: "An internal HR evaluation tool designed to track employee KPIs and automate data-driven decisions for salary increment.",
     category: "Other",
     url: "#",
     image: '24',
