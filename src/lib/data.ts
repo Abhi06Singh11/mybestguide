@@ -1,5 +1,5 @@
 
-import { CodeXml, ShoppingCart, Layers3, Smartphone, Database, Wrench, Shapes, ShieldCheck, Users, Award, MessageCircle, BarChart, Store, ToyBrick, Workflow, CreditCard, ShoppingBag, LineChart, Shield, GitBranch, Laptop, Component, Languages, Milestone, Server, Users2, FileText, Activity, AlertCircle, TrendingUp, MapPin, Car, Home, BookOpen, Scale, HeartPulse, Truck, Plane, MessageSquare, ChefHat, Dumbbell, Apple, DraftingCompass, Puzzle, RefreshCw, GraduationCap } from 'lucide-react';
+import { CodeXml, ShoppingCart, Layers3, Smartphone, Database, Wrench, Shapes, ShieldCheck, Users, Award, MessageCircle, BarChart, Store, ToyBrick, Workflow, CreditCard, ShoppingBag, LineChart, Shield, GitBranch, Laptop, Component, Languages, Milestone, Server, Users2, FileText, Activity, AlertCircle, TrendingUp, MapPin, Car, Home, BookOpen, Scale, HeartPulse, Truck, Plane, MessageSquare, ChefHat, Dumbbell, Apple, DraftingCompass, Puzzle, RefreshCw, GraduationCap, Ship } from 'lucide-react';
 
 export const services = [
   {
@@ -146,6 +146,14 @@ export const whyPartnerWithUs = [
 ];
 
 export const projects = [
+  {
+    name: "Bluewhale Marine Career",
+    description: "Bluewhale Marine Career is a renowned maritime education provider based in Chennai, Tamil Nadu. Our mission is to deliver top-notch services to mariners, merchant navy aspirants, ship management companies and ship owners, by upholding transparency, commitment and perfection as our core values.",
+    category: "Web",
+    url: "https://bluewhalemarinecareer.in/",
+    image: '1',
+    icon: Ship,
+  },
   {
     name: "DVR Global Career",
     description: "DVR Global Career provides industry-focused Oil & Gas, Warehouse Management, Shipbuilding, and Industrial Skills Training with dedicated placement support for India, GCC, and global careers.",
