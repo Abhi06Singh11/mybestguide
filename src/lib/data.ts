@@ -1,5 +1,5 @@
 
-import { CodeXml, ShoppingCart, Layers3, Smartphone, Database, Wrench, Shapes, ShieldCheck, Users, Award, MessageCircle, BarChart, Store, ToyBrick, Workflow, CreditCard, ShoppingBag, LineChart, Shield, GitBranch, Laptop, Component, Languages, Milestone, Server, Users2, FileText, Activity, AlertCircle, TrendingUp, MapPin, Car, Home, BookOpen, Scale, HeartPulse, Truck, Plane, MessageSquare, ChefHat, Dumbbell, Apple, DraftingCompass, Puzzle, RefreshCw } from 'lucide-react';
+import { CodeXml, ShoppingCart, Layers3, Smartphone, Database, Wrench, Shapes, ShieldCheck, Users, Award, MessageCircle, BarChart, Store, ToyBrick, Workflow, CreditCard, ShoppingBag, LineChart, Shield, GitBranch, Laptop, Component, Languages, Milestone, Server, Users2, FileText, Activity, AlertCircle, TrendingUp, MapPin, Car, Home, BookOpen, Scale, HeartPulse, Truck, Plane, MessageSquare, ChefHat, Dumbbell, Apple, DraftingCompass, Puzzle, RefreshCw, GraduationCap } from 'lucide-react';
 
 export const services = [
   {
@@ -146,6 +146,14 @@ export const whyPartnerWithUs = [
 ];
 
 export const projects = [
+  {
+    name: "DVR Global Career",
+    description: "DVR Global Career provides industry-focused Oil & Gas, Warehouse Management, Shipbuilding, and Industrial Skills Training with dedicated placement support for India, GCC, and global careers.",
+    category: "Web",
+    url: "https://www.dvrglobalcareer.com/",
+    image: '1',
+    icon: GraduationCap,
+  },
   {
     name: "NearMeR",
     description: "A location-based service platform where users can find nearby services like salons, garages, or restaurants. Features dynamic listings, location tracking, responsive UI, and robust filters.",
@@ -529,9 +537,3 @@ export const technicalSupportData = {
     },
   ]
 };
-
-
-
-
-
-
