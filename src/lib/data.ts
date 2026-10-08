@@ -173,7 +173,7 @@ export const projects = [
   {
     name: "OmaShram",
     description: "A senior care home informational platform with donation capabilities, senior profiles, and a fully responsive design for accessibility.",
-    category: "Web",
+    category: "Free Initiative",
     url: "https://www.omashram.com/",
     image: '13',
     icon: Home,
@@ -181,7 +181,7 @@ export const projects = [
   {
     name: "PostmortemShala – LMS",
     description: "A full-featured online learning management system (LMS) with courses, exams, and a certification dashboard, founded to make learning accessible.",
-    category: "Web",
+    category: "Free Initiative",
     url: "https://www.postmortemshala.co.in/",
     image: '14',
     icon: BookOpen,

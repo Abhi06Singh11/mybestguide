@@ -1,7 +1,8 @@
+
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Heart, Rocket, Users } from 'lucide-react';
+import { Heart, Rocket, Users, Eye } from 'lucide-react';
 import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -32,6 +33,12 @@ export default function Initiative() {
               <Link href="/services/free_website">
                 <Button size="lg" className="font-bold">
                   Check Eligibility & Apply
+                </Button>
+              </Link>
+              <Link href="/portfolio?category=Free%20Initiative">
+                <Button size="lg" variant="outline" className="font-bold">
+                  <Eye className="mr-2 h-5 w-5" />
+                  View Our Impact
                 </Button>
               </Link>
             </div>

@@ -5,14 +5,24 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { projects } from '@/lib/data';
 import { ArrowRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { cn } from '@/lib/utils';
 import { Separator } from '@/components/ui/separator';
+import { useSearchParams } from 'next/navigation';
 
-const categories = ['All', 'Web', 'App', 'E-Commerce', 'Other'];
+const categories = ['All', 'Web', 'App', 'E-Commerce', 'Free Initiative', 'Other'];
 
-export default function Portfolio() {
-  const [activeCategory, setActiveCategory] = useState('All');
+function PortfolioContent() {
+  const searchParams = useSearchParams();
+  const initialCategory = searchParams.get('category') || 'All';
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
+
+  useEffect(() => {
+    const category = searchParams.get('category');
+    if (category && categories.includes(category)) {
+      setActiveCategory(category);
+    }
+  }, [searchParams]);
 
   const filteredProjects =
     activeCategory === 'All'
@@ -84,5 +94,13 @@ export default function Portfolio() {
         </div>
       </div>
     </section>
+  );
+}
+
+export default function Portfolio() {
+  return (
+    <Suspense fallback={<div className="container py-24 text-center">Loading portfolio...</div>}>
+      <PortfolioContent />
+    </Suspense>
   );
 }
