@@ -5,6 +5,10 @@ import { Heart, Rocket, Users } from 'lucide-react';
 import Link from 'next/link';
 import { Card, CardContent } from '@/components/ui/card';
 
+/**
+ * @fileOverview A section showcasing the "Digital Growth Initiative" - an initiative to build free websites for emerging startups and non-profits.
+ */
+
 export default function Initiative() {
   return (
     <section id="initiative" className="py-16 md:py-24 bg-secondary">
