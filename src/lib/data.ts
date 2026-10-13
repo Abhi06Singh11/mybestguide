@@ -1,5 +1,5 @@
 
-import { CodeXml, ShoppingCart, Layers3, Smartphone, Database, Wrench, Shapes, ShieldCheck, Users, Award, MessageCircle, BarChart, Store, ToyBrick, Workflow, CreditCard, ShoppingBag, LineChart, Shield, GitBranch, Laptop, Component, Languages, Milestone, Server, Users2, FileText, Activity, AlertCircle, TrendingUp, MapPin, Car, Home, BookOpen, Scale, HeartPulse, Truck, Plane, MessageSquare, ChefHat, Dumbbell, Apple, DraftingCompass, Puzzle, RefreshCw, GraduationCap, Ship } from 'lucide-react';
+import { CodeXml, ShoppingCart, Layers3, Smartphone, Database, Wrench, Shapes, ShieldCheck, Users, Award, MessageCircle, BarChart, Store, ToyBrick, Workflow, CreditCard, ShoppingBag, LineChart, Shield, GitBranch, Laptop, Component, Languages, Milestone, Server, Users2, FileText, Activity, AlertCircle, TrendingUp, MapPin, Car, Home, BookOpen, Scale, HeartPulse, Truck, Plane, MessageSquare, ChefHat, Dumbbell, Apple, DraftingCompass, Puzzle, RefreshCw, GraduationCap, Ship, Warehouse, Building2 } from 'lucide-react';
 
 export const services = [
   {
@@ -146,6 +146,22 @@ export const whyPartnerWithUs = [
 ];
 
 export const projects = [
+  {
+    name: "Inventory Management System – RADHIKA SAREE",
+    description: "The Inventory Management System for RADHIKA SAREE helps simplify daily business operations by making it easier to manage products, track stock, and maintain inventory records. It is designed to reduce manual work, improve accuracy, and keep inventory organized. With a simple and user-friendly interface, the system makes stock management more efficient and convenient.",
+    category: "Web",
+    url: "https://radhika.mamtacollege.in/",
+    image: '1',
+    icon: Warehouse,
+  },
+  {
+    name: "Hotel Soni Arena – Una",
+    description: "Hotel Soni Arena, Una, offers a comfortable and welcoming experience for travelers. The website showcases the hotel’s services, amenities, and hospitality through a clean and user-friendly design. It helps visitors explore the hotel and learn more about what it offers. With a focus on simplicity and accessibility, the website provides a smooth browsing experience across different devices.",
+    category: "Web",
+    url: "https://soniarenahotel.com/",
+    image: '2',
+    icon: Building2,
+  },
   {
     name: "DVR Global Career",
     description: "DVR Global Career provides industry-focused Oil & Gas, Warehouse Management, Shipbuilding, and Industrial Skills Training with dedicated placement support for India, GCC, and global careers.",
