@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Mail, MapPin, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Mail, MapPin, Twitter, Facebook, Instagram } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,9 +13,9 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { href: '#', icon: Twitter, label: 'Twitter' },
-    { href: '#', icon: Linkedin, label: 'LinkedIn' },
-    { href: '#', icon: Instagram, label: 'Instagram' },
+    { href: 'https://x.com/MyBestGuideIn', icon: Twitter, label: 'Twitter' },
+    { href: 'https://www.facebook.com/mybestguideindia', icon: Facebook, label: 'Facebook' },
+    { href: 'https://www.instagram.com/mybestguide.in/', icon: Instagram, label: 'Instagram' },
   ];
 
   return (
@@ -65,7 +65,13 @@ export default function Footer() {
             <h4 className="font-headline font-semibold text-white">Follow Us</h4>
             <div className="mt-4 flex space-x-4">
               {socialLinks.map((social) => (
-                <Link key={social.label} href={social.href} className="text-gray-400 hover:text-blue-400">
+                <Link 
+                  key={social.label} 
+                  href={social.href} 
+                  className="text-gray-400 hover:text-blue-400"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <social.icon className="h-6 w-6" />
                   <span className="sr-only">{social.label}</span>
                 </Link>
