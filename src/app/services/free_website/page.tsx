@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -12,13 +12,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Dialog, DialogHeader, DialogTitle, DialogClose, DialogContent } from '@/dialog';
+import { Dialog, DialogHeader, DialogTitle, DialogClose, DialogContent } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 import { Rocket, CheckCircle, Globe, ShoppingCart, ShoppingBag, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Edit, Mail, LineChart, MessageSquare, Check, ArrowRight, ArrowLeft, ShieldCheck, Code } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useRouter } from 'next/navigation';
 import { submitFormToSheet } from '@/lib/form-submissions';
-import { Dialog as DialogRoot } from '@/components/ui/dialog';
 
 const applicationSchema = z.object({
   fullName: z.string().min(2, 'Full name is required'),
@@ -270,16 +269,16 @@ export default function FreeWebsitePage() {
             title: "FREE Basic Website",
             description: "Perfect for service businesses, professionals, and local brands getting started online.",
             features: [
-                '<strong>Up to 3 Standard Pages</strong>: Home, About/Services, and Contact.',
-                '<strong>Modern Pre-Designed Template</strong>: Choose from a small selection of approved templates.',
-                '<strong>Mobile-Responsive Design</strong>: Optimized for phones, tablets, and computers.',
-                '<strong>Basic Website Structure</strong>: Navigation menu, footer, business contact details, and enquiry buttons.',
-                '<strong>Basic Contact Information</strong>: Display customer-provided phone number, email address, and business address on the Contact page.',
-                '<strong>Basic On-Page SEO</strong>: Page titles, meta descriptions, heading structure, and basic indexability checks.',
-                '<strong>Client-Owned Content & Assets</strong>: Client supplies text, logo, images, and other required content.',
-                '<strong>Basic Quality Checks</strong>: Links, mobile layout, navigation, and core website functionality.',
-                '<strong>One Revision Round</strong>: One consolidated round of changes within the original scope.',
-                '<strong>Launch Assistance</strong>: One deployment assistance session on compatible, customer-provided hosting, subject to access and technical requirements.'
+                'Up to 3 Standard Pages: Home, About/Services, and Contact.',
+                'Modern Pre-Designed Template: Choose from a small selection of approved templates.',
+                'Mobile-Responsive Design: Optimized for phones, tablets, and computers.',
+                'Basic Website Structure: Navigation menu, footer, business contact details, and enquiry buttons.',
+                'Basic Contact Information: Display customer-provided phone number, email address, and business address on the Contact page.',
+                'Basic On-Page SEO: Page titles, meta descriptions, heading structure, and basic indexability checks.',
+                'Client-Owned Content & Assets: Client supplies text, logo, images, and other required content.',
+                'Basic Quality Checks: Links, mobile layout, navigation, and core website functionality.',
+                'One Revision Round: One consolidated round of changes within the original scope.',
+                'Launch Assistance: One deployment assistance session on compatible, customer-provided hosting, subject to access and technical requirements.'
             ],
             value: 0,
             originalValue: "14,999",
@@ -550,24 +549,6 @@ export default function FreeWebsitePage() {
                                 </Card>
                             </div>
                         </TabsContent>
-                        <TabsContent value="bundles">
-                             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
-                                {bundles.map(bundle => (
-                                    <Card key={bundle.title} className={cn("flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group hover:bg-primary hover:text-primary-foreground", bundle.popular && "border-primary ring-2 ring-primary scale-105 hover:border-primary")}>
-                                        <CardContent className='p-8 h-full flex flex-col text-center'>
-                                             {bundle.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase transition-colors group-hover:bg-primary-foreground group-hover:text-primary">Best Value</div>}
-                                            <h4 className="text-2xl font-bold text-foreground mb-1 group-hover:text-primary-foreground">{bundle.title}</h4>
-                                            <p className="text-muted-foreground text-sm mb-6 flex-grow group-hover:text-primary-foreground/80">{bundle.desc}</p>
-                                            <div className="mb-6"><span className="text-4xl font-bold text-foreground group-hover:text-primary-foreground">{bundle.price}</span><span className="text-muted-foreground line-through ml-2 group-hover:text-primary-foreground/80">{bundle.oldPrice}</span></div>
-                                            <ul className="space-y-3 mb-8 text-left">
-                                                {bundle.features.map(feat => <li key={feat} className="flex items-start gap-2 text-sm text-muted-foreground group-hover:text-primary-foreground/80"><CheckCircle className="text-green-500 h-5 w-5 mt-0.5 flex-shrink-0 group-hover:text-green-300"/><span>{feat}</span></li>)}
-                                            </ul>
-                                            <Button variant={bundle.popular ? 'default' : 'outline'} className="w-full mt-auto group-hover:bg-primary-foreground group-hover:text-primary group-hover:border-primary-foreground" onClick={scrollToApply}>Get Started</Button>
-                                        </CardContent>
-                                    </Card>
-                                ))}
-                            </div>
-                        </TabsContent>
                     </Tabs>
                 </div>
             </section>
@@ -748,7 +729,7 @@ export default function FreeWebsitePage() {
                 </div>
             </section>
             
-            <DialogRoot open={isSuccessModalOpen} onOpenChange={setIsSuccessModalOpen}>
+            <Dialog open={isSuccessModalOpen} onOpenChange={setIsSuccessModalOpen}>
                 <DialogContent>
                     <DialogHeader>
                         <div className="text-center">
@@ -765,7 +746,7 @@ export default function FreeWebsitePage() {
                         </DialogClose>
                     </div>
                 </DialogContent>
-            </DialogRoot>
+            </Dialog>
 
         </div>
     );
