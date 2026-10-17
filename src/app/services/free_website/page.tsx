@@ -12,13 +12,13 @@ import { Textarea } from '@/components/ui/textarea';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Dialog, DialogHeader, DialogTitle, DialogClose, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogHeader, DialogTitle, DialogClose, DialogContent } from '@/dialog';
 import { cn } from '@/lib/utils';
 import { Rocket, CheckCircle, Globe, ShoppingCart, ShoppingBag, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Edit, Mail, LineChart, MessageSquare, Check, ArrowRight, ArrowLeft, ShieldCheck, Code } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useRouter } from 'next/navigation';
 import { submitFormToSheet } from '@/lib/form-submissions';
-
+import { Dialog as DialogRoot } from '@/components/ui/dialog';
 
 const applicationSchema = z.object({
   fullName: z.string().min(2, 'Full name is required'),
@@ -236,6 +236,20 @@ export default function FreeWebsitePage() {
             { id: "Store Automation", title: "Store Automation", desc: "Inventory & order automation", price: "Custom", icon: Settings },
         ]
     };
+
+    const ecommerceStarterFeatures = [
+        "Up to 10 Standard Pages & 50 Product Listings.",
+        "Fully Functional Shopping Cart & Secure Checkout Flow.",
+        "Payment Gateway Integration (Razorpay, Paytm, or Stripe).",
+        "Inventory Management & Order Tracking Dashboard.",
+        "Customer Login/Accounts & Wishlist Functionality.",
+        "Advanced E-Commerce Dashboard for Admin Control.",
+        "Mobile-Responsive Storefront optimized for sales.",
+        "Product Search, Categories, and Basic Filtering.",
+        "Automated Order Confirmation Emails.",
+        "Basic On-Page SEO for Products and Categories.",
+        "1-Month Basic Maintenance & Technical Support."
+    ];
     
     const supportPlans = [
         { title: "Basic Support", price: "₹499", desc: "Perfect for small business owners.", features: ["Up to 5 Support Tickets", "24-48 Hour Response", "Monthly Site Monitoring", "Email Support"]},
@@ -257,15 +271,15 @@ export default function FreeWebsitePage() {
             description: "Perfect for service businesses, professionals, and local brands getting started online.",
             features: [
                 '<strong>Up to 3 Standard Pages</strong>: Home, About/Services, and Contact.',
-                '<strong>Modern Pre-Designed Template</strong>: Small selection of approved templates.',
-                '<strong>Mobile-Responsive Design</strong>: Optimized for phones and tablets.',
-                '<strong>Basic Website Structure</strong>: Menu, footer, and enquiry buttons.',
-                '<strong>Basic Contact Info</strong>: Phone, email, and address display.',
-                '<strong>Basic On-Page SEO</strong>: Titles, meta tags, and heading structure.',
-                '<strong>Client-Owned Content & Assets</strong>: You supply text, logo, and images.',
-                '<strong>Basic Quality Checks</strong>: Links, mobile layout, and functionality.',
-                '<strong>One Revision Round</strong>: One consolidated round of changes.',
-                '<strong>Launch Assistance</strong>: One deployment session on your hosting.'
+                '<strong>Modern Pre-Designed Template</strong>: Choose from a small selection of approved templates.',
+                '<strong>Mobile-Responsive Design</strong>: Optimized for phones, tablets, and computers.',
+                '<strong>Basic Website Structure</strong>: Navigation menu, footer, business contact details, and enquiry buttons.',
+                '<strong>Basic Contact Information</strong>: Display customer-provided phone number, email address, and business address on the Contact page.',
+                '<strong>Basic On-Page SEO</strong>: Page titles, meta descriptions, heading structure, and basic indexability checks.',
+                '<strong>Client-Owned Content & Assets</strong>: Client supplies text, logo, images, and other required content.',
+                '<strong>Basic Quality Checks</strong>: Links, mobile layout, navigation, and core website functionality.',
+                '<strong>One Revision Round</strong>: One consolidated round of changes within the original scope.',
+                '<strong>Launch Assistance</strong>: One deployment assistance session on compatible, customer-provided hosting, subject to access and technical requirements.'
             ],
             value: 0,
             originalValue: "14,999",
@@ -459,7 +473,7 @@ export default function FreeWebsitePage() {
                             </div>
                         </TabsContent>
                          <TabsContent value="ecommerce">
-                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                                {Object.values(addons["E-Commerce & Payments"]).map(addon => (
                                     <Card key={addon.id} className="h-full text-center group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-primary hover:text-primary-foreground">
                                         <CardContent className='p-6 h-full flex flex-col items-center justify-center'>
@@ -474,6 +488,66 @@ export default function FreeWebsitePage() {
                                         </CardContent>
                                     </Card>
                                 ))}
+                            </div>
+                            
+                            <div className="max-w-3xl mx-auto">
+                                <Card className="overflow-hidden border-primary/20">
+                                    <CardContent className="p-0">
+                                        <div className="bg-primary text-primary-foreground p-6 text-center">
+                                            <h3 className="text-2xl font-bold">E-Commerce Starter Details</h3>
+                                            <p className="opacity-80">What you get for ₹10,000</p>
+                                        </div>
+                                        <div className="p-6 md:p-8">
+                                            <Accordion type="single" collapsible className="w-full">
+                                                <AccordionItem value="starter-features">
+                                                    <AccordionTrigger className="text-lg font-bold hover:no-underline text-primary">
+                                                        <div className="flex items-center gap-3">
+                                                            <ShoppingBag className="h-5 w-5" />
+                                                            Package Inclusion & Features
+                                                        </div>
+                                                    </AccordionTrigger>
+                                                    <AccordionContent className="pt-4">
+                                                        <ul className="grid md:grid-cols-2 gap-4">
+                                                            {ecommerceStarterFeatures.map((feature, index) => (
+                                                                <li key={index} className="flex items-start gap-3 text-sm text-muted-foreground">
+                                                                    <CheckCircle className="text-green-500 h-5 w-5 flex-shrink-0 mt-0.5" />
+                                                                    <span>{feature}</span>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </AccordionContent>
+                                                </AccordionItem>
+                                                <AccordionItem value="payment-info">
+                                                    <AccordionTrigger className="text-lg font-bold hover:no-underline text-primary">
+                                                        <div className="flex items-center gap-3">
+                                                            <CreditCard className="h-5 w-5" />
+                                                            Payment & Transaction Support
+                                                        </div>
+                                                    </AccordionTrigger>
+                                                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                                                        <p className="mb-4">Our starter package includes the integration of one major Indian or international payment gateway (UPI, Cards, Net Banking). This allows you to accept payments directly into your bank account from day one.</p>
+                                                        <p>We handle the technical setup and API configuration, ensuring your checkout process is secure, PCI-compliant, and user-friendly to maximize conversion rates.</p>
+                                                    </AccordionContent>
+                                                </AccordionItem>
+                                                <AccordionItem value="order-management">
+                                                    <AccordionTrigger className="text-lg font-bold hover:no-underline text-primary">
+                                                        <div className="flex items-center gap-3">
+                                                            <Box className="h-5 w-5" />
+                                                            Order & Inventory Workflow
+                                                        </div>
+                                                    </AccordionTrigger>
+                                                    <AccordionContent className="text-muted-foreground leading-relaxed">
+                                                        <p className="mb-4">Efficiently manage your business with a backend dashboard that tracks every order from placement to delivery. You'll receive real-time notifications for new orders and low-stock alerts.</p>
+                                                        <p>The system is built to scale, allowing you to easily add new products, update prices, and manage discounts as your brand grows.</p>
+                                                    </AccordionContent>
+                                                </AccordionItem>
+                                            </Accordion>
+                                            <div className="mt-8 text-center">
+                                                <Button size="lg" className="w-full md:w-auto px-12" onClick={scrollToApply}>Book Your Store Now</Button>
+                                            </div>
+                                        </div>
+                                    </CardContent>
+                                </Card>
                             </div>
                         </TabsContent>
                         <TabsContent value="bundles">
@@ -674,7 +748,7 @@ export default function FreeWebsitePage() {
                 </div>
             </section>
             
-            <Dialog open={isSuccessModalOpen} onOpenChange={setIsSuccessModalOpen}>
+            <DialogRoot open={isSuccessModalOpen} onOpenChange={setIsSuccessModalOpen}>
                 <DialogContent>
                     <DialogHeader>
                         <div className="text-center">
@@ -691,7 +765,7 @@ export default function FreeWebsitePage() {
                         </DialogClose>
                     </div>
                 </DialogContent>
-            </Dialog>
+            </DialogRoot>
 
         </div>
     );
