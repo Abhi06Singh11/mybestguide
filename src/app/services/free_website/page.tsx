@@ -72,7 +72,7 @@ const OfferCard = ({ title, description, features, value, originalValue, tagText
                 {features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
                         <CheckCircle className="text-green-500 mt-1 flex-shrink-0 h-5 w-5 group-hover:text-green-300" />
-                        <span className="text-muted-foreground group-hover:text-primary-foreground/80" dangerouslySetInnerHTML={{ __html: feature.replace(/<strong>/g, '<strong class="text-foreground group-hover:text-primary-foreground font-semibold">') }} />
+                        <span className="text-muted-foreground group-hover:text-primary-foreground/80" dangerouslySetInnerHTML={{ __html: feature.replace(/<strong>/g, '<strong class="text-foreground group-hover:text-primary-foreground font-bold">') }} />
                     </li>
                 ))}
             </ul>
@@ -250,6 +250,12 @@ export default function FreeWebsitePage() {
         { title: "Premium Support", price: "₹3,499", desc: "Ideal for mission-critical websites.", features: ["Dedicated Engineer", "4-Hour Response SLA", "Phone Consultations", "Weekly Backups"]}
     ];
 
+    const bundlePlans = [
+        { title: "Startup Pack", price: "₹4,999", oldPrice: "₹7,499", desc: "For new businesses", features: ["5-page Website", "Custom UI/UX Design", "Speed Optimization", "1 Month Basic Support"] },
+        { title: "Growth Pack", price: "₹9,999", oldPrice: "₹15,999", desc: "Scale with confidence", features: ["10-page Website", "Premium UI/UX Design", "Booking System", "SEO Starter Setup", "1 Month Growth Support"], popular: true },
+        { title: "Accelerator", price: "₹19,999", oldPrice: "₹32,999", desc: "Complete growth solution", features: ["Full Custom Website", "All Integrations", "SEO + Social + Ads", "3 Months Support"] }
+    ];
+
     const industryOptions = ["Professional Services", "Healthcare & Wellness", "Retail & E-Commerce", "Food & Restaurant", "Real Estate", "Education & Coaching", "Technology & SaaS", "Creative & Design", "Construction & Home Services", "Custom"];
 
     const freeOffers = [
@@ -398,11 +404,12 @@ export default function FreeWebsitePage() {
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Unlock powerful growth tools as your business scales. No pressure – upgrade only when you need it.</p>
                     </div>
                     <Tabs defaultValue="addons" className="w-full">
-                        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto mb-12">
+                        <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 h-auto mb-12">
                             <TabsTrigger value="addons"><Puzzle className="mr-2"/>Performance</TabsTrigger>
                             <TabsTrigger value="support"><Headset className="mr-2"/>Support Plans</TabsTrigger>
                             <TabsTrigger value="marketing"><Megaphone className="mr-2"/>Marketing</TabsTrigger>
                             <TabsTrigger value="ecommerce"><Store className="mr-2"/>E-Commerce</TabsTrigger>
+                            <TabsTrigger value="bundles"><Gift className="mr-2"/>Bundle Offers</TabsTrigger>
                         </TabsList>
                         
                         <TabsContent value="addons">
@@ -534,6 +541,34 @@ export default function FreeWebsitePage() {
                                         </div>
                                     </CardContent>
                                 </Card>
+                            </div>
+                        </TabsContent>
+                        <TabsContent value="bundles">
+                            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
+                                {bundlePlans.map(plan => (
+                                    <Card key={plan.title} className={cn("flex flex-col h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group hover:bg-primary hover:text-primary-foreground relative", plan.popular && "border-primary ring-2 ring-primary scale-105 z-10 hover:border-primary")}>
+                                        <CardContent className='p-8 h-full flex flex-col text-center'>
+                                            {plan.popular && <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold uppercase transition-colors group-hover:bg-primary-foreground group-hover:text-primary whitespace-nowrap">Best Value</div>}
+                                            <h4 className="text-2xl font-bold text-foreground mb-1 group-hover:text-primary-foreground">{plan.title}</h4>
+                                            <p className="text-muted-foreground text-sm mb-6 group-hover:text-primary-foreground/80">{plan.desc}</p>
+                                            <div className="mb-6 pb-6 border-b group-hover:border-primary-foreground/20">
+                                                <div className="flex items-center justify-center gap-2">
+                                                    <span className="text-4xl font-bold text-foreground group-hover:text-primary-foreground">{plan.price}</span>
+                                                    <span className="text-muted-foreground line-through text-lg group-hover:text-primary-foreground/60">{plan.oldPrice}</span>
+                                                </div>
+                                            </div>
+                                            <ul className="space-y-4 mb-8 text-left flex-grow">
+                                                {plan.features.map(feat => (
+                                                    <li key={feat} className="flex items-start gap-3 text-sm text-muted-foreground group-hover:text-primary-foreground/80">
+                                                        <CheckCircle className="text-green-500 h-5 w-5 mt-0.5 flex-shrink-0 group-hover:text-green-300"/>
+                                                        <span>{feat}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                            <Button variant={plan.popular ? 'default' : 'outline'} className="w-full mt-auto group-hover:bg-primary-foreground group-hover:text-primary group-hover:border-primary-foreground" onClick={scrollToApply}>Get Started</Button>
+                                        </CardContent>
+                                    </Card>
+                                ))}
                             </div>
                         </TabsContent>
                     </Tabs>
