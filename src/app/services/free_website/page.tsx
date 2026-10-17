@@ -1,13 +1,12 @@
 
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { useForm, Controller } from 'react-hook-form';
+import { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
@@ -16,7 +15,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogHeader, DialogTitle, DialogClose, DialogContent } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
-import { Rocket, CheckCircle, Download, Globe, ShoppingCart, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Package, Edit, Mail, LineChart, AlertTriangle, MousePointerClick, ArrowRight, MessageSquare, ChevronDown, Check, Circle, Code, Trash2, ArrowLeft } from 'lucide-react';
+import { Rocket, CheckCircle, Globe, ShoppingCart, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Edit, Mail, LineChart, MessageSquare, Check, ArrowRight, ArrowLeft, ShieldCheck } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useRouter } from 'next/navigation';
 import { submitFormToSheet } from '@/lib/form-submissions';
@@ -101,8 +100,6 @@ const OfferCard = ({ title, description, features, value, originalValue, tagText
 export default function FreeWebsitePage() {
     const router = useRouter();
     const [currentStep, setCurrentStep] = useState(1);
-    const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-    const [slots, setSlots] = useState({ remaining: 7, total: 10 });
     const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -124,38 +121,6 @@ export default function FreeWebsitePage() {
     const scrollToApply = () => {
         document.getElementById('apply')?.scrollIntoView({ behavior: 'smooth' });
     };
-
-    useEffect(() => {
-        const minDuration = 3600; 
-        const maxDuration = 21599; 
-        const randomDurationInSeconds = Math.floor(Math.random() * (maxDuration - minDuration + 1)) + minDuration;
-        
-        let remainingTime = randomDurationInSeconds;
-
-        const timer = setInterval(() => {
-          if (remainingTime <= 0) {
-            clearInterval(timer);
-            setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-          } else {
-            setTimeLeft({
-              days: Math.floor(remainingTime / (60 * 60 * 24)),
-              hours: Math.floor((remainingTime % (60 * 60 * 24)) / (60 * 60)),
-              minutes: Math.floor((remainingTime % (60 * 60)) / 60),
-              seconds: Math.floor(remainingTime % 60),
-            });
-            remainingTime--;
-          }
-        }, 1000);
-
-        return () => clearInterval(timer);
-    }, []);
-
-    useEffect(() => {
-        setSlots({
-            total: 10,
-            remaining: Math.floor(Math.random() * (8 - 5 + 1)) + 5,
-        });
-    }, []);
 
     const totalSteps = 5;
 
@@ -344,10 +309,9 @@ export default function FreeWebsitePage() {
                     <div className="text-center">
                         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white px-5 py-2 rounded-full text-sm font-medium mb-8 border border-white/20">
                             <span className="relative flex h-3 w-3">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
                             </span>
-                            Limited-Time Offer – <span className="font-bold">{slots.remaining}</span> Slots Remaining This Month
+                            Providing Professional Digital Foundations
                         </div>
                         <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">Get a 100% FREE Professional Website</h1>
                         <p className="text-lg md:text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
@@ -358,36 +322,24 @@ export default function FreeWebsitePage() {
                             <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-400" /> Hosting-Ready Code</span>
                             <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-400" /> No Credit Card Required</span>
                         </div>
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                             <Button 
-                                size="lg" 
-                                onClick={scrollToApply} 
-                                className="font-bold bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-colors duration-200">
-                                <Rocket className="mr-2"/>Claim Free Website
-                            </Button>
-                            <Button 
-                                size="lg" 
-                                variant="outline" 
-                                className="bg-transparent text-primary-foreground border-primary-foreground/80 hover:bg-primary-foreground hover:text-primary transition-colors duration-200" 
-                                asChild>
-                                <a href="#features">See What's Included</a>
-                            </Button>
-                        </div>
-
-                        <div className="mt-16 bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-2xl mx-auto border border-white/10 shadow-lg">
-                            <div className="flex justify-between items-center mb-4">
-                                <p className="text-white/90 text-sm font-semibold uppercase tracking-wider">Offer Expires In</p>
-                                <span className="bg-destructive text-destructive-foreground text-xs font-bold px-3 py-1 rounded-full animate-pulse shadow-lg border border-white/10">Few slots left</span>
+                        
+                        <div className="mt-8 bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-3xl mx-auto border border-white/20 shadow-2xl text-left">
+                            <div className="flex items-center gap-3 mb-4">
+                                <ShieldCheck className="text-green-400 h-6 w-6" />
+                                <h2 className="text-xl md:text-2xl font-bold text-white">A Limited Number of Free Starter Websites Each Month</h2>
                             </div>
-                            <div className="flex justify-center gap-3 md:gap-6 text-white">
-                                {Object.entries(timeLeft).map(([unit, value]) => (
-                                    <div key={unit} className="text-center">
-                                        <div className="bg-white/20 rounded-xl px-3 py-3 md:px-5 md:py-4 min-w-[60px] md:min-w-[80px] backdrop-blur-sm">
-                                            <span className="text-2xl md:text-4xl font-bold font-mono">{String(value).padStart(2, '0')}</span>
-                                        </div>
-                                        <span className="text-white/70 text-xs mt-2 block font-medium capitalize">{unit}</span>
-                                    </div>
-                                ))}
+                            <div className="space-y-4 text-blue-100/90 leading-relaxed">
+                                <p>To maintain quality, MyBestGuide accepts a limited number of free starter website projects each month.</p>
+                                <p>Applications are reviewed against our published eligibility criteria and available delivery capacity. If your application is not selected for the current month, we may offer you an opportunity to apply again.</p>
+                                <p className="text-sm italic text-blue-200/70 border-t border-white/10 pt-4">There is no artificial countdown. Availability is based on our actual capacity, and all applicants receive clear information about the next steps.</p>
+                            </div>
+                            <div className="mt-8">
+                                <Button 
+                                    size="lg" 
+                                    onClick={scrollToApply} 
+                                    className="w-full sm:w-auto font-bold bg-primary-foreground text-primary hover:bg-primary-foreground/90 transition-colors duration-200">
+                                    <Rocket className="mr-2 h-5 w-5"/> Apply for a Free Starter Website
+                                </Button>
                             </div>
                         </div>
                     </div>
@@ -605,25 +557,6 @@ export default function FreeWebsitePage() {
                 </div>
             </section>
             
-            {/* Urgency Section */}
-            <section className="py-20 bg-gradient-to-r from-red-600 to-orange-500 text-white">
-                <div className="container text-center">
-                     <div className="flex items-center justify-center gap-4 mb-6">
-                        <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm"><AlertTriangle className="text-yellow-300" size={28}/></div>
-                        <h2 className="text-2xl md:text-3xl font-bold">Limited Availability</h2>
-                    </div>
-                    <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">We can only accept a limited number of free website projects each month to maintain quality.</p>
-                     <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-md mx-auto mb-8 border border-white/20">
-                        <p className="text-white/90 text-sm font-semibold uppercase tracking-wider mb-4 text-left">Monthly Slots Available</p>
-                        <div className="flex items-center gap-5">
-                            <div className="flex-1 bg-black/20 rounded-full h-4 overflow-hidden shadow-inner"><div className="bg-gradient-to-r from-green-400 to-teal-400 h-full rounded-full" style={{width: `${(slots.total - slots.remaining) / slots.total * 100}%`}}></div></div>
-                            <span className="text-white font-bold text-2xl font-mono">{slots.remaining}/{slots.total}</span>
-                        </div>
-                    </div>
-                    <Button size="lg" variant="secondary" onClick={scrollToApply} className="animate-pulse"><MousePointerClick className="mr-2"/>Apply Before Slots Fill Up</Button>
-                </div>
-            </section>
-
              {/* Application Form Section */}
              <section id="apply" className="py-24 bg-background">
                 <div className="container max-w-4xl">
