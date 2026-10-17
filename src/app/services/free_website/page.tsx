@@ -72,7 +72,7 @@ const OfferCard = ({ title, description, features, value, originalValue, tagText
                 {features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
                         <CheckCircle className="text-green-500 mt-1 flex-shrink-0 h-5 w-5 group-hover:text-green-300" />
-                        <span className="text-muted-foreground group-hover:text-primary-foreground/80" dangerouslySetInnerHTML={{ __html: feature.replace(/<strong/g, '<strong class="text-foreground group-hover:text-primary-foreground font-semibold"') }} />
+                        <span className="text-muted-foreground group-hover:text-primary-foreground/80" dangerouslySetInnerHTML={{ __html: feature.replace(/<strong>/g, '<strong class="text-foreground group-hover:text-primary-foreground font-semibold">') }} />
                     </li>
                 ))}
             </ul>
@@ -250,12 +250,6 @@ export default function FreeWebsitePage() {
         { title: "Premium Support", price: "₹3,499", desc: "Ideal for mission-critical websites.", features: ["Dedicated Engineer", "4-Hour Response SLA", "Phone Consultations", "Weekly Backups"]}
     ];
 
-    const bundles = [
-        { title: "Startup Pack", price: "₹4,999", oldPrice: "₹7,499", desc: "For new businesses", features: ["5-page Website", "Custom UI/UX Design", "Speed Optimization", "1 Month Basic Support"]},
-        { title: "Growth Pack", price: "₹9,999", oldPrice: "₹15,999", desc: "Scale with confidence", features: ["10-page Website", "Premium UI/UX Design", "Booking System", "SEO Starter Setup", "1 Month Growth Support"], popular: true},
-        { title: "Accelerator", price: "₹19,999", oldPrice: "₹32,999", desc: "Complete growth solution", features: ["Full Custom Website", "All Integrations", "SEO + Social + Ads", "3 Months Support"]}
-    ]
-
     const industryOptions = ["Professional Services", "Healthcare & Wellness", "Retail & E-Commerce", "Food & Restaurant", "Real Estate", "Education & Coaching", "Technology & SaaS", "Creative & Design", "Construction & Home Services", "Custom"];
 
     const freeOffers = [
@@ -404,12 +398,11 @@ export default function FreeWebsitePage() {
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Unlock powerful growth tools as your business scales. No pressure – upgrade only when you need it.</p>
                     </div>
                     <Tabs defaultValue="addons" className="w-full">
-                        <TabsList className="grid w-full grid-cols-2 md:grid-cols-5 h-auto mb-12">
+                        <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto mb-12">
                             <TabsTrigger value="addons"><Puzzle className="mr-2"/>Performance</TabsTrigger>
                             <TabsTrigger value="support"><Headset className="mr-2"/>Support Plans</TabsTrigger>
                             <TabsTrigger value="marketing"><Megaphone className="mr-2"/>Marketing</TabsTrigger>
                             <TabsTrigger value="ecommerce"><Store className="mr-2"/>E-Commerce</TabsTrigger>
-                            <TabsTrigger value="bundles"><Gift className="mr-2"/>Bundle Offers</TabsTrigger>
                         </TabsList>
                         
                         <TabsContent value="addons">
@@ -631,8 +624,8 @@ export default function FreeWebsitePage() {
                                                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                                                         <SelectTrigger><SelectValue placeholder="Select a category..." /></SelectTrigger>
                                                         <SelectContent>
-                                                            <SelectItem value="Basic Website">Basic Website</SelectItem>
-                                                            <SelectItem value="E-Commerce">E-Commerce Starter</SelectItem>
+                                                            <SelectItem value="Basic Website">Basic Website [100% Free]</SelectItem>
+                                                            <SelectItem value="E-Commerce">E-commerce Starter [Paid]</SelectItem>
                                                         </SelectContent>
                                                     </Select>
                                                 </FormControl>
@@ -643,7 +636,7 @@ export default function FreeWebsitePage() {
                                     </div>
                                     
                                     <div className={cn(currentStep !== 3 && "hidden")}>
-                                        <h3 className="text-lg font-bold text-foreground mb-4">Select Add-Ons & Enhancements</h3>
+                                        <h3 className="text-lg font-bold text-foreground mb-4">Select Add-Ons & Enhancements [ All Paid]</h3>
                                         <FormField control={form.control} name="addons" render={({ field }) => (
                                             <FormItem>
                                                 <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2">
@@ -688,7 +681,7 @@ export default function FreeWebsitePage() {
                                                 <div><p className="text-muted-foreground text-xs uppercase">Email</p><p className="font-semibold text-foreground">{form.watch('email') || '-'}</p></div>
                                                 <div><p className="text-muted-foreground text-xs uppercase">Phone</p><p className="font-semibold text-foreground">{form.watch('phone') || '-'}</p></div>
                                                 <div><p className="text-muted-foreground text-xs uppercase">Business</p><p className="font-semibold text-foreground">{form.watch('businessName') || '-'}</p></div>
-                                                <div className="col-span-2 pt-4 mt-4 border-t"><p className="text-muted-foreground text-xs uppercase">Add-Ons</p><p className="font-semibold text-foreground">{form.watch('addons')?.join(', ') || 'None'}</p></div>
+                                                <div className="col-span-2 pt-4 mt-4 border-t"><p className="text-muted-foreground text-xs uppercase">Add-Ons [Paid]</p><p className="font-semibold text-foreground">{form.watch('addons')?.join(', ') || 'None'}</p></div>
                                             </div>
                                          </Card>
                                         <FormField control={form.control} name="terms" render={({ field }) => (
