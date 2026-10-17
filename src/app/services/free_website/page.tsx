@@ -237,17 +237,11 @@ export default function FreeWebsitePage() {
     };
 
     const ecommerceStarterFeatures = [
-        "Up to 10 Standard Pages & 50 Product Listings.",
-        "Fully Functional Shopping Cart & Secure Checkout Flow.",
-        "Payment Gateway Integration (Razorpay, Paytm, or Stripe).",
-        "Inventory Management & Order Tracking Dashboard.",
-        "Customer Login/Accounts & Wishlist Functionality.",
-        "Advanced E-Commerce Dashboard for Admin Control.",
-        "Mobile-Responsive Storefront optimized for sales.",
-        "Product Search, Categories, and Basic Filtering.",
-        "Automated Order Confirmation Emails.",
-        "Basic On-Page SEO for Products and Categories.",
-        "1-Month Basic Maintenance & Technical Support."
+        "Professional Storefront Design",
+        "Up to 10 Products Listed",
+        "Product & Cart Pages",
+        "Manual Order (WhatsApp/Email)",
+        "Mobile Responsive Shopping"
     ];
     
     const supportPlans = [
@@ -519,25 +513,25 @@ export default function FreeWebsitePage() {
                                                 <AccordionItem value="payment-info">
                                                     <AccordionTrigger className="text-lg font-bold hover:no-underline text-primary">
                                                         <div className="flex items-center gap-3">
-                                                            <CreditCard className="h-5 w-5" />
-                                                            Payment & Transaction Support
+                                                            <MessageSquare className="h-5 w-5" />
+                                                            Order Process
                                                         </div>
                                                     </AccordionTrigger>
                                                     <AccordionContent className="text-muted-foreground leading-relaxed">
-                                                        <p className="mb-4">Our starter package includes the integration of one major Indian or international payment gateway (UPI, Cards, Net Banking). This allows you to accept payments directly into your bank account from day one.</p>
-                                                        <p>We handle the technical setup and API configuration, ensuring your checkout process is secure, PCI-compliant, and user-friendly to maximize conversion rates.</p>
+                                                        <p className="mb-4">Our starter package uses a streamlined manual order flow. Customers can browse your products and initiate an order directly via WhatsApp or Email.</p>
+                                                        <p>This allows for personal interaction and flexible payment handling (via UPI, Bank Transfer, or Cash) without the need for complex, high-fee automatic gateways.</p>
                                                     </AccordionContent>
                                                 </AccordionItem>
                                                 <AccordionItem value="order-management">
                                                     <AccordionTrigger className="text-lg font-bold hover:no-underline text-primary">
                                                         <div className="flex items-center gap-3">
                                                             <Box className="h-5 w-5" />
-                                                            Order & Inventory Workflow
+                                                            Product Display & Browsing
                                                         </div>
                                                     </AccordionTrigger>
                                                     <AccordionContent className="text-muted-foreground leading-relaxed">
-                                                        <p className="mb-4">Efficiently manage your business with a backend dashboard that tracks every order from placement to delivery. You'll receive real-time notifications for new orders and low-stock alerts.</p>
-                                                        <p>The system is built to scale, allowing you to easily add new products, update prices, and manage discounts as your brand grows.</p>
+                                                        <p className="mb-4">Efficiently showcase your catalog with dedicated product pages featuring high-quality images and clear descriptions. The cart system helps users keep track of their selections before they contact you to finalize.</p>
+                                                        <p>The entire experience is fully mobile-responsive, ensuring that whether your customers are on a phone or desktop, your products look professional and appealing.</p>
                                                     </AccordionContent>
                                                 </AccordionItem>
                                             </Accordion>
