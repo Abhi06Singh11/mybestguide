@@ -255,12 +255,16 @@ export default function FreeWebsitePage() {
             title: "FREE Basic Website",
             description: "Perfect for service businesses, professionals, and local brands getting started online.",
             features: [
-                '<strong>3–5 Page</strong> Professional Website',
-                '<strong>Mobile Responsive</strong> Design',
-                '<strong>Pre-Designed</strong> Modern Template',
-                '<strong>Basic On-Page SEO</strong> Setup',
-                '<strong>Contact Form</strong> with Email',
-                '<strong>Client-Owned</strong> Content & Assets'
+                '<strong>Up to 3 Standard Pages</strong>: Home, About/Services, and Contact.',
+                '<strong>Modern Pre-Designed Template</strong>: Small selection of approved templates.',
+                '<strong>Mobile-Responsive Design</strong>: Optimized for phones and tablets.',
+                '<strong>Basic Website Structure</strong>: Menu, footer, and enquiry buttons.',
+                '<strong>Basic Contact Info</strong>: Phone, email, and address display.',
+                '<strong>Basic On-Page SEO</strong>: Titles, meta tags, and heading structure.',
+                '<strong>Client-Owned Content & Assets</strong>: You supply text, logo, and images.',
+                '<strong>Basic Quality Checks</strong>: Links, mobile layout, and functionality.',
+                '<strong>One Revision Round</strong>: One consolidated round of changes.',
+                '<strong>Launch Assistance</strong>: One deployment session on your hosting.'
             ],
             value: 0,
             originalValue: "14,999",
