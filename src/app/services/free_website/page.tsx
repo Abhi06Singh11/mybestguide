@@ -14,7 +14,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogHeader, DialogTitle, DialogClose, DialogContent } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
-import { Rocket, CheckCircle, Globe, ShoppingCart, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Edit, Mail, LineChart, MessageSquare, Check, ArrowRight, ArrowLeft, ShieldCheck, Code } from 'lucide-react';
+import { Rocket, CheckCircle, Globe, ShoppingCart, ShoppingBag, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Edit, Mail, LineChart, MessageSquare, Check, ArrowRight, ArrowLeft, ShieldCheck, Code } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useRouter } from 'next/navigation';
 import { submitFormToSheet } from '@/lib/form-submissions';
@@ -229,6 +229,7 @@ export default function FreeWebsitePage() {
             { id: "Funnels & Automation", title: "Funnels & Automation", desc: "Lead flows & conversion tracking", price: "₹1,999+", icon: Filter }
         ],
         "E-Commerce & Payments": [
+            { id: "E-Commerce Website", title: "E-Commerce Website Starter", desc: "Professional store setup for high-growth brands", price: "₹10,000", icon: ShoppingBag },
             { id: "UPI Integration", title: "UPI Integration", desc: "Accept UPI payments", price: "₹499", icon: Smartphone },
             { id: "International Payments", title: "International Payments", desc: "Stripe/PayPal setup", price: "₹999", icon: CreditCard },
             { id: "Product Listing", title: "Product Listing", desc: "Images, descriptions & pricing", price: "₹99+", icon: Box },
@@ -272,24 +273,6 @@ export default function FreeWebsitePage() {
             tagBgClass: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400",
             icon: Globe,
             iconBgClass: "bg-gradient-to-r from-primary to-accent"
-        },
-        {
-            title: "FREE E-Commerce Starter",
-            description: "Ideal for early-stage e-commerce brands and product sellers ready to sell.",
-            features: [
-                '<strong>Professional Storefront</strong> Design',
-                'Up to <strong>10 Products</strong> Listed',
-                '<strong>Product & Cart</strong> Pages',
-                '<strong>Manual Order</strong> (WhatsApp/Email)',
-                '<strong>Mobile Responsive</strong> Shopping',
-                '<strong>Product Gallery</strong> & Desc.'
-            ],
-            value: 0,
-            originalValue: "24,999",
-            tagText: "100% FREE",
-            tagBgClass: "bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400",
-            icon: ShoppingCart,
-            iconBgClass: "bg-gradient-to-br from-purple-500 to-pink-500"
         }
     ];
 
@@ -354,9 +337,11 @@ export default function FreeWebsitePage() {
                         <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-4">What You Get For FREE</h2>
                         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Everything you need to establish your online presence – completely free of charge.</p>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
+                    <div className="flex justify-center max-w-5xl mx-auto">
                         {freeOffers.map((offer) => (
-                           <OfferCard key={offer.title} {...offer} />
+                           <div key={offer.title} className="max-w-2xl w-full">
+                               <OfferCard {...offer} />
+                           </div>
                         ))}
                     </div>
                 </div>
