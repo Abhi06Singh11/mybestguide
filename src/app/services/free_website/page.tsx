@@ -322,17 +322,16 @@ export default function FreeWebsitePage() {
                             <span className="flex items-center gap-2"><CheckCircle className="h-4 w-4 text-green-400" /> No Credit Card Required</span>
                         </div>
                         
-                        <div className="mt-8 bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-3xl mx-auto border border-white/20 shadow-2xl text-left">
-                            <div className="flex items-center gap-3 mb-4">
+                        <div className="mt-8 bg-white/10 backdrop-blur-md rounded-2xl p-8 max-w-3xl mx-auto border border-white/20 shadow-2xl text-center">
+                            <div className="flex items-center justify-center gap-3 mb-4">
                                 <ShieldCheck className="text-green-400 h-6 w-6" />
                                 <h2 className="text-xl md:text-2xl font-bold text-white">A Limited Number of Free Starter Websites Each Month</h2>
                             </div>
                             <div className="space-y-4 text-blue-100/90 leading-relaxed">
                                 <p>To maintain quality, MyBestGuide accepts a limited number of free starter website projects each month.</p>
                                 <p>Applications are reviewed against our published eligibility criteria and available delivery capacity. If your application is not selected for the current month, we may offer you an opportunity to apply again.</p>
-                                <p className="text-sm italic text-blue-200/70 border-t border-white/10 pt-4">There is no artificial countdown. Availability is based on our actual capacity, and all applicants receive clear information about the next steps.</p>
                             </div>
-                            <div className="mt-8">
+                            <div className="mt-8 flex justify-center">
                                 <Button 
                                     size="lg" 
                                     onClick={scrollToApply} 
