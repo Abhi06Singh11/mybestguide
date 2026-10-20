@@ -9,7 +9,8 @@ import {
   MessageSquareQuote,
   Users,
   Mail,
-  LayoutGrid
+  LayoutGrid,
+  Calendar
 } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { cn } from '@/lib/utils';
@@ -61,6 +62,12 @@ export default function Header() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
+          <Link href="/book-now" className="hidden sm:block">
+            <Button className="font-bold">
+              <Calendar className="mr-2 h-4 w-4" />
+              Book Now
+            </Button>
+          </Link>
           <ThemeToggle />
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
@@ -94,6 +101,16 @@ export default function Header() {
                       {link.label}
                     </Link>
                   ))}
+                  <Link 
+                    href="/book-now" 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="w-full mt-4"
+                  >
+                    <Button className="w-full font-bold">
+                      <Calendar className="mr-2 h-5 w-5" />
+                      Book Now
+                    </Button>
+                  </Link>
                 </nav>
               </div>
             </SheetContent>
