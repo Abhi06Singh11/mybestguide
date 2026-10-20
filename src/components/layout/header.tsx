@@ -62,7 +62,7 @@ export default function Header() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Link href="/book-now" className="hidden sm:block">
+          <Link href="/book_now" className="hidden sm:block">
             <Button className="font-bold">
               <Calendar className="mr-2 h-4 w-4" />
               Book Now
@@ -102,7 +102,7 @@ export default function Header() {
                     </Link>
                   ))}
                   <Link 
-                    href="/book-now" 
+                    href="/book_now" 
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="w-full mt-4"
                   >
