@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { QrCode, Loader2, Calendar, Phone, Mail } from 'lucide-react';
+import { QrCode, Calendar, Phone, Mail } from 'lucide-react';
 
 export default function BookNowPage() {
   const [isGenerating, setIsGenerating] = useState(false);
@@ -25,7 +25,7 @@ export default function BookNowPage() {
     setTimeout(() => {
       setIsGenerating(false);
       setShowQR(true);
-    }, 1500);
+    }, 2000);
   };
 
   return (
@@ -53,18 +53,43 @@ export default function BookNowPage() {
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-md bg-white border-2 border-primary/20">
-                <DialogHeader>
+                <DialogHeader className="flex flex-col items-center">
                   <DialogTitle className="text-center text-primary font-bold text-xl uppercase tracking-wider">
                     MyBest Guide
                   </DialogTitle>
+                  <p className="text-muted-foreground text-[10px] font-bold uppercase tracking-[0.2em] mt-1">
+                    We Build. You Grow. Simple.
+                  </p>
                 </DialogHeader>
                 <div className="flex flex-col items-center justify-center py-8">
                   {isGenerating ? (
-                    <div className="flex flex-col items-center space-y-4 animate-pulse">
-                      <div className="flex h-16 w-16 items-center justify-center">
-                        <Loader2 className="h-12 w-12 text-primary animate-spin" />
+                    <div className="flex flex-col items-center space-y-6">
+                      <div className="w-32 h-auto">
+                        <svg className="infinity" viewBox="0 0 187.3 93.7" preserveAspectRatio="xMidYMid meet">
+                          <defs>
+                            <linearGradient id="qr-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                              <stop stopColor="hsl(var(--primary))" offset="0%"/>
+                              <stop stopColor="hsl(var(--accent))" offset="100%"/>
+                            </linearGradient>
+                          </defs>
+                          <path 
+                            d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" 
+                            strokeWidth="5" 
+                            strokeLinejoin="round" 
+                            strokeLinecap="round" 
+                            fill="none" 
+                            stroke="url(#qr-gradient)" 
+                            id="outline"
+                          ></path>
+                          <path 
+                            d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z" 
+                            strokeWidth="5" 
+                            fill="none" 
+                            id="outline-bg"
+                          ></path>
+                        </svg>
                       </div>
-                      <p className="text-muted-foreground font-medium text-sm">Generating Secure QR Code...</p>
+                      <p className="text-muted-foreground font-medium text-sm animate-pulse">Generating Secure QR Code...</p>
                     </div>
                   ) : showQR ? (
                     <div className="flex flex-col items-center space-y-6 animate-in fade-in zoom-in duration-500">
