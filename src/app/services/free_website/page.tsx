@@ -14,7 +14,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogHeader, DialogTitle, DialogClose, DialogContent } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
-import { Rocket, CheckCircle, Globe, ShoppingCart, ShoppingBag, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Edit, Mail, LineChart, MessageSquare, Check, ArrowRight, ArrowLeft, ShieldCheck, Code, Warehouse, Building2 } from 'lucide-react';
+import { Rocket, CheckCircle, Globe, ShoppingCart, ShoppingBag, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Edit, Mail, LineChart, MessageSquare, Check, ArrowRight, ArrowLeft, ShieldCheck, Code } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useRouter } from 'next/navigation';
 import { submitFormToSheet } from '@/lib/form-submissions';
@@ -286,7 +286,7 @@ export default function FreeWebsitePage() {
                 '<strong>Launch Assistance:</strong> One deployment assistance session on compatible, customer-provided hosting, subject to access and technical requirements.'
             ],
             value: 0,
-            originalValue: "14,999",
+            originalValue: "10,000",
             tagText: "100% FREE",
             tagBgClass: "bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400",
             icon: Globe,
