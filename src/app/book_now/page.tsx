@@ -147,7 +147,7 @@ export default function BookNowPage() {
               <div className="text-sm text-muted-foreground mt-2 space-y-1">
                 <p>Call us directly at:</p>
                 <a href="tel:+918005414588" className="block text-primary font-semibold hover:underline">+91 80054 14588</a>
-                <a href="tel:+91737984811" className="block text-primary font-semibold hover:underline">+91 73798 4811</a>
+                <a href="tel:+917379848171" className="block text-primary font-semibold hover:underline">+91 73798 48171</a>
               </div>
             </div>
             <div className="text-center p-6 bg-card rounded-xl border border-border/50 shadow-sm">

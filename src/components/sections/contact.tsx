@@ -59,10 +59,10 @@ const industries = [
 ];
 
 const socialLinks = [
-    { href: '#', icon: Twitter, label: 'Twitter' },
+    { href: 'https://x.com/MyBestGuideIn', icon: Twitter, label: 'Twitter' },
     { href: '#', icon: Linkedin, label: 'LinkedIn' },
     { href: 'https://www.instagram.com/mybestguide.in', icon: Instagram, label: 'Instagram' },
-    { href: '#', icon: Facebook, label: 'Facebook' },
+    { href: 'https://www.facebook.com/mybestguideindia', icon: Facebook, label: 'Facebook' },
   ];
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -281,7 +281,7 @@ export default function Contact() {
                             <Mail className="h-6 w-6 text-primary" />
                             <div>
                                 <h4 className="font-semibold">Business Email</h4>
-                                <a href="mailto:mybestguide.in@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">mybestguide.in@gmail.com</a>
+                                <a href="mailto:contact@mybestguide.in" className="text-muted-foreground hover:text-primary transition-colors">contact@mybestguide.in</a>
                             </div>
                         </div>
                          <div className="flex items-center gap-4">
@@ -289,6 +289,7 @@ export default function Contact() {
                             <div>
                                 <h4 className="font-semibold">Phone Number</h4>
                                 <a href="tel:+918005414588" className="text-muted-foreground hover:text-primary transition-colors">+91 80054 14588</a>
+                                <a href="tel:+917379848171" className="block text-muted-foreground hover:text-primary transition-colors">+91 73798 48171</a>
                             </div>
                         </div>
                         <div className="flex items-start gap-4">

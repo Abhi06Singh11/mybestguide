@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -78,11 +79,18 @@ function ProjectSchema() {
             "addressRegion": "UP",
             "addressCountry": "IN"
           },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+91-8005414588",
-            "contactType": "customer service"
-          }
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+91-8005414588",
+              "contactType": "customer service"
+            },
+            {
+              "@type": "ContactPoint",
+              "telephone": "+91-7379848171",
+              "contactType": "technical support"
+            }
+          ]
         }),
       }}
     />

@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -15,7 +16,7 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function WhatsappFab() {
   const [isVisible, setIsVisible] = useState(false);
-  const whatsAppNumber = '918005414588';
+  const whatsAppNumber = '917379848171'; // Updated to the new number
 
   useEffect(() => {
     const timer = setTimeout(() => {
