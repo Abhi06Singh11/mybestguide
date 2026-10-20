@@ -58,27 +58,27 @@ type OfferCardProps = {
 
 const OfferCard = ({ title, description, features, value, originalValue, tagText, tagBgClass, icon: Icon, iconBgClass }: OfferCardProps) => {
     return (
-        <div className="bg-secondary rounded-3xl p-8 md:p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group hover:bg-primary border border-border hover:border-primary">
+        <div className="bg-secondary rounded-xl p-6 md:p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group hover:bg-primary border border-border hover:border-primary w-full">
             <div className={cn("absolute top-0 right-0 w-32 h-32 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110", tagBgClass, "opacity-10 dark:opacity-20")}></div>
 
             <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg relative z-10 transition-colors duration-300 group-hover:bg-primary-foreground", iconBgClass)}>
                 <Icon className="text-white text-2xl h-8 w-8 group-hover:text-primary" />
             </div>
 
-            <h3 className="text-2xl font-bold text-foreground mb-3 relative z-10 group-hover:text-primary-foreground">{title}</h3>
-            <p className="text-muted-foreground mb-8 leading-relaxed relative z-10 min-h-[72px] group-hover:text-primary-foreground/80">{description}</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3 relative z-10 group-hover:text-primary-foreground">{title}</h3>
+            <p className="text-muted-foreground mb-8 leading-relaxed relative z-10 group-hover:text-primary-foreground/80 max-w-2xl">{description}</p>
 
-            <ul className="space-y-4 relative z-10 mb-8">
+            <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-4 relative z-10 mb-8">
                 {features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-3">
                         <CheckCircle className="text-green-500 mt-1 flex-shrink-0 h-5 w-5 group-hover:text-green-300" />
-                        <span className="text-muted-foreground group-hover:text-primary-foreground/80" dangerouslySetInnerHTML={{ __html: feature.replace(/<strong>/g, '<strong class="text-foreground group-hover:text-primary-foreground font-bold">') }} />
+                        <span className="text-muted-foreground group-hover:text-primary-foreground/80 text-sm md:text-base" dangerouslySetInnerHTML={{ __html: feature.replace(/<strong>/g, '<strong class="text-foreground group-hover:text-primary-foreground font-bold">') }} />
                     </li>
                 ))}
             </ul>
 
             <div className="pt-6 border-t border-border relative z-10 group-hover:border-primary-foreground/20">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div className="flex flex-col">
                         <span className="text-sm text-muted-foreground mb-1 group-hover:text-primary-foreground/80">Estimated Value</span>
                         <div className="flex items-baseline gap-2">
@@ -86,7 +86,7 @@ const OfferCard = ({ title, description, features, value, originalValue, tagText
                             <span className="text-muted-foreground line-through text-lg group-hover:text-primary-foreground/80">₹{originalValue}</span>
                         </div>
                     </div>
-                    <span className={cn("px-4 py-1.5 rounded-full text-sm font-bold shadow-sm", tagBgClass)}>
+                    <span className={cn("px-4 py-1.5 rounded-full text-sm font-bold shadow-sm w-fit", tagBgClass)}>
                         {tagText}
                     </span>
                 </div>
@@ -346,7 +346,7 @@ export default function FreeWebsitePage() {
                     </div>
                     <div className="flex justify-center max-w-5xl mx-auto">
                         {freeOffers.map((offer) => (
-                           <div key={offer.title} className="max-w-2xl w-full">
+                           <div key={offer.title} className="w-full max-w-5xl">
                                <OfferCard {...offer} />
                            </div>
                         ))}
