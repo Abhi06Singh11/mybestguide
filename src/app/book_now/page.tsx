@@ -1,7 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Metadata } from 'next';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -10,8 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { QrCode, Loader2, Calendar, Phone } from 'lucide-react';
-import Image from 'next/image';
+import { QrCode, Loader2, Calendar, Phone, Mail } from 'lucide-react';
 
 export default function BookNowPage() {
   const [isGenerating, setIsGenerating] = useState(false);
