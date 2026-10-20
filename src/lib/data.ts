@@ -301,24 +301,63 @@ export const projects = [
 
 export const testimonials = [
   {
-    id: 'testimonial-1',
-    quote: "MyBestGuide transformed our digital operations. Their technical depth and commitment to our vision were evident from day one.",
-    name: 'Jane Doe',
-    title: 'CEO, Innovate Inc.',
-    image: '10'
-  },
-  {
-    id: 'testimonial-2',
-    quote: "The ERP solution they engineered has streamlined our entire supply chain. Our operational efficiency is at an all-time high.",
-    name: 'John Smith',
-    title: 'Director of Ops, Manufacturing Global',
+    id: 't-radhika',
+    projectName: 'Radhika Saree',
+    quote: "The inventory management system MyBestGuide built for us is a absolute game-changer. Our stock tracking is finally accurate, and the operational overhead has dropped significantly.",
+    name: 'Rajesh Khanna',
+    title: 'Owner, Radhika Sarees',
+    rating: 4,
+    url: 'https://radhika.mamtacollege.in/',
     image: '11'
   },
   {
-    id: 'testimonial-3',
-    quote: "Our e-commerce store is finally performing at scale. Their focus on speed and conversion rates made a measurable impact on our ROI.",
-    name: 'Emily White',
-    title: 'Founder, The Chic Collective',
+    id: 't-soni',
+    projectName: 'Hotel Soni Arena',
+    quote: "Our new booking platform is seamless and visually stunning. We've seen a noticeable jump in direct reservations thanks to the improved user experience and mobile-first design.",
+    name: 'Amit Singh',
+    title: 'Managing Director, Hotel Soni Arena',
+    rating: 4.5,
+    url: 'https://soniarenahotel.com/',
+    image: '12'
+  },
+  {
+    id: 't-dvr',
+    projectName: 'DVR Global',
+    quote: "They delivered a robust career portal that handled our global logistics and training requirements perfectly. A truly professional team that understands complex business logic.",
+    name: 'Vikram Aditya',
+    title: 'Director, DVR Global',
+    rating: 4,
+    url: 'https://www.dvrglobalcareer.com/',
+    image: '11'
+  },
+  {
+    id: 't-dk',
+    projectName: 'DK Appliance Hub',
+    quote: "Effective and simple lead generation. The website does exactly what we needed—bringing in consistent inquiries for our local appliance maintenance services.",
+    name: 'Dinesh Kumar',
+    title: 'Proprietor, DK Appliance',
+    rating: 4,
+    url: 'https://dkappliance.vercel.app/',
+    image: '12'
+  },
+  {
+    id: 't-akash',
+    projectName: 'Akash Safety Net',
+    quote: "A clean and professional E-catalog that highlights our safety solutions perfectly. It has helped us build immediate trust with our high-value industrial clients.",
+    name: 'Prakash Jha',
+    title: 'Operations Lead, Akash Safety Net',
+    rating: 4,
+    url: 'https://akashsaftynet.vercel.app/',
+    image: '11'
+  },
+  {
+    id: 't-balaji',
+    projectName: 'Shri Balaji Contractor',
+    quote: "Outstanding work on our construction showcase. The design beautifully highlights our civil engineering expertise and reflects the scale of our projects.",
+    name: 'Balaji Vishwakarma',
+    title: 'Founder, Shri Balaji Contractor',
+    rating: 5,
+    url: 'https://shribalajicontractor.vercel.app/',
     image: '12'
   },
 ];
