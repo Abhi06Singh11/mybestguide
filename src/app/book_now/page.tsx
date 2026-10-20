@@ -119,7 +119,11 @@ export default function BookNowPage() {
             <div className="text-center p-6 bg-card rounded-xl border border-border/50 shadow-sm">
               <Phone className="h-8 w-8 text-primary mx-auto mb-3" />
               <h3 className="font-bold text-foreground">Need Assistance?</h3>
-              <p className="text-sm text-muted-foreground mt-2">Call us directly at <br /><span className="text-primary font-semibold">+91 80054 14588</span></p>
+              <div className="text-sm text-muted-foreground mt-2 space-y-1">
+                <p>Call us directly at:</p>
+                <a href="tel:+918005414588" className="block text-primary font-semibold hover:underline">+91 80054 14588</a>
+                <a href="tel:+91737984811" className="block text-primary font-semibold hover:underline">+91 73798 4811</a>
+              </div>
             </div>
             <div className="text-center p-6 bg-card rounded-xl border border-border/50 shadow-sm">
               <Mail className="h-8 w-8 text-primary mx-auto mb-3" />
