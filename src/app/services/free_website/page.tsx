@@ -14,7 +14,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogHeader, DialogTitle, DialogClose, DialogContent } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
-import { Rocket, CheckCircle, Globe, ShoppingCart, ShoppingBag, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Edit, Mail, LineChart, MessageSquare, Check, ArrowRight, ArrowLeft, ShieldCheck, Code } from 'lucide-react';
+import { Rocket, CheckCircle, Globe, ShoppingCart, ShoppingBag, Lightbulb, XCircle, Info, Puzzle, Headset, Megaphone, Store, Gift, FileText, Paintbrush, Gauge, Bot, CalendarCheck, Search, Chrome, Hash, Filter, Smartphone, CreditCard, Box, Settings, Edit, Mail, LineChart, MessageSquare, Check, ArrowRight, ArrowLeft, ShieldCheck, Code, Warehouse, Building2 } from 'lucide-react';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useRouter } from 'next/navigation';
 import { submitFormToSheet } from '@/lib/form-submissions';
@@ -54,11 +54,12 @@ type OfferCardProps = {
     tagBgClass: string;
     icon: React.ElementType;
     iconBgClass: string;
+    onApply?: () => void;
 };
 
-const OfferCard = ({ title, description, features, value, originalValue, tagText, tagBgClass, icon: Icon, iconBgClass }: OfferCardProps) => {
+const OfferCard = ({ title, description, features, value, originalValue, tagText, tagBgClass, icon: Icon, iconBgClass, onApply }: OfferCardProps) => {
     return (
-        <div className="bg-secondary rounded-xl p-6 md:p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group hover:bg-primary border border-border hover:border-primary w-full">
+        <div className="bg-secondary rounded-lg p-6 md:p-10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 relative overflow-hidden group hover:bg-primary border border-border hover:border-primary w-full max-w-5xl mx-auto">
             <div className={cn("absolute top-0 right-0 w-32 h-32 rounded-bl-[100px] -mr-8 -mt-8 transition-transform group-hover:scale-110", tagBgClass, "opacity-10 dark:opacity-20")}></div>
 
             <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg relative z-10 transition-colors duration-300 group-hover:bg-primary-foreground", iconBgClass)}>
@@ -78,7 +79,7 @@ const OfferCard = ({ title, description, features, value, originalValue, tagText
             </ul>
 
             <div className="pt-6 border-t border-border relative z-10 group-hover:border-primary-foreground/20">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                     <div className="flex flex-col">
                         <span className="text-sm text-muted-foreground mb-1 group-hover:text-primary-foreground/80">Estimated Value</span>
                         <div className="flex items-baseline gap-2">
@@ -86,9 +87,19 @@ const OfferCard = ({ title, description, features, value, originalValue, tagText
                             <span className="text-muted-foreground line-through text-lg group-hover:text-primary-foreground/80">₹{originalValue}</span>
                         </div>
                     </div>
-                    <span className={cn("px-4 py-1.5 rounded-full text-sm font-bold shadow-sm w-fit", tagBgClass)}>
-                        {tagText}
-                    </span>
+                    <div className="flex flex-col sm:flex-row items-center gap-4">
+                        <span className={cn("px-4 py-1.5 rounded-full text-sm font-bold shadow-sm w-fit", tagBgClass)}>
+                            {tagText}
+                        </span>
+                        {onApply && (
+                            <Button 
+                                onClick={onApply}
+                                className="w-full sm:w-auto font-bold group-hover:bg-primary-foreground group-hover:text-primary border-primary group-hover:border-primary-foreground"
+                            >
+                                Apply Now
+                            </Button>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
@@ -321,11 +332,11 @@ export default function FreeWebsitePage() {
                                 <ShieldCheck className="text-green-400 h-6 w-6" />
                                 <h2 className="text-xl md:text-2xl font-bold text-white">A Limited Number of Free Starter Websites Each Month</h2>
                             </div>
-                            <div className="space-y-4 text-blue-100/90 leading-relaxed">
+                            <div className="space-y-4 text-blue-100/90 leading-relaxed mb-8">
                                 <p>To maintain quality, MyBestGuide accepts a limited number of free starter website projects each month.</p>
                                 <p>Applications are reviewed against our published eligibility criteria and available delivery capacity. If your application is not selected for the current month, we may offer you an opportunity to apply again.</p>
                             </div>
-                            <div className="mt-8 flex justify-center">
+                            <div className="flex justify-center">
                                 <Button 
                                     size="lg" 
                                     onClick={scrollToApply} 
@@ -347,7 +358,7 @@ export default function FreeWebsitePage() {
                     <div className="flex justify-center max-w-5xl mx-auto">
                         {freeOffers.map((offer) => (
                            <div key={offer.title} className="w-full max-w-5xl">
-                               <OfferCard {...offer} />
+                               <OfferCard {...offer} onApply={scrollToApply} />
                            </div>
                         ))}
                     </div>
