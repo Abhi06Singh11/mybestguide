@@ -35,7 +35,6 @@ export default function Hero() {
                 </div>
             </div>
         </div>
-        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent z-10"></div>
     </section>
   );
 }
