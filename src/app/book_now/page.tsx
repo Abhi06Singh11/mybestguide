@@ -61,8 +61,10 @@ export default function BookNowPage() {
                 <div className="flex flex-col items-center justify-center py-8">
                   {isGenerating ? (
                     <div className="flex flex-col items-center space-y-4 animate-pulse">
-                      <Loader2 className="h-16 w-16 text-primary animate-spin" />
-                      <p className="text-muted-foreground font-medium">Generating Secure QR Code...</p>
+                      <div className="flex h-16 w-16 items-center justify-center">
+                        <Loader2 className="h-12 w-12 text-primary animate-spin" />
+                      </div>
+                      <p className="text-muted-foreground font-medium text-sm">Generating Secure QR Code...</p>
                     </div>
                   ) : showQR ? (
                     <div className="flex flex-col items-center space-y-6 animate-in fade-in zoom-in duration-500">
@@ -122,7 +124,7 @@ export default function BookNowPage() {
             <div className="text-center p-6 bg-card rounded-xl border border-border/50 shadow-sm">
               <Mail className="h-8 w-8 text-primary mx-auto mb-3" />
               <h3 className="font-bold text-foreground">Custom Request?</h3>
-              <p className="text-sm text-muted-foreground mt-2">Drop us an email at <br /><a href="mailto:info@mybestguide.com" className="text-primary font-semibold hover:underline">info@mybestguide.com</a></p>
+              <p className="text-sm text-muted-foreground mt-2">Drop us an email at <br /><a href="mailto:contact@mybestguide.in" className="text-primary font-semibold hover:underline">contact@mybestguide.in</a></p>
             </div>
           </div>
         </div>
