@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -10,12 +11,12 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { QrCode, Calendar, Phone, Mail } from 'lucide-react';
+import { QRCodeSVG } from 'qrcode.react';
 
 export default function BookNowPage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [showQR, setShowQR] = useState(false);
   const bookingUrl = "https://mybestguidein.dayschedule.com";
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(bookingUrl)}&color=1e293b`;
 
   const handleQRClick = () => {
     setIsGenerating(true);
@@ -29,7 +30,7 @@ export default function BookNowPage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <div className="flex flex-col min-h-screen bg-background font-sans">
       {/* Hero Section */}
       <section className="bg-primary text-primary-foreground py-16 md:py-20 text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-accent/20 opacity-50"></div>
@@ -55,7 +56,7 @@ export default function BookNowPage() {
               <DialogContent className="sm:max-w-md bg-white border-2 border-primary/20">
                 <DialogHeader className="flex flex-col items-center">
                   <DialogTitle className="text-center text-primary font-bold text-xl uppercase tracking-wider">
-                    MyBest Guide
+                    MY BEST GUIDE
                   </DialogTitle>
                   <p className="text-muted-foreground text-[10px] font-bold uppercase tracking-[0.2em] mt-1">
                     We Build. You Grow. Simple.
@@ -94,12 +95,11 @@ export default function BookNowPage() {
                   ) : showQR ? (
                     <div className="flex flex-col items-center space-y-6 animate-in fade-in zoom-in duration-500">
                       <div className="p-4 bg-white rounded-xl shadow-[0_0_20px_rgba(0,0,0,0.1)] border-8 border-primary/5">
-                        <img 
-                          src={qrCodeUrl} 
-                          alt="Booking QR Code" 
-                          width={250} 
-                          height={250}
-                          className="rounded-lg"
+                        <QRCodeSVG 
+                          value={bookingUrl} 
+                          size={250} 
+                          level="H" 
+                          includeMargin={false}
                         />
                       </div>
                       <div className="text-center">
