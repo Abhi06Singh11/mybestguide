@@ -4,32 +4,38 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-[70vh] flex items-center justify-center text-white">
+    <section className="relative w-full h-[75vh] flex items-center justify-center text-white overflow-hidden">
         <Image
           src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZWFtJTIwd29ya2luZ3xlbnwwfHx8fDE3Njc3MjAwMDF8MA&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Team working together"
+          alt="MyBestGuide Team collaborating on digital transformation strategies"
           fill
-          className="object-cover -z-10 brightness-50"
-          data-ai-hint="team working"
+          priority
+          className="object-cover -z-10 brightness-[0.4]"
+          data-ai-hint="team collaborating"
         />
-        <div className="container px-4 text-center md:px-6">
-            <div className="mx-auto max-w-3xl space-y-6">
-                <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+        <div className="container px-4 text-center md:px-6 relative z-10">
+            <div className="mx-auto max-w-4xl space-y-8">
+                <h1 className="font-headline text-5xl font-extrabold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
                     We Build. You Grow. Simple.
                 </h1>
-                <p className="mx-auto max-w-[700px] text-lg text-gray-200 md:text-xl">
-                    Boost Your Brand with Websites, SEO and Growth-Driven Strategies.
+                <p className="mx-auto max-w-[800px] text-lg text-gray-100 md:text-2xl font-medium leading-relaxed">
+                    Premier Web Development, Custom Apps, and Growth-Focused Digital Strategies for Modern Enterprises.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-5 justify-center pt-4">
                     <Link href="/services">
-                        <Button size="lg">Explore Our Services</Button>
+                        <Button size="lg" className="h-14 px-10 text-lg font-bold">
+                            Explore Services
+                        </Button>
                     </Link>
                     <Link href="/contact">
-                        <Button size="lg" variant="secondary">Get In Touch</Button>
+                        <Button size="lg" variant="secondary" className="h-14 px-10 text-lg font-bold">
+                            Get a Free Quote
+                        </Button>
                     </Link>
                 </div>
             </div>
         </div>
+        <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-background to-transparent z-10"></div>
     </section>
   );
 }

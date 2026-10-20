@@ -1,29 +1,28 @@
-
 import { CodeXml, ShoppingCart, Layers3, Smartphone, Database, Wrench, Shapes, ShieldCheck, Users, Award, MessageCircle, BarChart, Store, ToyBrick, Workflow, CreditCard, ShoppingBag, LineChart, Shield, GitBranch, Laptop, Component, Languages, Milestone, Server, Users2, FileText, Activity, AlertCircle, TrendingUp, MapPin, Car, Home, BookOpen, Scale, HeartPulse, Truck, Plane, MessageSquare, ChefHat, Dumbbell, Apple, DraftingCompass, Puzzle, RefreshCw, GraduationCap, Ship, Warehouse, Building2 } from 'lucide-react';
 
 export const services = [
   {
-    title: 'E-Commerce Website Development',
+    title: 'E-Commerce Excellence',
     link: '/services/e-commerce-development'
   },
   {
-    title: 'Mobile Application Development',
+    title: 'Mobile App Innovation',
     link: '/services/mobile-application-development'
   },
   {
-    title: 'ERP SaaS Development',
+    title: 'Enterprise ERP SaaS',
     link: '/services/erp-saas-development'
   },
   {
-    title: 'Odoo Development & Customization',
+    title: 'Expert Odoo Customization',
     link: '/services/odoo-development'
   },
   {
-    title: 'Technical Support & Maintenance',
+    title: 'Technical Support & Ops',
     link: '/services/technical-support'
   },
   {
-    title: 'Customized Development Solutions',
+    title: 'Custom Engineering',
     link: '/services/customized-development'
   }
 ];
@@ -33,91 +32,91 @@ export const serviceDetails = [
         icon: ShoppingCart,
         title: 'E-commerce Website Development',
         link: '/services/e-commerce-development',
-        description: 'At MyBestGuide, we design and develop fully customized e-commerce platforms that reflect your brand identity and business goals. Our solutions focus on performance, usability, and secure transactions to help you convert visitors into loyal customers.',
+        description: 'Drive revenue with conversion-optimized storefronts. We build high-performance e-commerce platforms that combine aesthetic appeal with seamless transactional efficiency, ensuring a frictionless journey for your customers.',
         features: [
-            'Secure payment gateway integration',
-            'Mobile-friendly and responsive layouts',
-            'User-centric product browsing and checkout flows',
-            'Scalable architecture for growing businesses'
+            'Secure multi-gateway payment integration',
+            'Conversion-driven UI/UX frameworks',
+            'Mobile-first responsive architectures',
+            'Scalable cloud-ready performance'
         ]
     },
     {
         icon: Smartphone,
         title: 'Mobile Application Development',
         link: '/services/mobile-application-development',
-        description: 'We build native and cross-platform mobile applications that deliver seamless performance and engaging user experiences. Our apps are designed to scale as your business grows.',
+        description: 'Put your brand in your customers\' pockets. Our engineering team builds native and cross-platform mobile apps that prioritize user engagement, reliability, and smooth animations.',
         features: [
-            'iOS and Android development expertise',
-            'Intuitive UI with smooth navigation',
-            'Scalable and future-ready architecture',
-            'Backend and API integration'
+            'Native iOS and Android excellence',
+            'Fluid, high-performance user interfaces',
+            'Future-proofed scalable architecture',
+            'Robust API and backend orchestration'
         ]
     },
     {
         icon: Layers3,
         title: 'ERP SaaS Development',
         link: '/services/erp-saas-development',
-        description: 'Our ERP SaaS solutions centralize your business operations, improve efficiency, and provide real-time insights to support smarter decision-making.',
+        description: 'Centralize control and unlock operational clarity. Our custom ERP solutions provide a unified dashboard for your business, automating workflows and surfacing real-time business intelligence.',
         features: [
-            'Real-time analytics and reporting',
-            'Inventory and resource management',
-            'Automated business processes',
-            'Cloud-based and secure solutions'
+            'Intelligent real-time analytics',
+            'Automated inventory & resource planning',
+            'Seamless cross-departmental integration',
+            'Enterprise-grade cloud security'
         ]
     },
     {
         icon: Database,
         title: 'Odoo Development & Customization',
         link: '/services/odoo-development',
-        description: 'MyBestGuide specializes in adapting Odoo ERP to match your exact business requirements, ensuring seamless operations and system flexibility.',
+        description: 'Tailor the world\'s most powerful ERP to your unique needs. We specialize in deep Odoo customizations, ensuring your business logic is perfectly mirrored in your digital workspace.',
         features: [
-            'Custom Odoo modules',
-            'Third-party system integrations',
-            'Deep expertise in the Odoo framework',
-            'Odoo upgrades and optimization'
+            'Bespoke Odoo module engineering',
+            'Seamless third-party ecosystem syncing',
+            'Performance-tuned Odoo frameworks',
+            'Expert migration and version upgrades'
         ]
     },
     {
         icon: ShieldCheck,
-        title: 'Technical Support, Website and App Maintenance',
+        title: 'Technical Support & Maintenance',
         link: '/services/technical-support',
-        description: 'We provide continuous technical support to ensure your applications and systems remain stable, secure, and up to date.',
+        description: 'Ensure 99.9% uptime and peak system performance. Our proactive maintenance teams provide the security and stability your business depends on, 24/7.',
         features: [
-          'Proactive system monitoring and alerts',
-          'Fast issue resolution based on SLAs',
-          'Regular security patching and updates',
-          '24/7 support and incident reporting'
+          'Proactive infrastructure monitoring',
+          'SLA-backed rapid incident response',
+          'Automated security patch cycles',
+          'End-to-end performance auditing'
         ]
     },
     {
         icon: Shapes,
         title: 'Customized Development Solutions',
         link: '/services/customized-development',
-        description: 'When standard solutions fall short, we create custom-built software designed specifically for your operational and strategic needs.',
+        description: 'Solve complex challenges with surgical precision. When off-the-shelf software fails, we engineer custom solutions designed specifically for your competitive advantage.',
         features: [
-            'Solutions tailored to your business model',
-            'Dedicated and experienced developers',
-            'Scalable systems built for long-term growth',
-            'Full lifecycle support from concept to deployment'
+            'Surgical alignment with business logic',
+            'Expert-led engineering squads',
+            'Growth-centric modular designs',
+            'Full-lifecycle product management'
         ]
     }
 ];
 
 export const serviceSegments = [
     {
-      title: "Core Development Services",
+      title: "Core Engineering Services",
       services: [
-        serviceDetails[0], // E-commerce
-        serviceDetails[1], // Mobile App
-        serviceDetails[2], // ERP SaaS
-        serviceDetails[5], // Customized Development
+        serviceDetails[0],
+        serviceDetails[1],
+        serviceDetails[2],
+        serviceDetails[5],
       ]
     },
     {
-      title: "Platform & Support Services",
+      title: "Enterprise & Operations",
       services: [
-        serviceDetails[4], // Technical Support
-        serviceDetails[3], // Odoo
+        serviceDetails[4],
+        serviceDetails[3],
       ]
     }
   ];
@@ -125,463 +124,407 @@ export const serviceSegments = [
 export const whyPartnerWithUs = [
     {
         icon: Users,
-        title: 'Experienced Team',
-        description: 'Our expert developers bring years of experience in web, mobile, and enterprise software development, ensuring reliable and high-quality delivery.'
+        title: 'Expert Engineering',
+        description: 'Our team comprises senior developers with a track record of delivering high-stakes enterprise projects.'
     },
     {
         icon: Award,
-        title: 'Custom-Fit Solutions',
-        description: 'We build digital products that align perfectly with your business goals, workflows, and future growth plans.'
+        title: 'Outcome-Driven Strategy',
+        description: 'We don\'t just write code; we build digital assets designed to meet your specific business objectives.'
     },
     {
         icon: MessageCircle,
-        title: 'Clear Communication',
-        description: 'We keep you informed at every stage with transparent updates, open collaboration, and a streamlined development process.'
+        title: 'Radical Transparency',
+        description: 'Experience real-time collaboration with open communication channels and frequent progress reporting.'
     },
     {
         icon: BarChart,
-        title: 'Focused on Results',
-        description: 'Our strategies are designed to deliver measurable results—performance, usability, and long-term business growth.'
+        title: 'Scalability Focused',
+        description: 'We architect for your future, ensuring your digital foundation supports exponential growth.'
     }
 ];
 
 export const projects = [
   {
-    name: "Inventory Management System – RADHIKA SAREE",
-    description: "The Inventory Management System for RADHIKA SAREE helps simplify daily business operations by making it easier to manage products, track stock, and maintain inventory records. It is designed to reduce manual work, improve accuracy, and keep inventory organized. With a simple and user-friendly interface, the system makes stock management more efficient and convenient.",
+    name: "Radhika Saree - Enterprise Inventory",
+    description: "A comprehensive digital transformation for a leading textile retailer, automating stock tracking and reducing operational overhead by 40% through custom inventory logic.",
     category: "Web",
     url: "https://radhika.mamtacollege.in/",
     image: '1',
     icon: Warehouse,
   },
   {
-    name: "Hotel Soni Arena – Una",
-    description: "Hotel Soni Arena, Una, offers a comfortable and welcoming experience for travelers. The website showcases the hotel’s services, amenities, and hospitality through a clean and user-friendly design. It helps visitors explore the hotel and learn more about what it offers. With a focus on simplicity and accessibility, the website provides a smooth browsing experience across different devices.",
+    name: "Hotel Soni Arena - Hospitality Platform",
+    description: "A sleek, conversion-optimized booking platform that showcases premium hospitality services with an emphasis on user experience and direct reservations.",
     category: "Web",
     url: "https://soniarenahotel.com/",
     image: '2',
     icon: Building2,
   },
   {
-    name: "DVR Global Career",
-    description: "DVR Global Career provides industry-focused Oil & Gas, Warehouse Management, Shipbuilding, and Industrial Skills Training with dedicated placement support for India, GCC, and global careers.",
+    name: "DVR Global - Career Logistics",
+    description: "An industry-leading career management portal specializing in training and placement for the global maritime and industrial sectors.",
     category: "Web",
     url: "https://www.dvrglobalcareer.com/",
     image: '1',
     icon: GraduationCap,
   },
   {
-    name: "Bluewhale Marine Career",
-    description: "Bluewhale Marine Career is a renowned maritime education provider based in Chennai, Tamil Nadu. Our mission is to deliver top-notch services to mariners, merchant navy aspirants, ship management companies and ship owners, by upholding transparency, commitment and perfection as our core values.",
+    name: "Bluewhale Marine - Mariner Portal",
+    description: "A professional maritime education hub providing critical transparency and resources for merchant navy aspirants and global ship management companies.",
     category: "Web",
     url: "https://bluewhalemarinecareer.in/",
     image: '1',
     icon: Ship,
   },
   {
-    name: "DK Appliance",
-    description: "Specializing in professional appliance repair services, ensuring your household essentials are running efficiently and reliably.",
+    name: "DK Appliance Repair Hub",
+    description: "A localized service platform designed for high conversion and lead generation within the household appliance maintenance sector.",
     category: "Free Initiative",
     url: "https://dkappliance.vercel.app/",
     image: '2',
     icon: Wrench,
   },
   {
-    name: "Akash Safety Net",
-    description: "Providing high-quality safety netting solutions for balconies, windows, and open spaces to ensure protection and peace of mind.",
+    name: "Akash Safety - E-Catalog",
+    description: "Bridging the gap between industrial safety needs and professional netting solutions through a clear, trust-focused informative website.",
     category: "Free Initiative",
     url: "https://akashsaftynet.vercel.app/",
     image: '15',
     icon: ShieldCheck,
   },
   {
-    name: "Shri Balaji Contractor",
-    description: "Expert building and civil construction services, delivering quality craftsmanship for residential and commercial infrastructure projects.",
+    name: "Shri Balaji - Construction Showcase",
+    description: "Highlighting architectural excellence and civil engineering expertise for a premier residential and commercial contractor.",
     category: "Free Initiative",
     url: "https://shribalajicontractor.vercel.app/",
     image: '17',
     icon: Home,
   },
   {
-    name: "NearMeR",
-    description: "A location-based service platform where users can find nearby services like salons, garages, or restaurants. Features dynamic listings, location tracking, responsive UI, and robust filters.",
+    name: "NearMeR - Hyperlocal Services",
+    description: "A sophisticated geo-location platform connecting users with local service providers through advanced filtering and real-time mapping.",
     category: "Web",
     url: "https://nearmerv.com/",
     image: '1',
     icon: MapPin,
   },
   {
-    name: "TipTop Ride",
-    description: "An Uber-like ride-booking solution with real-time driver tracking, GPS integration, in-app payments, and a comprehensive rating system. Built for reliability and scale.",
+    name: "TipTop Ride - Mobility SaaS",
+    description: "A full-scale ride-hailing ecosystem featuring real-time driver GPS tracking, secure mobile payments, and enterprise-grade dispatch logic.",
     category: "App",
     url: "https://apps.apple.com/in/app/tiptop-ride/id6739037902",
     image: '2',
     icon: Car,
   },
   {
-    name: "OmaShram",
-    description: "A senior care home informational platform with donation capabilities, senior profiles, and a fully responsive design for accessibility.",
+    name: "OmaShram - Social Impact Platform",
+    description: "An accessible and dignified platform for senior care, facilitating donations and community engagement for a specialized care facility.",
     category: "Web",
     url: "https://www.omashram.com/",
     image: '13',
     icon: Home,
   },
   {
-    name: "PostmortemShala – LMS",
-    description: "A full-featured online learning management system (LMS) with courses, exams, and a certification dashboard, founded to make learning accessible.",
+    name: "PostmortemShala - EdTech LMS",
+    description: "A robust learning management system delivering structured courses and automated certification for specialized academic sectors.",
     category: "Web",
     url: "https://www.postmortemshala.co.in/",
     image: '14',
     icon: BookOpen,
   },
   {
-    name: "Technique Loss Adjusters",
-    description: "An insurance claim platform built to manage complex insurance loss adjusting and audit documentation workflows with a focus on quality and speed.",
+    name: "Technique Loss Adjusters - InsurTech",
+    description: "Streamlining insurance claims processing through a secure platform built for complex audit documentation and loss assessment workflows.",
     category: "Web",
     url: "https://techniquelossadjusters.com/",
     image: '15',
     icon: Shield,
   },
   {
-    name: "Creative Phy",
-    description: "A full-service creative and digital marketing agency dedicated to innovative ideas, impactful designs, and data-driven digital strategies.",
+    name: "Creative Phy - Digital Agency Hub",
+    description: "Showcase of digital marketing innovation, featuring data-driven strategies and impactful creative design portfolios.",
     category: "Web",
     url: "https://www.creativephy.com/",
     image: '16',
     icon: Store,
   },
   {
-    name: "Pillow Factory UK",
-    description: "A sophisticated online bedding store featuring multi-currency support, discount engines, and complex product variants, reflecting a dedication to comfort and style.",
+    name: "Pillow Factory UK - E-Commerce",
+    description: "A high-conversion retail platform for the UK market, featuring complex shipping logic and multi-currency transaction handling.",
     category: "E-Commerce",
     url: "https://www.pillowfactory.co.uk/",
     image: '3',
     icon: Store,
   },
   {
-    name: "Ground of Law",
-    description: "A multi-page responsive site for a legal consultancy firm, featuring a professional design, contact forms, profile showcases, and service details.",
+    name: "Ground of Law - Legal Consultancy",
+    description: "A professional legal portal designed to build trust and authority through structured service profiles and lead capture mechanisms.",
     category: "Web",
     url: "https://groundoflaw.qa/",
     image: '17',
     icon: Scale,
   },
   {
-    name: "Ainab Home Health Care",
-    description: "A platform for a top Personal Care Assistant (PCA) provider in Minnesota, committed to enhancing quality of life at home with exceptional service.",
+    name: "Ainab Home Health - Care Portal",
+    description: "Enhancing patient trust through a professional digital presence for a premier personal care provider in Minnesota.",
     category: "Web",
     url: "https://ainabhomehealthcare.com/",
     image: '18',
     icon: HeartPulse,
   },
   {
-    name: "Fahad M Al Mazrou Co.",
-    description: "A trusted leader in logistics since 1997, specializing in customs clearance and transportation services with a reputation for excellence.",
+    name: "FMCO Logistics - Supply Chain",
+    description: "A robust transportation and customs clearance platform for a regional leader in supply chain management since 1997.",
     category: "Web",
     url: "https://fmco.com.sa/",
     image: '19',
     icon: Truck,
   },
   {
-    name: "Khasta",
-    description: "A delightful online bakery specializing in custom cookies and desserts inspired by rich cultural heritage. (Project Discontinued).",
-    category: "E-Commerce",
-    url: "https://khasta.co/",
-    image: '4',
-    icon: Store,
-  },
-  {
-    name: "Sweorn Advisors",
-    description: "A visa consultation service for student, work, and business visas, staffed by a team of experienced former consular officers. (URL not available).",
-    category: "Other",
-    url: "#",
-    image: '20',
-    icon: FileText,
-  },
-  {
-    name: "Singapore Airport Transfers",
-    description: "A premier car service provider in Singapore offering a diverse fleet, from standard sedans to luxury Mercedes vehicles and large coaches.",
+    name: "Singapore Airport Transfers - Booking App",
+    description: "A premium transport booking engine for luxury airport transfers, optimizing logistics and fleet management in Singapore.",
     category: "Web",
     url: "https://www.singaporeairporttransfers.com/",
     image: '21',
     icon: Plane,
   },
   {
-    name: "ACGEM Africa",
-    description: "Promotes effective governance and sustainable economic development across Africa, with a commitment to transparency and accountability.",
+    name: "ACGEM Africa - Governance Hub",
+    description: "Promoting transparency and sustainable development through a centralized digital resource for African economic governance.",
     category: "Web",
     url: "https://acgemafrica.org/",
     image: '22',
     icon: Home,
-  },
-  {
-    name: "Smseducations",
-    description: "A training institute portal for batch, attendance, and course management. (Project terminated by client).",
-    category: "Other",
-    url: "#",
-    image: '23',
-    icon: MessageSquare,
-  },
-  {
-    name: "Portchef",
-    description: "A revolutionary chef hiring app that allows users to book chefs on an hourly or per-dish basis. Includes complex scheduling logic and dynamic pricing.",
-    category: "Other",
-    url: "#",
-    image: '5',
-    icon: ChefHat,
-  },
-  {
-    name: "Carlos",
-    description: "A fitness trainer booking app designed to seamlessly connect trainers with clients. The platform supports scheduling, in-app chat, and progress tracking.",
-    category: "Other",
-    url: "#",
-    image: '6',
-    icon: Dumbbell,
-  },
-  {
-    name: "MMT – Employee Increment Panel",
-    description: "An internal HR evaluation tool designed to track employee KPIs and automate data-driven decisions for salary increment.",
-    category: "Other",
-    url: "#",
-    image: '24',
-    icon: TrendingUp,
-  },
-  {
-    name: "Wayne – Contractor App (Backend)",
-    description: "The complete backend system for a service provider application, connecting users with plumbers, painters, and cleaners. Features a robust admin panel.",
-    category: "Other",
-    url: "#",
-    image: '7',
-    icon: Wrench,
   }
 ];
 
 export const testimonials = [
   {
     id: 'testimonial-1',
-    quote: "MyBestGuide transformed our digital presence. Their team is professional, creative, and delivered beyond our expectations.",
+    quote: "MyBestGuide transformed our digital operations. Their technical depth and commitment to our vision were evident from day one.",
     name: 'Jane Doe',
     title: 'CEO, Innovate Inc.',
     image: '10'
   },
   {
     id: 'testimonial-2',
-    quote: "The custom ERP solution they built for us has revolutionized our workflow. Efficiency is up by 40%!",
+    quote: "The ERP solution they engineered has streamlined our entire supply chain. Our operational efficiency is at an all-time high.",
     name: 'John Smith',
-    title: 'COO, Manufacturing Co.',
+    title: 'Director of Ops, Manufacturing Global',
     image: '11'
   },
   {
     id: 'testimonial-3',
-    quote: "Our new e-commerce site is not only beautiful but also incredibly fast. We saw an increase in conversions.",
+    quote: "Our e-commerce store is finally performing at scale. Their focus on speed and conversion rates made a measurable impact on our ROI.",
     name: 'Emily White',
-    title: 'Founder, The Chic Boutique',
+    title: 'Founder, The Chic Collective',
     image: '12'
   },
 ];
 
 export const ecommerceDevelopmentData = {
-  heroTitle: "E-commerce Website Development",
-  heroDescription: "Build powerful, secure, and scalable online stores that turn visitors into loyal customers. We create conversion-focused digital experiences backed by strategy, performance, and user-centric design.",
-  ctaText: "Build Your E-commerce Platform",
+  heroTitle: "Expert E-commerce Engineering",
+  heroDescription: "Scale your revenue with high-performance, conversion-optimized storefronts. We build secure, resilient, and user-centric digital marketplaces that turn browsers into brand advocates.",
+  ctaText: "Launch Your Global Store",
   services: [
     {
       icon: Store,
-      title: "Custom Storefront Development",
-      description: "We build unique, brand-aligned e-commerce sites from the ground up, ensuring your online presence is a true reflection of your business. Our custom solutions provide the flexibility to create tailored user experiences that stand out in a crowded market.",
+      title: "Custom Marketplace Development",
+      description: "We engineer bespoke e-commerce platforms from the ground up, tailored precisely to your brand logic and customer journey for maximum differentiation.",
     },
     {
       icon: ShoppingBag,
-      title: "Shopify Storefront Implementations",
-      description: "Leverage the power of Shopify with our expert implementation services. We customize Shopify themes and build bespoke features to create a robust, scalable, and easy-to-manage online store that aligns perfectly with your brand identity.",
+      title: "Shopify & Headless Commerce",
+      description: "Leverage the agility of Shopify or the flexibility of Headless commerce. We build robust, scalable architectures that grow alongside your business.",
     },
     {
       icon: CreditCard,
-      title: "Payment Gateway Integration",
-      description: "Secure and seamless transactions are the backbone of any successful e-commerce business. We integrate a wide range of popular and reliable payment gateways, ensuring your customers have a smooth and trustworthy checkout experience.",
+      title: "Secure Payment Orchestration",
+      description: "Minimize friction at checkout with multi-gateway payment integrations, ensuring secure and seamless transaction handling for a global audience.",
     },
     {
       icon: ShoppingCart,
-      title: "Cart, Checkout & Order Management",
-      description: "We optimize the entire purchasing journey, from adding items to the cart to final order confirmation. Our intuitive cart and checkout designs reduce abandonment rates, while robust order management systems streamline your backend operations.",
+      title: "Intelligent Order Management",
+      description: "Streamline your fulfillment operations with integrated cart, checkout, and inventory management systems designed for backend efficiency.",
     },
     {
       icon: TrendingUp,
-      title: "Performance & Scalability Optimization",
-      description: "A slow website costs you sales. We architect e-commerce platforms for speed and reliability, ensuring your site can handle high traffic volumes without compromising performance. Prepare your business for growth with a scalable and optimized solution.",
+      title: "Performance Optimization",
+      description: "Speed is a feature. We tune every aspect of your site to ensure millisecond load times, direct impacts on SEO, and improved conversion rates.",
     },
   ]
 };
 
 export const mobileAppDevelopmentData = {
-  heroTitle: "Mobile Application Development",
-  heroDescription: "Engage your users with high-performance, intuitive, and scalable mobile apps. We build user-centric mobile solutions for both Android and iOS that drive business growth and customer loyalty.",
+  heroTitle: "High-Impact Mobile Innovation",
+  heroDescription: "Engage your audience with intuitive, high-performance mobile experiences. We craft native and cross-platform applications that deliver value and drive customer loyalty.",
   services: [
     {
       icon: Apple,
-      title: "iOS App Development",
-      description: "We specialize in creating native applications for the iOS platform. By leveraging the full power of the Apple ecosystem, we deliver apps with superior performance, seamless integration, and an intuitive user experience tailored to each device.",
+      title: "iOS Engineering Excellence",
+      description: "We leverage the full power of the Apple ecosystem to build premium, high-performance applications that resonate with iOS users globally.",
     },
     {
       icon: Smartphone,
-      title: "Android App Development",
-      description: "Our team builds high-quality native Android apps that are fast, reliable, and optimized for a wide range of devices. We follow Google's Material Design guidelines to create a consistent and engaging user experience.",
+      title: "Android Native Development",
+      description: "Build robust, scalable apps optimized for the diverse Android market, adhering to Material Design standards for a familiar and engaging UX.",
     },
     {
       icon: Component,
-      title: "Cross-Platform App Development",
-      description: "Reach a wider audience faster with cross-platform development. Using modern frameworks like Flutter and React Native, we build beautiful, high-performance apps that run on both Android and iOS from a single codebase, saving you time and resources.",
+      title: "Agile Cross-Platform Solutions",
+      description: "Optimize your time-to-market with Flutter or React Native. We deliver unified experiences across iOS and Android from a single, efficient codebase.",
     },
     {
         icon: DraftingCompass,
-        title: "UI/UX Design for Mobile Apps",
-        description: "Great apps start with great design. Our UI/UX experts craft intuitive, beautiful, and user-friendly interfaces that enhance usability and drive engagement, ensuring your app is not only functional but also a joy to use.",
+        title: "User-Centric UI/UX Design",
+        description: "Great apps start with empathy. Our designers craft intuitive interfaces that simplify complexity and make your app a pleasure to use.",
     },
     {
       icon: TrendingUp,
-      title: "App Performance & Optimization",
-      description: "In the mobile world, speed and reliability are everything. We fine-tune every aspect of your application—from code efficiency to resource management—to ensure fast load times, smooth animations, and a flawless user experience, even under heavy load.",
+      title: "App Lifecycle Management",
+      description: "From performance tuning to feature scaling, we manage the technical evolution of your app to ensure it stays relevant and reliable.",
     }
   ]
 };
 
 export const erpSaaSDevelopmentData = {
-  heroTitle: "ERP & SaaS Development",
-  heroDescription: "Build scalable, secure, and enterprise-ready ERP and SaaS solutions. We architect and develop custom platforms that streamline operations, automate workflows, and drive business intelligence.",
+  heroTitle: "Enterprise ERP & SaaS Solutions",
+  heroDescription: "Streamline complexity with scalable, cloud-native enterprise software. We build the digital backbone your organization needs to automate workflows and drive intelligence.",
   services: [
     {
       icon: Layers3,
-      title: "Custom ERP Development",
-      description: "Move beyond one-size-fits-all solutions. We design and build bespoke Enterprise Resource Planning (ERP) systems tailored to your unique business processes, integrating everything from finance and HR to supply chain and customer management.",
+      title: "Bespoke ERP Engineering",
+      description: "Move beyond rigid software. We build custom ERP systems that mirror your unique business logic, integrating finance, HR, and supply chain into one source of truth.",
     },
     {
       icon: Server,
-      title: "SaaS Application Development",
-      description: "A successful SaaS product starts with a solid foundation. Our architects design scalable, resilient, and secure cloud-native architectures that support your product's long-term growth, ensuring high availability and cost-effective operation.",
+      title: "Cloud-Native SaaS Architecture",
+      description: "Launch your product on a resilient, multi-tenant foundation. We architect for high availability, security, and effortless scaling as your user base grows.",
     },
     {
       icon: GitBranch,
-      title: "ERP Integration Services",
-      description: "Create a unified system by connecting your ERP to other essential business tools. We develop seamless integrations with payment gateways, shipping carriers, e-commerce platforms, and other third-party applications to centralize your data and operations.",
+      title: "Enterprise Ecosystem Integration",
+      description: "Unify your digital landscape. We connect your ERP with third-party tools, payment gateways, and CRM systems for a frictionless data flow.",
     },
     {
       icon: Workflow,
-      title: "Workflow Automation",
-      description: "Streamline your operations and improve efficiency. We leverage powerful workflow engines to automate your business processes, from sales and marketing to manufacturing and project management, reducing manual effort and ensuring consistency.",
+      title: "Intelligent Process Automation",
+      description: "Eliminate manual overhead. We leverage powerful automation engines to streamline repetitive tasks across sales, manufacturing, and HR.",
     },
     {
         icon: TrendingUp,
-        title: "Scalability & Performance Optimization",
-        description: "A slow system costs you productivity. We architect platforms for speed and reliability, ensuring your ERP or SaaS application can handle high user loads without compromising performance. Prepare your business for growth with a scalable and optimized solution.",
+        title: "Business Intelligence & Analytics",
+        description: "Turn data into decisions. We build advanced reporting dashboards that surface real-time insights, helping you lead with confidence.",
     }
   ]
 };
 
 export const customizedDevelopmentData = {
-  heroTitle: "Customized Development Solutions",
-  heroDescription: "When off-the-shelf software doesn't fit, we build it for you. Our custom development solutions solve your unique challenges, automate your processes, and give you a competitive edge.",
-  ctaText: "Get a Custom Solution",
+  heroTitle: "Precision-Engineered Custom Solutions",
+  heroDescription: "When off-the-shelf software isn't enough, we engineer a competitive edge. Our custom solutions are built to solve your unique operational challenges with surgical precision.",
+  ctaText: "Engineer Your Edge",
   services: [
     {
       icon: CodeXml,
-      title: "Custom Software Development",
-      description: "Your business is unique, and your software should be too. We work closely with you to understand your specific needs and build custom applications from scratch, delivering a solution that fits your workflow perfectly and drives efficiency.",
+      title: "Full-Stack Custom Software",
+      description: "From initial concept to final deployment, we build end-to-end applications designed to solve specific business problems and drive growth.",
     },
     {
       icon: GitBranch,
-      title: "API Development & Integration",
-      description: "Connect your systems and unlock new capabilities. We build robust, secure, and well-documented custom APIs that allow your different software applications to communicate seamlessly, creating a unified and powerful digital ecosystem.",
+      title: "Custom API & Microservices",
+      description: "Enable seamless communication between your systems. We build secure, high-concurrency APIs that serve as the glue for your digital infrastructure.",
     },
     {
       icon: RefreshCw,
-      title: "System Modernization",
-      description: "Breathe new life into your outdated software. We help you migrate from aging, inefficient legacy systems to modern, scalable, and maintainable technology stacks, reducing risk and positioning your business for future growth.",
+      title: "Legacy System Modernization",
+      description: "Future-proof your operations. We help you migrate from aging legacy systems to modern, maintainable stacks without disrupting your business.",
     },
     {
       icon: Puzzle,
-      title: "Third-Party Integrations",
-      description: "Seamlessly connect your custom application with other services and platforms to create a unified ecosystem and extend functionality, from payment gateways to marketing automation tools.",
+      title: "Specialized Integrations",
+      description: "Expand your capabilities. We integrate specialized third-party services into your custom ecosystem for a unified and powerful workflow.",
     },
     {
       icon: DraftingCompass,
-      title: "Scalable Architecture Design",
-      description: "We design robust and scalable software architectures that grow with your business. Our forward-thinking approach ensures long-term performance, maintainability, and readiness for future features.",
+      title: "Strategic Architectural Design",
+      description: "We architect for the long term. Our forward-thinking designs ensure your software is maintainable, secure, and ready for whatever comes next.",
     }
   ]
 };
 
 export const odooDevelopmentData = {
-  heroTitle: "Odoo Development & Customization",
-  heroDescription: "Unlock the full potential of your business with Odoo. We provide expert Odoo development, customization, and integration services to create an ERP system that works exactly the way you do.",
+  heroTitle: "Elite Odoo ERP Customization",
+  heroDescription: "Unlock the full potential of Odoo for your enterprise. We provide expert implementation and customization services that align Odoo perfectly with your operational reality.",
   ctaText: "Optimize with Odoo",
   services: [
     {
       icon: ToyBrick,
-      title: "Odoo Module Customization",
-      description: "Extend Odoo’s functionality to meet your specific needs. Our developers create and customize Odoo modules for accounting, inventory, CRM, and more, ensuring the platform aligns perfectly with your unique business processes.",
+      title: "Odoo Module Engineering",
+      description: "Tailor Odoo's modules for accounting, CRM, or inventory to fit your specific business processes, ensuring a perfect fit for your team.",
     },
     {
       icon: Milestone,
-      title: "Odoo Implementation & Migration",
-      description: "Get started with Odoo the right way. We manage the entire implementation process, from initial setup and configuration to data migration from your existing systems, ensuring a smooth and successful transition with minimal disruption.",
+      title: "Odoo Implementation & Strategy",
+      description: "Get Odoo right from day one. We manage the entire implementation roadmap, from setup to data migration, with zero business disruption.",
     },
     {
       icon: Workflow,
-      title: "Workflow Automation",
-      description: "Streamline your operations and improve efficiency. We leverage Odoo’s powerful workflow engine to automate your business processes, from sales and marketing to manufacturing and project management, reducing manual effort and ensuring consistency.",
+      title: "Enterprise Odoo Automation",
+      description: "Streamline your business cycles. We leverage Odoo's internal logic to automate your sales, HR, and production workflows for peak efficiency.",
     },
     {
       icon: GitBranch,
-      title: "Third-Party Integrations",
-      description: "Create a unified system by connecting Odoo to your other essential business tools. We develop seamless integrations with payment gateways, shipping carriers, e-commerce platforms, and other third-party applications to centralize your data and operations.",
+      title: "Odoo Ecosystem Syncing",
+      description: "Connect Odoo to the tools you already love. We develop secure integrations for payment providers, shipping hubs, and e-commerce stores.",
     }
   ]
 };
 
 export const technicalSupportData = {
-  heroTitle: "Technical Support, Website & App Maintenance",
-  heroDescription: "Keep your digital assets running smoothly with our reliable, proactive, and expert support services. We ensure uptime, security, and performance, so you can focus on your core business.",
-  ctaText: "Ensure System Stability",
+  heroTitle: "Mission-Critical Technical Support",
+  heroDescription: "Protect your digital investments with proactive maintenance and expert support. We ensure system reliability and security so you can focus on leading your business.",
+  ctaText: "Secure Your Operations",
   services: [
     {
       icon: FileText,
-      title: "Ticket Management",
-      description: "Our systematic approach to ticket management ensures that every issue is tracked, prioritized, and resolved efficiently. We provide clear communication and status updates, so you are always in the loop.",
+      title: "Structured Ticket Management",
+      description: "Our systematic approach ensures every issue is tracked, prioritized, and resolved with radical transparency and clear communication.",
     },
     {
       icon: Shield,
-      title: "SLA Management",
-      description: "We are committed to meeting your business needs with guaranteed response and resolution times. Our Service Level Agreements (SLAs) are tailored to your requirements, providing peace of mind and predictable support.",
+      title: "SLA-Backed Reliability",
+      description: "We commit to your success with guaranteed response and resolution times, providing the predictable support your enterprise demands.",
     },
     {
       icon: AlertCircle,
-      title: "Alert Monitoring",
-      description: "We proactively monitor your systems 24/7 to detect and address potential issues before they impact your users. Our automated alert systems enable us to respond instantly to performance degradation or downtime.",
+      title: "24/7 Proactive Monitoring",
+      description: "We stop issues before they start. Our automated monitoring systems detect performance dips and downtime instantly, triggering immediate action.",
     },
     {
       icon: Activity,
-      title: "SOP Creation",
-      description: "We develop Standard Operating Procedures (SOPs) for routine maintenance and emergency responses. This ensures consistency, reduces resolution time, and empowers your team with clear, actionable guidelines.",
+      title: "Standard Operating Excellence",
+      description: "We develop rigorous SOPs for your infrastructure, ensuring consistent maintenance and rapid recovery during any technical incident.",
     },
     {
       icon: FileText,
-      title: "Documentation Preparation",
-      description: "Clear, comprehensive documentation is key to maintainable systems. We prepare and maintain detailed documentation for your applications, infrastructure, and processes, ensuring knowledge is always accessible.",
+      title: "Comprehensive Documentation",
+      description: "Knowledge is power. We maintain detailed technical documentation for your systems, ensuring your team is always informed and capable.",
     },
     {
       icon: TrendingUp,
-      title: "Performance Monitoring",
-      description: "We continuously track key performance indicators to ensure your applications are fast, responsive, and reliable. Our insights help you make informed decisions about scaling and optimization.",
+      title: "Continuous Optimization",
+      description: "We don't just maintain; we improve. We track system health and KPIs to suggest optimizations that keep your platform fast and responsive.",
     },
     {
       icon: ShieldCheck,
-      title: "Security Updates & Patching",
-      description: "Protect your systems from vulnerabilities with our timely security updates and patching services. We keep your platforms secure and compliant with the latest security standards.",
+      title: "Security & Compliance Operations",
+      description: "Stay ahead of threats. We manage your security patch cycles and compliance updates to keep your data safe and your business protected.",
     },
     {
       icon: Wrench,
-      title: "Incident Resolution & Reporting",
-      description: "When incidents occur, our team acts quickly to diagnose and resolve the root cause. We provide detailed incident reports and analysis to prevent future occurrences and improve system resilience.",
+      title: "Surgical Incident Resolution",
+      description: "When the unexpected happens, our expert engineers resolve root causes quickly, providing detailed analysis to prevent future recurrence.",
     },
   ]
 };

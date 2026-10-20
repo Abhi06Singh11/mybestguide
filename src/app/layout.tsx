@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -16,8 +15,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'MyBestGuide',
-  description: 'E-commerce, Application Development, and ERP SaaS solutions to boost your growth and efficiency.',
+  title: 'MyBestGuide | Premier Web, App & ERP Software Solutions',
+  description: 'Elevate your business with expert E-commerce development, custom mobile applications, and scalable ERP SaaS solutions. We Build. You Grow. Simple.',
+  keywords: 'web development india, mobile app development, ERP SaaS solutions, odoo customization, technical support services, custom software development',
 };
 
 export default function RootLayout({
@@ -53,8 +53,38 @@ export default function RootLayout({
         <Footer />
         <Toaster />
         <GoToTop />
+        <ProjectSchema />
         <WhatsappFab />
       </body>
     </html>
+  );
+}
+
+function ProjectSchema() {
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "MyBestGuide",
+          "url": "https://mybestguide.in",
+          "logo": "https://mybestguide.in/logo.png",
+          "description": "A leading digital transformation agency specializing in high-performance web and mobile solutions.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lucknow",
+            "addressRegion": "UP",
+            "addressCountry": "IN"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+91-8005414588",
+            "contactType": "customer service"
+          }
+        }),
+      }}
+    />
   );
 }
