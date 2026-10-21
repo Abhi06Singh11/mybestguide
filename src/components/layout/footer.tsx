@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import { Mail, MapPin, Twitter, Facebook, Instagram } from 'lucide-react';
 
@@ -25,7 +24,7 @@ export default function Footer() {
           <div className="col-span-2 space-y-4 md:col-span-1">
             <h3 className="font-headline text-xl font-bold text-white">MyBestGuide</h3>
             <p className="text-sm text-gray-400">
-              MyBestGuide is a leading web and app development company in India, delivering custom software solutions, responsive websites, and mobile apps to drive business growth.
+              MyBestGuide is a leading digital transformation firm in India, delivering precision-engineered software, mobile apps, and scalable ERP solutions to drive modern business growth.
             </p>
           </div>
           <div>
@@ -33,7 +32,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-sm text-gray-400 hover:text-blue-400 hover:underline">
+                  <Link href={link.href} className="text-sm text-gray-400 hover:text-blue-400 hover:underline transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -46,18 +45,12 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-blue-400" />
                 <a href="mailto:contact@mybestguide.in" className="text-sm text-gray-400 hover:text-blue-400 hover:underline">
-                  Email Us
+                  contact@mybestguide.in
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-blue-400" />
-                <Link href="/contact" className="text-sm text-gray-400 hover:text-blue-400 hover:underline">
-                  Contact Us
-                </Link>
-              </li>
-               <li className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-blue-400" />
-                <span className="text-sm text-gray-400">Lucknow</span>
+                <span className="text-sm text-gray-400">Lucknow, India</span>
               </li>
             </ul>
           </div>
@@ -68,7 +61,7 @@ export default function Footer() {
                 <Link 
                   key={social.label} 
                   href={social.href} 
-                  className="text-gray-400 hover:text-blue-400"
+                  className="text-gray-400 hover:text-blue-400 transition-colors"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -80,12 +73,12 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-800 py-4">
+      <div className="border-t border-gray-800 py-6">
         <div className="container flex flex-col sm:flex-row items-center justify-between text-sm text-gray-500">
-          <p>&copy; {currentYear} MyBestGuide. All rights reserved.</p>
-          <div className="flex items-center gap-4 mt-4 sm:mt-0">
-            <Link href="#" className="hover:text-blue-400 hover:underline">Privacy Policy</Link>
-            <Link href="#" className="hover:text-blue-400 hover:underline">Terms of Service</Link>
+          <p>&copy; {currentYear} MyBestGuide. Engineering Digital Excellence.</p>
+          <div className="flex items-center gap-6 mt-4 sm:mt-0">
+            <Link href="/privacy-policy" className="hover:text-blue-400 hover:underline transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-blue-400 hover:underline transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
