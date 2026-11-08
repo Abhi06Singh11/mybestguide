@@ -1,6 +1,4 @@
-'use client';
 
-import { useRouter } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
@@ -28,7 +26,6 @@ export default function ServiceDetails({
   ctaText = "Request a Quote",
   services,
 }: ServiceDetailsProps) {
-  const router = useRouter();
   
   const serviceImages = PlaceHolderImages.filter((img) =>
     services.some((s) => s.image === img.id)
@@ -42,10 +39,12 @@ export default function ServiceDetails({
                 <Button
                     variant="secondary"
                     className="mb-8"
-                    onClick={() => router.push('/services')}
+                    asChild
                 >
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    Back to Services
+                    <Link href="/services">
+                        <ArrowLeft className="mr-2 h-4 w-4" />
+                        Back to Services
+                    </Link>
                 </Button>
             </div>
             <div className="text-center">
@@ -59,13 +58,14 @@ export default function ServiceDetails({
           <div className="container space-y-16">
               {services.map((service, index) => {
                 const image = serviceImages.find(img => img.id === service.image);
+                const Icon = service.icon;
                 return (
                 <div key={service.title}>
                   <div className={`grid gap-12 items-center md:grid-cols-2 ${index % 2 !== 0 ? 'md:grid-flow-col-dense' : ''}`}>
                       <div className={index % 2 !== 0 ? 'md:col-start-2' : ''}>
                           <div className="flex items-center gap-4 mb-4">
                               <div className="rounded-lg bg-primary/10 p-3 text-primary">
-                                  <service.icon className="h-8 w-8" />
+                                  <Icon className="h-8 w-8" />
                               </div>
                               <h3 className="font-headline text-2xl font-bold text-foreground">{service.title}</h3>
                           </div>
@@ -83,7 +83,7 @@ export default function ServiceDetails({
                           />
                         ) : (
                           <div className="text-primary transition-colors duration-300 group-hover:text-primary-foreground">
-                            <service.icon className="h-24 w-24" />
+                            <Icon className="h-24 w-24" />
                           </div>
                         )}
                       </div>
