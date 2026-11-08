@@ -15,10 +15,62 @@ const inter = Inter({
   variable: '--font-sans',
 });
 
+const SITE_URL = 'https://mybestguide.in';
+
 export const metadata: Metadata = {
-  title: 'MyBestGuide | Premier Web, App & ERP Software Solutions',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'MyBestGuide | Premier Web, App & ERP Software Solutions',
+    template: '%s | MyBestGuide'
+  },
   description: 'Elevate your business with expert E-commerce development, custom mobile applications, and scalable ERP SaaS solutions. We Build. You Grow. Simple.',
   keywords: 'web development india, mobile app development, ERP SaaS solutions, odoo customization, technical support services, custom software development',
+  authors: [{ name: 'MyBestGuide' }],
+  creator: 'MyBestGuide',
+  publisher: 'MyBestGuide',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    url: SITE_URL,
+    siteName: 'MyBestGuide',
+    title: 'MyBestGuide | Premier Web, App & ERP Software Solutions',
+    description: 'Elevate your business with expert E-commerce development, custom mobile applications, and scalable ERP SaaS solutions. We Build. You Grow. Simple.',
+    images: [
+      {
+        url: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&h=630&auto=format&fit=crop',
+        width: 1200,
+        height: 630,
+        alt: 'MyBestGuide Digital Transformation Team',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MyBestGuide | Premier Web, App & ERP Software Solutions',
+    description: 'Elevate your business with expert E-commerce development, custom mobile applications, and scalable ERP SaaS solutions.',
+    site: '@MyBestGuideIn',
+    creator: '@MyBestGuideIn',
+    images: ['https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&h=630&auto=format&fit=crop'],
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
