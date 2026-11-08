@@ -122,24 +122,25 @@ function ProjectSchema() {
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "MyBestGuide",
-          "url": "https://mybestguide.in",
+          "url": "https://mybestguide.in/",
           "logo": "https://mybestguide.in/logo.png",
-          "description": "A leading digital transformation agency specializing in high-performance web and mobile solutions.",
+          "description": "Digital transformation and software engineering services including web development, mobile applications, ERP, SaaS and custom software solutions.",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Lucknow",
-            "addressRegion": "UP",
+            "addressRegion": "Uttar Pradesh",
             "addressCountry": "IN"
           },
           "contactPoint": [
             {
               "@type": "ContactPoint",
-              "telephone": "+91-8005414588",
-              "contactType": "customer service"
+              "telephone": "+91-7379848171",
+              "contactType": "business enquiries",
+              "url": "https://mybestguide.in/contact"
             },
             {
               "@type": "ContactPoint",
-              "telephone": "+91-7379848171",
+              "telephone": "+91-8005414588",
               "contactType": "technical support"
             }
           ]
